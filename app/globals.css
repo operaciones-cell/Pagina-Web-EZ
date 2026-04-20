@@ -1,80 +1,50 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
 
 @theme {
-  /* ── Surfaces ───────────────────────────── */
-  --color-surface: #fbf9f4;
-  --color-surface-container-low: #f5f3ee;
-  --color-surface-dark: #00101f;
-  --color-surface-dark-elevated: #081a2c;
-
-  /* ── Ink / text ─────────────────────────── */
-  --color-ink: #00101f;
-  --color-text: #00101f;
-  --color-text-muted: #4a5560;
-  --color-text-subtle: #6b7480;
-  --color-text-light: #fbf9f4;
-  --color-text-light-muted: rgba(251, 249, 244, 0.75);
-  --color-text-light-subtle: rgba(251, 249, 244, 0.55);
-
-  /* ── Brand accents ──────────────────────── */
-  --color-gold: #735c00;
-  --color-gold-soft: #9a7f14;
-  --color-gold-on-dark: #c7a84b;
-
-  /* ── Legacy aliases (no romper páginas viejas) */
-  --color-bg-dark: #00101f;
-  --color-bg-warm: #f5f3ee;
-  --color-bg-cream: #fbf9f4;
-  --color-accent-gold: #c7a84b;
-  --color-accent-caramel: #9a7f14;
-  --color-accent-cocoa: #4a2c2a;
-  --color-text-primary: #00101f;
-
-  /* ── Fonts ──────────────────────────────── */
-  --font-heading: "Noto Serif", serif;
-  --font-body: "Manrope", sans-serif;
+  --font-heading: "Instrument Serif", serif;
+  --font-body: "Instrument Serif", serif;
 }
 
 html,
 body {
-  background-color: var(--color-surface);
-  color: var(--color-ink);
-  font-family: var(--font-body);
+  background-color: #000;
+  color: #fff;
+  font-family: "Instrument Serif", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── Liquid glass: navbar pill sobre cream ───────── */
-.liquid-glass-dark {
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  border: 1px solid rgba(0, 16, 31, 0.06);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.6) inset,
-    0 8px 24px rgba(0, 16, 31, 0.06);
-}
+@layer components {
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.01);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: none;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
 
-/* ── Hero entrance animations ───────────────────── */
-@keyframes fadeRise {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+  .liquid-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.4px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0.15) 20%,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0) 60%,
+      rgba(255, 255, 255, 0.15) 80%,
+      rgba(255, 255, 255, 0.45) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.animate-fade-rise {
-  animation: fadeRise 0.9s ease-out 0.2s both;
-}
-.animate-fade-rise-delay {
-  animation: fadeRise 1s ease-out 0.5s both;
-}
-.animate-fade-rise-delay-2 {
-  animation: fadeRise 1s ease-out 0.8s both;
-}
-.animate-fade-rise-delay-3 {
-  animation: fadeRise 1s ease-out 1.1s both;
 }

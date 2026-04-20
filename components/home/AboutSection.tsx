@@ -8,62 +8,33 @@ export default function AboutSection() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section
-      ref={ref}
-      className="relative px-6 py-28 md:py-40"
-      style={{ backgroundColor: "var(--color-surface)" }}
-    >
-      <div className="mx-auto max-w-4xl text-center">
+    <section ref={ref} className="overflow-hidden bg-black px-6 pt-32 pb-10 md:pt-44 md:pb-14">
+      <div className="relative mx-auto max-w-4xl">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.03)_0%,_transparent_70%)]" />
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="mb-6 text-xs uppercase tracking-[0.32em]"
-          style={{ color: "var(--color-gold)" }}
+          transition={{ duration: 0.6 }}
+          className="mb-6 text-xs uppercase tracking-widest text-white/40"
         >
           Nuestra esencia
         </motion.p>
 
         <motion.h2
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-3xl leading-tight tracking-tight md:text-5xl lg:text-6xl"
-          style={{
-            fontFamily: "'Noto Serif', serif",
-            color: "var(--color-ink)",
-            fontWeight: 400,
-            letterSpacing: "-0.02em",
-          }}
+          className="text-4xl leading-[1.1] tracking-tight text-white md:text-6xl lg:text-7xl"
+          style={{ fontFamily: "'Instrument Serif', serif" }}
         >
-          Fusionamos la{" "}
-          <em
-            className="italic"
-            style={{ color: "var(--color-gold)", fontWeight: 500 }}
-          >
-            tradición latina
-          </em>{" "}
-          con la técnica{" "}
-          <em
-            className="italic"
-            style={{ color: "var(--color-gold)", fontWeight: 500 }}
-          >
-            italiana
-          </em>
-          .
+          Fusionando la{" "}
+          <em className="italic text-white/60">tradición latina</em>{" "}
+          para
+          <br className="hidden md:block" />
+          quienes{" "}
+          <em className="italic text-white/60">crean, construyen e inspiran.</em>
         </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.25 }}
-          className="mx-auto mt-10 max-w-2xl text-base leading-relaxed md:text-lg"
-          style={{ color: "var(--color-text-muted)" }}
-        >
-          Desde 2010, en Zipaquirá, elaboramos postres artesanales premium con
-          recetas que honran nuestras raíces y métodos refinados por generaciones.
-          Cada creación es una conversación entre dos mundos.
-        </motion.p>
       </div>
     </section>
   );
