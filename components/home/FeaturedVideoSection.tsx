@@ -10,12 +10,39 @@ export default function FeaturedVideoSection() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section-divider overflow-hidden bg-black px-6 pt-6 pb-20 md:pt-10 md:pb-32">
+    <section
+      ref={ref}
+      className="section-divider relative overflow-hidden px-6 py-20 md:py-32"
+      style={{ backgroundColor: "#00101f" }}
+    >
       <div className="mx-auto max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="mb-10 text-center md:mb-14"
+        >
+          <p className="mb-3 text-xs uppercase tracking-[0.32em]" style={{ color: "#c7a84b" }}>
+            Nuestro proceso
+          </p>
+          <h2
+            className="text-3xl tracking-tight sm:text-4xl md:text-5xl"
+            style={{
+              fontFamily: "'Noto Serif', serif",
+              fontWeight: 400,
+              letterSpacing: "-0.02em",
+              color: "#fbf9f4",
+            }}
+          >
+            Cada postre, una{" "}
+            <em className="italic" style={{ color: "#c7a84b" }}>pieza única</em>
+          </h2>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.9 }}
+          transition={{ duration: 0.9, delay: 0.2 }}
           className="relative aspect-video overflow-hidden rounded-3xl"
         >
           <video
@@ -27,24 +54,24 @@ export default function FeaturedVideoSection() {
             preload="auto"
             className="h-full w-full object-cover"
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
           <div className="absolute bottom-0 left-0 right-0 flex flex-col items-start justify-between gap-4 p-6 md:flex-row md:items-end md:p-10">
             <div className="liquid-glass max-w-md rounded-2xl p-6 md:p-8">
-              <p className="mb-3 text-xs uppercase tracking-widest" style={{ color: "#c7a84b", fontFamily: "'Manrope', sans-serif" }}>
-                Nuestro proceso
+              <p className="mb-3 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
+                Crème Brûlée · Receta firma
               </p>
-              <p className="text-sm leading-relaxed text-white md:text-base" style={{ fontFamily: "'Manrope', sans-serif" }}>
-                Creemos en el poder de la exploración guiada por la curiosidad. Cada creación comienza
-                con una pregunta, y cada respuesta abre una nueva puerta a la innovación.
+              <p className="text-sm leading-relaxed md:text-base" style={{ color: "#fbf9f4" }}>
+                La textura sedosa que define nuestra mesa. Cada receta nace de la curiosidad
+                y abre una nueva puerta a la innovación.
               </p>
             </div>
 
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="liquid-glass rounded-full px-8 py-3 text-sm font-medium text-white"
-              style={{ fontFamily: "'Manrope', sans-serif" }}
+              className="rounded-full px-8 py-3 text-sm font-medium transition-all"
+              style={{ backgroundColor: "#c7a84b", color: "#00101f" }}
             >
               Explorar más
             </motion.button>

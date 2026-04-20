@@ -2,16 +2,31 @@
 @import "tailwindcss";
 
 @theme {
+  /* Surface Hierarchy (Atelier Nocturno) */
+  --color-surface: #00101f;
+  --color-surface-elevated: #081a2c;
+  --color-surface-card: #0f2238;
+  --color-surface-cream: #fbf9f4;
+
+  /* Accents */
   --color-gold: #c7a84b;
-  --color-gold-muted: rgba(199, 168, 75, 0.25);
+  --color-gold-muted: #9a7f14;
+  --color-gold-highlight: #e0c470;
+
+  /* Text */
+  --color-text: #fbf9f4;
+  --color-text-muted: rgba(251, 249, 244, 0.70);
+  --color-text-subtle: rgba(251, 249, 244, 0.45);
+
+  /* Fonts */
   --font-heading: "Noto Serif", serif;
   --font-body: "Manrope", sans-serif;
 }
 
 html,
 body {
-  background-color: #000;
-  color: #fff;
+  background-color: #00101f;
+  color: #fbf9f4;
   font-family: "Manrope", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19,12 +34,12 @@ body {
 
 @layer components {
   .liquid-glass {
-    background: rgba(255, 255, 255, 0.01);
+    background: rgba(199, 168, 75, 0.02);
     background-blend-mode: luminosity;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
     border: none;
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 1px rgba(251, 249, 244, 0.08);
     position: relative;
     overflow: hidden;
   }
@@ -37,12 +52,12 @@ body {
     padding: 1.4px;
     background: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.45) 0%,
-      rgba(255, 255, 255, 0.15) 20%,
-      rgba(255, 255, 255, 0) 40%,
-      rgba(255, 255, 255, 0) 60%,
-      rgba(255, 255, 255, 0.15) 80%,
-      rgba(255, 255, 255, 0.45) 100%
+      rgba(199, 168, 75, 0.35) 0%,
+      rgba(199, 168, 75, 0.10) 20%,
+      rgba(199, 168, 75, 0) 40%,
+      rgba(199, 168, 75, 0) 60%,
+      rgba(199, 168, 75, 0.10) 80%,
+      rgba(199, 168, 75, 0.35) 100%
     );
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -51,6 +66,22 @@ body {
   }
 
   .section-divider {
-    border-top: 1px solid rgba(0, 16, 31, 0.6);
+    position: relative;
+  }
+  .section-divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 800px;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(199, 168, 75, 0.4) 50%,
+      transparent 100%
+    );
   }
 }

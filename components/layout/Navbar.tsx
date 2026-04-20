@@ -25,8 +25,12 @@ export default function Navbar() {
         <div className="flex items-center">
           <Link
             href="/"
-            className="text-lg text-white"
-            style={{ fontFamily: "'Noto Serif', serif", fontWeight: 500 }}
+            className="text-lg tracking-tight"
+            style={{
+              fontFamily: "'Noto Serif', serif",
+              fontWeight: 500,
+              color: "#fbf9f4",
+            }}
             onClick={() => setIsOpen(false)}
           >
             Eliana{" "}
@@ -38,8 +42,10 @@ export default function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm font-medium text-white/70 transition-colors hover:text-white"
-                  style={{ fontFamily: "'Manrope', sans-serif" }}
+                  className="text-sm font-medium transition-colors"
+                  style={{ color: "rgba(251, 249, 244, 0.70)" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#c7a84b")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(251, 249, 244, 0.70)")}
                 >
                   {link.label}
                 </Link>
@@ -53,15 +59,17 @@ export default function Navbar() {
             href={CONTACT.whatsappMessage}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-white/70 transition-colors hover:text-white"
-            style={{ fontFamily: "'Manrope', sans-serif" }}
+            className="text-sm font-medium transition-colors"
+            style={{ color: "rgba(251, 249, 244, 0.70)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#c7a84b")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(251, 249, 244, 0.70)")}
           >
             WhatsApp
           </a>
           <Link
             href="/contacto"
-            className="rounded-full px-6 py-2 text-sm font-medium text-black transition-all hover:opacity-90"
-            style={{ backgroundColor: "#c7a84b", fontFamily: "'Manrope', sans-serif" }}
+            className="rounded-full px-6 py-2 text-sm font-medium transition-all hover:scale-[1.02]"
+            style={{ backgroundColor: "#c7a84b", color: "#00101f" }}
           >
             Contacto
           </Link>
@@ -73,9 +81,18 @@ export default function Navbar() {
           aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={isOpen}
         >
-          <span className={`block h-0.5 w-6 bg-white transition-all duration-300 ${isOpen ? "translate-y-2 rotate-45" : ""}`} />
-          <span className={`block h-0.5 w-6 bg-white transition-all duration-300 ${isOpen ? "opacity-0" : ""}`} />
-          <span className={`block h-0.5 w-6 bg-white transition-all duration-300 ${isOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+          <span
+            className={`block h-0.5 w-6 transition-all duration-300 ${isOpen ? "translate-y-2 rotate-45" : ""}`}
+            style={{ backgroundColor: "#fbf9f4" }}
+          />
+          <span
+            className={`block h-0.5 w-6 transition-all duration-300 ${isOpen ? "opacity-0" : ""}`}
+            style={{ backgroundColor: "#fbf9f4" }}
+          />
+          <span
+            className={`block h-0.5 w-6 transition-all duration-300 ${isOpen ? "-translate-y-2 -rotate-45" : ""}`}
+            style={{ backgroundColor: "#fbf9f4" }}
+          />
         </button>
 
         <AnimatePresence>
@@ -85,7 +102,11 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 z-40 flex items-center justify-center lg:hidden"
-              style={{ backgroundColor: "rgba(0,0,0,0.97)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)" }}
+              style={{
+                backgroundColor: "rgba(0, 16, 31, 0.97)",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
+              }}
             >
               <ul className="flex flex-col items-center gap-8">
                 {NAV_LINKS.map((link, i) => (
@@ -97,8 +118,12 @@ export default function Navbar() {
                   >
                     <Link
                       href={link.href}
-                      className="text-3xl text-white"
-                      style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400 }}
+                      className="text-3xl"
+                      style={{
+                        fontFamily: "'Noto Serif', serif",
+                        fontWeight: 400,
+                        color: "#fbf9f4",
+                      }}
                       onClick={() => setIsOpen(false)}
                     >
                       {link.label}
@@ -114,8 +139,8 @@ export default function Navbar() {
                     href={CONTACT.whatsappMessage}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-block rounded-full px-8 py-3 text-sm font-medium text-black"
-                    style={{ backgroundColor: "#c7a84b", fontFamily: "'Manrope', sans-serif" }}
+                    className="mt-4 inline-block rounded-full px-8 py-3 text-sm font-medium"
+                    style={{ backgroundColor: "#c7a84b", color: "#00101f" }}
                     onClick={() => setIsOpen(false)}
                   >
                     WhatsApp

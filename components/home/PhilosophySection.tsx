@@ -10,19 +10,35 @@ export default function PhilosophySection() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section-divider overflow-hidden bg-black px-6 py-28 md:py-40">
+    <section
+      ref={ref}
+      className="section-divider relative overflow-hidden px-6 py-24 md:py-36"
+      style={{ backgroundColor: "#081a2c" }}
+    >
       <div className="mx-auto max-w-6xl">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-16 text-5xl tracking-tight text-white md:mb-24 md:text-7xl lg:text-8xl"
-          style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em" }}
+          className="mb-14 text-center md:mb-20"
         >
-          Tradición{" "}
-          <em className="italic" style={{ color: "#c7a84b" }}>×</em>{" "}
-          Innovación
-        </motion.h2>
+          <p className="mb-4 text-xs uppercase tracking-[0.32em]" style={{ color: "#c7a84b" }}>
+            Filosofía
+          </p>
+          <h2
+            className="text-4xl tracking-tight sm:text-5xl md:text-7xl lg:text-8xl"
+            style={{
+              fontFamily: "'Noto Serif', serif",
+              fontWeight: 400,
+              letterSpacing: "-0.02em",
+              color: "#fbf9f4",
+            }}
+          >
+            Tradición{" "}
+            <em className="italic" style={{ color: "#c7a84b" }}>×</em>{" "}
+            Innovación
+          </h2>
+        </motion.div>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
           <motion.div
@@ -48,23 +64,51 @@ export default function PhilosophySection() {
             transition={{ duration: 0.9, delay: 0.25 }}
             className="flex flex-col justify-center gap-8"
           >
-            <div>
-              <p className="mb-4 text-xs uppercase tracking-widest" style={{ color: "#c7a84b", fontFamily: "'Manrope', sans-serif" }}>
-                Raíces heredadas
-              </p>
-              <p className="text-base leading-relaxed text-white/70 md:text-lg" style={{ fontFamily: "'Manrope', sans-serif" }}>
-                Cada logro significativo comienza en la intersección de la estrategia disciplinada y la visión
-                creativa. Operamos en ese cruce, convirtiendo ideas audaces en resultados tangibles.
+            <div className="border-l pl-6" style={{ borderColor: "rgba(199, 168, 75, 0.4)" }}>
+              <h3
+                className="mb-3 text-xl md:text-2xl"
+                style={{
+                  fontFamily: "'Noto Serif', serif",
+                  fontWeight: 500,
+                  color: "#fbf9f4",
+                }}
+              >
+                Recetas heredadas
+              </h3>
+              <p className="text-sm leading-relaxed md:text-base" style={{ color: "rgba(251, 249, 244, 0.70)" }}>
+                Sabores que viajan por generaciones, perfeccionados con paciencia y respeto.
               </p>
             </div>
-            <div className="h-px w-full" style={{ backgroundColor: "rgba(199, 168, 75, 0.2)" }} />
-            <div>
-              <p className="mb-4 text-xs uppercase tracking-widest" style={{ color: "#c7a84b", fontFamily: "'Manrope', sans-serif" }}>
+
+            <div className="border-l pl-6" style={{ borderColor: "rgba(199, 168, 75, 0.4)" }}>
+              <h3
+                className="mb-3 text-xl md:text-2xl"
+                style={{
+                  fontFamily: "'Noto Serif', serif",
+                  fontWeight: 500,
+                  color: "#fbf9f4",
+                }}
+              >
                 Técnica italiana
+              </h3>
+              <p className="text-sm leading-relaxed md:text-base" style={{ color: "rgba(251, 249, 244, 0.70)" }}>
+                Procesos refinados con la precisión de la repostería europea contemporánea.
               </p>
-              <p className="text-base leading-relaxed text-white/70 md:text-lg" style={{ fontFamily: "'Manrope', sans-serif" }}>
-                Creemos que el mejor trabajo surge cuando la curiosidad se encuentra con la convicción. Nuestro proceso
-                está diseñado para descubrir oportunidades y traducirlas en experiencias que perduran.
+            </div>
+
+            <div className="border-l pl-6" style={{ borderColor: "rgba(199, 168, 75, 0.4)" }}>
+              <h3
+                className="mb-3 text-xl md:text-2xl"
+                style={{
+                  fontFamily: "'Noto Serif', serif",
+                  fontWeight: 500,
+                  color: "#fbf9f4",
+                }}
+              >
+                Innovación sin atajos
+              </h3>
+              <p className="text-sm leading-relaxed md:text-base" style={{ color: "rgba(251, 249, 244, 0.70)" }}>
+                Nuevos formatos como GeliCloud nacen del estudio paciente del oficio.
               </p>
             </div>
           </motion.div>

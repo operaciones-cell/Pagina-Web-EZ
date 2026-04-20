@@ -14,7 +14,7 @@ const CARDS = [
     tag: "Catálogo",
     title: "Productos Premium",
     description:
-      "12 creaciones artesanales que van desde nuestro icónico Crème Brûlée hasta las innovadoras GeliCloud. Cada uno elaborado con ingredientes seleccionados.",
+      "12 creaciones artesanales que van desde nuestro icónico Crème Brûlée hasta las innovadoras GeliCloud.",
     href: "/productos",
   },
   {
@@ -22,7 +22,7 @@ const CARDS = [
     tag: "B2B",
     title: "Soluciones Empresariales",
     description:
-      "Maquila bajo marca blanca, distribución exclusiva y desarrollo de productos a medida. 98% de cumplimiento en entregas a las principales cadenas del país.",
+      "Maquila bajo marca blanca, distribución exclusiva y desarrollo de productos a medida.",
     href: "/para-empresas",
   },
 ];
@@ -32,25 +32,42 @@ export default function ServicesSection() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section-divider overflow-hidden bg-black px-6 py-28 md:py-40">
-      <div className="relative mx-auto max-w-6xl">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(199,168,75,0.03)_0%,_transparent_60%)]" />
+    <section
+      ref={ref}
+      className="section-divider relative overflow-hidden px-6 py-24 md:py-36"
+      style={{ backgroundColor: "#00101f" }}
+    >
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(199,168,75,0.05) 0%, transparent 60%)",
+        }}
+      />
 
+      <div className="relative mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="mb-12 flex items-end justify-between md:mb-16"
+          className="mb-12 flex flex-col gap-3 md:mb-16 md:flex-row md:items-end md:justify-between"
         >
-          <h2
-            className="text-3xl tracking-tight text-white md:text-5xl"
-            style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em" }}
-          >
-            Lo que hacemos
-          </h2>
-          <p className="hidden text-sm md:block" style={{ color: "#c7a84b", fontFamily: "'Manrope', sans-serif" }}>
-            Nuestros servicios
-          </p>
+          <div>
+            <p className="mb-4 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
+              Nuestras líneas
+            </p>
+            <h2
+              className="text-3xl tracking-tight sm:text-4xl md:text-5xl"
+              style={{
+                fontFamily: "'Noto Serif', serif",
+                fontWeight: 400,
+                letterSpacing: "-0.02em",
+                color: "#fbf9f4",
+              }}
+            >
+              Lo que hacemos
+            </h2>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
@@ -62,7 +79,10 @@ export default function ServicesSection() {
               transition={{ duration: 0.8, delay: i * 0.15 }}
             >
               <Link href={card.href} className="group block">
-                <div className="liquid-glass overflow-hidden rounded-3xl">
+                <div
+                  className="overflow-hidden rounded-3xl transition-all duration-500 hover:-translate-y-1"
+                  style={{ backgroundColor: "#0f2238" }}
+                >
                   <div className="relative aspect-video overflow-hidden">
                     <video
                       src={card.video}
@@ -73,24 +93,38 @@ export default function ServicesSection() {
                       preload="auto"
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    <div
+                      className="pointer-events-none absolute inset-0"
+                      style={{
+                        background:
+                          "linear-gradient(180deg, rgba(0,16,31,0) 50%, rgba(0,16,31,0.5) 100%)",
+                      }}
+                    />
                   </div>
                   <div className="p-6 md:p-8">
                     <div className="mb-4 flex items-center justify-between">
-                      <p className="text-xs uppercase tracking-widest" style={{ color: "#c7a84b", fontFamily: "'Manrope', sans-serif" }}>
+                      <p className="text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
                         {card.tag}
                       </p>
-                      <span className="liquid-glass rounded-full p-2" style={{ color: "#c7a84b" }}>
+                      <span
+                        className="rounded-full p-2 transition-all group-hover:scale-110"
+                        style={{ backgroundColor: "rgba(199, 168, 75, 0.15)", color: "#c7a84b" }}
+                      >
                         <ArrowUpRight size={16} />
                       </span>
                     </div>
                     <h3
-                      className="mb-3 text-xl tracking-tight text-white md:text-2xl"
-                      style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400 }}
+                      className="mb-3 text-xl md:text-2xl"
+                      style={{
+                        fontFamily: "'Noto Serif', serif",
+                        fontWeight: 400,
+                        letterSpacing: "-0.01em",
+                        color: "#fbf9f4",
+                      }}
                     >
                       {card.title}
                     </h3>
-                    <p className="text-sm leading-relaxed text-white/50" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                    <p className="text-sm leading-relaxed" style={{ color: "rgba(251, 249, 244, 0.60)" }}>
                       {card.description}
                     </p>
                   </div>
