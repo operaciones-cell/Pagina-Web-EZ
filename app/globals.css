@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Fondos */
+  --color-bg-dark: #0A0A0A;
+  --color-bg-warm: #F5F0EB;
+  --color-bg-cream: #FAF7F2;
+
+  /* Acentos */
+  --color-accent-gold: #C8A96E;
+  --color-accent-caramel: #D4883A;
+  --color-accent-cocoa: #4A2C2A;
+
+  /* Texto */
+  --color-text-primary: #1A1A1A;
+  --color-text-light: #F5F0EB;
+  --color-text-muted: #6B6B6B;
+
+  /* Fonts */
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-accent-gold);
+  color: var(--color-bg-dark);
+}
+
+/* Skip to content */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--color-accent-gold);
+  color: var(--color-bg-dark);
+  font-weight: 600;
+}
+.skip-to-content:focus {
+  left: 0;
+}
