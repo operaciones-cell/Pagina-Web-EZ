@@ -6,14 +6,34 @@ import { ALLIES } from "@/lib/constants";
 
 export default function AlliesMarquee() {
   return (
-    <section className="py-20 bg-[var(--color-bg-dark)]">
-      <div className="max-w-7xl mx-auto px-6 mb-12 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <h2 className="text-3xl md:text-4xl font-serif text-[var(--color-text-light)]">
-          Nos encuentras donde importa
-        </h2>
+    <section
+      className="py-24"
+      style={{ backgroundColor: "var(--color-surface-container-low)" }}
+    >
+      <div className="max-w-7xl mx-auto px-6 mb-14 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <p
+            className="mb-3 text-xs uppercase tracking-[0.28em]"
+            style={{ color: "var(--color-gold)" }}
+          >
+            Nuestros aliados
+          </p>
+          <h2
+            className="text-3xl md:text-4xl tracking-tight"
+            style={{
+              fontFamily: "'Noto Serif', serif",
+              color: "var(--color-ink)",
+              fontWeight: 400,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Nos encuentras donde importa
+          </h2>
+        </div>
         <Link
           href="/donde-comprar"
-          className="text-[var(--color-accent-gold)] hover:underline underline-offset-4 transition-colors text-sm uppercase tracking-widest"
+          className="text-sm uppercase tracking-[0.22em] transition-colors"
+          style={{ color: "var(--color-gold)" }}
         >
           Ver puntos de venta &rarr;
         </Link>
@@ -36,7 +56,7 @@ export default function AlliesMarquee() {
           {[...ALLIES, ...ALLIES].map((ally, i) => (
             <div
               key={`${ally.name}-${i}`}
-              className="flex flex-col items-center justify-center gap-3 min-w-[140px] grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100"
+              className="flex flex-col items-center justify-center gap-3 min-w-[140px] grayscale hover:grayscale-0 transition-all duration-500 opacity-50 hover:opacity-100"
             >
               <div className="relative w-24 h-16 flex items-center justify-center">
                 <Image
@@ -47,7 +67,10 @@ export default function AlliesMarquee() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-xs text-[var(--color-text-light)]/50 uppercase tracking-wider whitespace-nowrap">
+              <span
+                className="text-xs uppercase tracking-wider whitespace-nowrap"
+                style={{ color: "var(--color-text-subtle)" }}
+              >
                 {ally.name}
               </span>
             </div>
