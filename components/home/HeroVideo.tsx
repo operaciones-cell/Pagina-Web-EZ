@@ -67,11 +67,14 @@ export default function HeroVideo() {
       />
 
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 py-12 text-center -translate-y-[20%]">
+        <p className="mb-4 text-xs uppercase tracking-widest" style={{ color: "#c7a84b", fontFamily: "'Manrope', sans-serif" }}>
+          Zipaquirá, Colombia · Desde 2010
+        </p>
         <h1
-          className="text-7xl tracking-tight text-white whitespace-nowrap md:text-8xl lg:text-9xl"
-          style={{ fontFamily: "'Instrument Serif', serif" }}
+          className="text-6xl tracking-tight text-white md:text-8xl lg:text-9xl"
+          style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em" }}
         >
-          Un antojo para <em className="italic">todos</em>.
+          Un antojo para <em className="italic" style={{ color: "#c7a84b" }}>todos</em>.
         </h1>
 
         <div className="mt-10 w-full max-w-xl">
@@ -80,30 +83,31 @@ export default function HeroVideo() {
               type="email"
               placeholder="Ingresa tu correo"
               className="flex-1 bg-transparent text-sm text-white outline-none placeholder:text-white/40"
+              style={{ fontFamily: "'Manrope', sans-serif" }}
             />
-            <button className="rounded-full bg-white p-3 text-black">
+            <button className="rounded-full p-3 text-black" style={{ backgroundColor: "#c7a84b" }}>
               <ArrowRight size={20} />
             </button>
           </div>
         </div>
 
-        <p className="mt-6 max-w-md px-4 text-sm leading-relaxed text-white">
+        <p className="mt-6 max-w-md px-4 text-sm leading-relaxed text-white/70" style={{ fontFamily: "'Manrope', sans-serif" }}>
           Mantente al día con nuestras novedades y creaciones. Suscríbete y nunca te pierdas lo que hay de nuevo.
         </p>
 
-        <button className="liquid-glass mt-6 rounded-full px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5">
+        <button className="liquid-glass mt-6 rounded-full px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-white/5" style={{ fontFamily: "'Manrope', sans-serif" }}>
           Descubre más
         </button>
       </div>
 
       <div className="relative z-10 flex justify-center gap-4 pb-12">
-        <button className="liquid-glass rounded-full p-4 text-white/80 transition-all hover:bg-white/5 hover:text-white">
+        <button className="liquid-glass rounded-full p-4 transition-all hover:bg-white/5" style={{ color: "#c7a84b" }}>
           <Instagram size={20} />
         </button>
-        <button className="liquid-glass rounded-full p-4 text-white/80 transition-all hover:bg-white/5 hover:text-white">
+        <button className="liquid-glass rounded-full p-4 transition-all hover:bg-white/5" style={{ color: "#c7a84b" }}>
           <Twitter size={20} />
         </button>
-        <button className="liquid-glass rounded-full p-4 text-white/80 transition-all hover:bg-white/5 hover:text-white">
+        <button className="liquid-glass rounded-full p-4 transition-all hover:bg-white/5" style={{ color: "#c7a84b" }}>
           <Globe size={20} />
         </button>
       </div>

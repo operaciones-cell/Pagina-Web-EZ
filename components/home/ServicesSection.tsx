@@ -32,9 +32,9 @@ export default function ServicesSection() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="overflow-hidden bg-black px-6 py-28 md:py-40">
+    <section ref={ref} className="section-divider overflow-hidden bg-black px-6 py-28 md:py-40">
       <div className="relative mx-auto max-w-6xl">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.02)_0%,_transparent_60%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(199,168,75,0.03)_0%,_transparent_60%)]" />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -44,11 +44,13 @@ export default function ServicesSection() {
         >
           <h2
             className="text-3xl tracking-tight text-white md:text-5xl"
-            style={{ fontFamily: "'Instrument Serif', serif" }}
+            style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em" }}
           >
             Lo que hacemos
           </h2>
-          <p className="hidden text-sm text-white/40 md:block">Nuestros servicios</p>
+          <p className="hidden text-sm md:block" style={{ color: "#c7a84b", fontFamily: "'Manrope', sans-serif" }}>
+            Nuestros servicios
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
@@ -75,18 +77,22 @@ export default function ServicesSection() {
                   </div>
                   <div className="p-6 md:p-8">
                     <div className="mb-4 flex items-center justify-between">
-                      <p className="text-xs uppercase tracking-widest text-white/40">{card.tag}</p>
-                      <span className="liquid-glass rounded-full p-2 text-white">
+                      <p className="text-xs uppercase tracking-widest" style={{ color: "#c7a84b", fontFamily: "'Manrope', sans-serif" }}>
+                        {card.tag}
+                      </p>
+                      <span className="liquid-glass rounded-full p-2" style={{ color: "#c7a84b" }}>
                         <ArrowUpRight size={16} />
                       </span>
                     </div>
                     <h3
                       className="mb-3 text-xl tracking-tight text-white md:text-2xl"
-                      style={{ fontFamily: "'Instrument Serif', serif" }}
+                      style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400 }}
                     >
                       {card.title}
                     </h3>
-                    <p className="text-sm leading-relaxed text-white/50">{card.description}</p>
+                    <p className="text-sm leading-relaxed text-white/50" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                      {card.description}
+                    </p>
                   </div>
                 </div>
               </Link>

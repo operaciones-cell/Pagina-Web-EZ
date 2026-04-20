@@ -10,17 +10,17 @@ export default function PhilosophySection() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="overflow-hidden bg-black px-6 py-28 md:py-40">
+    <section ref={ref} className="section-divider overflow-hidden bg-black px-6 py-28 md:py-40">
       <div className="mx-auto max-w-6xl">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
           className="mb-16 text-5xl tracking-tight text-white md:mb-24 md:text-7xl lg:text-8xl"
-          style={{ fontFamily: "'Instrument Serif', serif" }}
+          style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em" }}
         >
           Tradición{" "}
-          <em className="italic text-white/40">×</em>{" "}
+          <em className="italic" style={{ color: "#c7a84b" }}>×</em>{" "}
           Innovación
         </motion.h2>
 
@@ -49,16 +49,20 @@ export default function PhilosophySection() {
             className="flex flex-col justify-center gap-8"
           >
             <div>
-              <p className="mb-4 text-xs uppercase tracking-widest text-white/40">Raíces heredadas</p>
-              <p className="text-base leading-relaxed text-white/70 md:text-lg">
+              <p className="mb-4 text-xs uppercase tracking-widest" style={{ color: "#c7a84b", fontFamily: "'Manrope', sans-serif" }}>
+                Raíces heredadas
+              </p>
+              <p className="text-base leading-relaxed text-white/70 md:text-lg" style={{ fontFamily: "'Manrope', sans-serif" }}>
                 Cada logro significativo comienza en la intersección de la estrategia disciplinada y la visión
-                creativa. Operamos en ese cruce, convirtiendo ideas audaces en resultados tangibles que mueven personas.
+                creativa. Operamos en ese cruce, convirtiendo ideas audaces en resultados tangibles.
               </p>
             </div>
-            <div className="h-px w-full bg-white/10" />
+            <div className="h-px w-full" style={{ backgroundColor: "rgba(199, 168, 75, 0.2)" }} />
             <div>
-              <p className="mb-4 text-xs uppercase tracking-widest text-white/40">Técnica italiana</p>
-              <p className="text-base leading-relaxed text-white/70 md:text-lg">
+              <p className="mb-4 text-xs uppercase tracking-widest" style={{ color: "#c7a84b", fontFamily: "'Manrope', sans-serif" }}>
+                Técnica italiana
+              </p>
+              <p className="text-base leading-relaxed text-white/70 md:text-lg" style={{ fontFamily: "'Manrope', sans-serif" }}>
                 Creemos que el mejor trabajo surge cuando la curiosidad se encuentra con la convicción. Nuestro proceso
                 está diseñado para descubrir oportunidades y traducirlas en experiencias que perduran.
               </p>
