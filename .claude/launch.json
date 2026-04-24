@@ -3,10 +3,10 @@
   "configurations": [
     {
       "name": "eliana-zaia-dev",
-      "runtimeExecutable": "node",
-      "runtimeArgs": ["C:\\Users\\jean1\\claude\\start-dev.js"],
-      "port": 3100,
-      "autoPort": false
+      "runtimeExecutable": "npm.cmd",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000,
+      "autoPort": true
     }
   ]
 }

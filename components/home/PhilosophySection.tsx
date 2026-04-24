@@ -13,7 +13,7 @@ export default function PhilosophySection() {
     <section
       ref={ref}
       className="relative overflow-hidden px-6 py-24 md:py-36"
-      style={{ backgroundColor: "#fbf9f4" }}
+      style={{ backgroundColor: "#00101f" }}
     >
       <div className="mx-auto max-w-6xl">
         <motion.div
@@ -31,7 +31,7 @@ export default function PhilosophySection() {
               fontFamily: "'Noto Serif', serif",
               fontWeight: 400,
               letterSpacing: "-0.02em",
-              color: "#00101f",
+              color: "#fbf9f4",
             }}
           >
             Tradición{" "}
@@ -70,12 +70,12 @@ export default function PhilosophySection() {
                 style={{
                   fontFamily: "'Noto Serif', serif",
                   fontWeight: 500,
-                  color: "#00101f",
+                  color: "#fbf9f4",
                 }}
               >
                 Recetas heredadas
               </h3>
-              <p className="text-sm leading-relaxed md:text-base" style={{ color: "#4a5560" }}>
+              <p className="text-sm leading-relaxed md:text-base" style={{ color: "rgba(251, 249, 244, 0.7)" }}>
                 Sabores que viajan por generaciones, perfeccionados con paciencia y respeto.
               </p>
             </div>
@@ -86,12 +86,12 @@ export default function PhilosophySection() {
                 style={{
                   fontFamily: "'Noto Serif', serif",
                   fontWeight: 500,
-                  color: "#00101f",
+                  color: "#fbf9f4",
                 }}
               >
                 Técnica italiana
               </h3>
-              <p className="text-sm leading-relaxed md:text-base" style={{ color: "#4a5560" }}>
+              <p className="text-sm leading-relaxed md:text-base" style={{ color: "rgba(251, 249, 244, 0.7)" }}>
                 Procesos refinados con la precisión de la repostería europea contemporánea.
               </p>
             </div>
@@ -102,12 +102,12 @@ export default function PhilosophySection() {
                 style={{
                   fontFamily: "'Noto Serif', serif",
                   fontWeight: 500,
-                  color: "#00101f",
+                  color: "#fbf9f4",
                 }}
               >
                 Innovación sin atajos
               </h3>
-              <p className="text-sm leading-relaxed md:text-base" style={{ color: "#4a5560" }}>
+              <p className="text-sm leading-relaxed md:text-base" style={{ color: "rgba(251, 249, 244, 0.7)" }}>
                 Nuevos formatos como GeliCloud nacen del estudio paciente del oficio.
               </p>
             </div>

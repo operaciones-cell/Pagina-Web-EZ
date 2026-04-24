@@ -13,7 +13,7 @@ const footerSections = [
 
 export default function Footer() {
   return (
-    <footer className="bg-bg-dark border-t border-white/5">
+    <footer className="border-t border-white/5" style={{ backgroundColor: "#00101f" }}>
       <SchemaOrg data={organizationSchema()} />
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">

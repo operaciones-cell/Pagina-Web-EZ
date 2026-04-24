@@ -8,7 +8,7 @@ export default function AlliesMarquee() {
   return (
     <section
       className="py-24"
-      style={{ backgroundColor: "var(--color-surface-container-low)" }}
+      style={{ backgroundColor: "#f5f3ee" }}
     >
       <div className="max-w-7xl mx-auto px-6 mb-14 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>

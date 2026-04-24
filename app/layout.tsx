@@ -44,9 +44,6 @@ export default function RootLayout({
   return (
     <html lang="es-CO" className={`${playfair.variable} ${inter.variable}`}>
       <body className="min-h-screen">
-        <a href="#main-content" className="skip-to-content">
-          Ir al contenido principal
-        </a>
         <Navbar />
         <main id="main-content">
           <ClientProviders>{children}</ClientProviders>

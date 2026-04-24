@@ -11,7 +11,7 @@ export default function AboutSection() {
     <section
       ref={ref}
       className="relative overflow-hidden px-6 pt-28 pb-16 md:pt-40 md:pb-20"
-      style={{ backgroundColor: "#fbf9f4" }}
+      style={{ backgroundColor: "#f5f3ee" }}
     >
       <div className="relative mx-auto max-w-4xl">
         <motion.p

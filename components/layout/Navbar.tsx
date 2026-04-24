@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -19,9 +20,26 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 px-4 py-4 md:px-6 md:py-6">
-      <nav className="liquid-glass-dark mx-auto flex max-w-5xl items-center justify-between rounded-full px-6 py-3">
+    <header className="fixed top-0 left-0 right-0 z-40 px-4 py-4 transition-all duration-500 md:px-6 md:py-6">
+      <nav
+        className="mx-auto flex max-w-5xl items-center justify-between rounded-full px-6 py-3 transition-all duration-500"
+        style={{
+          backgroundColor: scrolled
+            ? "rgba(0, 16, 31, 0.2)"
+            : "rgba(0, 16, 31, 0.92)",
+          backdropFilter: scrolled ? "blur(28px) saturate(1.6)" : "blur(8px)",
+          WebkitBackdropFilter: scrolled ? "blur(28px) saturate(1.6)" : "blur(8px)",
+          border: "1px solid rgba(251, 249, 244, 0.08)",
+        }}
+      >
         <div className="flex items-center">
           <Link
             href="/"

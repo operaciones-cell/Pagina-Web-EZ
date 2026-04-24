@@ -13,7 +13,7 @@ export default function FeaturedVideoSection() {
     <section
       ref={ref}
       className="relative overflow-hidden px-6 py-20 md:py-32"
-      style={{ backgroundColor: "#f5f3ee" }}
+      style={{ backgroundColor: "#fbf9f4" }}
     >
       <div className="mx-auto max-w-6xl">
         <motion.div

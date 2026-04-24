@@ -35,7 +35,7 @@ export default function ServicesSection() {
     <section
       ref={ref}
       className="relative overflow-hidden px-6 py-24 md:py-36"
-      style={{ backgroundColor: "#f5f3ee" }}
+      style={{ backgroundColor: "#00101f" }}
     >
       <div className="relative mx-auto max-w-6xl">
         <motion.div
@@ -54,7 +54,7 @@ export default function ServicesSection() {
                 fontFamily: "'Noto Serif', serif",
                 fontWeight: 400,
                 letterSpacing: "-0.02em",
-                color: "#00101f",
+                color: "#fbf9f4",
               }}
             >
               Lo que hacemos

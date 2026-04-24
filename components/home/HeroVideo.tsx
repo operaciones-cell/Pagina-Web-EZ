@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useCallback } from "react";
-import { ArrowRight, Instagram, Twitter, Globe } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, Instagram, Twitter, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import { PulsingBorder } from "@paper-design/shaders-react";
 
-const HERO_VIDEO = ""; // ← Pega aquí el URL del video hero
+const HERO_VIDEO = "/videos/hero.mp4";
 
 function fadeElement(el: HTMLElement, from: number, to: number, duration: number) {
   const start = performance.now();
@@ -158,34 +159,24 @@ export default function HeroVideo() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.0 }}
-          className="mt-10 w-full max-w-xl"
+          className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-4"
         >
-          <div className="liquid-glass flex items-center gap-3 rounded-full py-2 pl-6 pr-2">
-            <input
-              type="email"
-              placeholder="Ingresa tu correo"
-              className="flex-1 bg-transparent text-sm outline-none placeholder:text-[#4a5560]/60"
-              style={{ color: "#00101f" }}
-            />
-            <button
-              className="rounded-full p-3 transition-transform hover:scale-105"
-              style={{ backgroundColor: "#c7a84b", color: "#00101f" }}
-              aria-label="Suscribir"
-            >
-              <ArrowRight size={20} />
-            </button>
-          </div>
+          <Link
+            href="/productos"
+            className="group inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-medium transition-all hover:scale-[1.03]"
+            style={{ backgroundColor: "#c7a84b", color: "#00101f" }}
+          >
+            Ver catálogo
+            <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
+          <Link
+            href="/para-empresas"
+            className="inline-flex items-center gap-2 rounded-full border px-8 py-3.5 text-sm font-medium transition-all hover:scale-[1.03]"
+            style={{ borderColor: "rgba(199, 168, 75, 0.5)", color: "#00101f" }}
+          >
+            Para empresas
+          </Link>
         </motion.div>
-
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-          className="liquid-glass mt-6 rounded-full px-8 py-3 text-sm font-medium transition-all hover:scale-[1.02]"
-          style={{ color: "#00101f" }}
-        >
-          Descubre más
-        </motion.button>
       </div>
 
       {/* Social icons */}
