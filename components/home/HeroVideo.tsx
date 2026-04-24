@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useCallback } from "react";
 import { ArrowRight, Instagram, Twitter, Globe } from "lucide-react";
+import { motion } from "framer-motion";
+import { PulsingBorder } from "@paper-design/shaders-react";
 
 const HERO_VIDEO = ""; // ← Pega aquí el URL del video hero
 
@@ -52,6 +54,25 @@ export default function HeroVideo() {
 
   return (
     <section className="relative flex min-h-screen flex-col overflow-hidden" style={{ backgroundColor: "#00101f" }}>
+      {/* SVG Filters */}
+      <svg className="absolute inset-0 h-0 w-0">
+        <defs>
+          <filter id="text-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#fbf9f4" />
+            <stop offset="30%" stopColor="#e0c470" />
+            <stop offset="70%" stopColor="#c7a84b" />
+            <stop offset="100%" stopColor="#fbf9f4" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       <video
         ref={videoRef}
         src={HERO_VIDEO}
@@ -75,10 +96,20 @@ export default function HeroVideo() {
       />
 
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 py-12 text-center md:-translate-y-[10%]">
-        <p className="mb-4 text-xs uppercase tracking-[0.32em]" style={{ color: "#c7a84b" }}>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-4 text-xs uppercase tracking-[0.32em]"
+          style={{ color: "#c7a84b" }}
+        >
           Zipaquirá, Colombia · Desde 2010
-        </p>
-        <h1
+        </motion.p>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           className="text-5xl tracking-tight sm:text-6xl md:text-8xl lg:text-9xl"
           style={{
             fontFamily: "'Noto Serif', serif",
@@ -88,17 +119,47 @@ export default function HeroVideo() {
             textShadow: "0 2px 18px rgba(0,16,31,0.5)",
           }}
         >
-          Un antojo para <em className="italic" style={{ color: "#c7a84b" }}>todos</em>.
-        </h1>
+          Un antojo para{" "}
+          <motion.em
+            className="italic"
+            style={{
+              background: "linear-gradient(135deg, #fbf9f4 0%, #e0c470 30%, #c7a84b 70%, #fbf9f4 100%)",
+              backgroundSize: "200% 200%",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              filter: "url(#text-glow)",
+            }}
+            animate={{
+              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            todos
+          </motion.em>
+          .
+        </motion.h1>
 
-        <p
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-8 max-w-xl px-4 text-sm leading-relaxed sm:text-base md:text-lg"
           style={{ color: "rgba(251, 249, 244, 0.75)" }}
         >
           Fusión de tradición latina y técnica italiana. Postres artesanales premium que conquistan los paladares más exigentes.
-        </p>
+        </motion.p>
 
-        <div className="mt-10 w-full max-w-xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.0 }}
+          className="mt-10 w-full max-w-xl"
+        >
           <div className="liquid-glass flex items-center gap-3 rounded-full py-2 pl-6 pr-2">
             <input
               type="email"
@@ -109,20 +170,25 @@ export default function HeroVideo() {
             <button
               className="rounded-full p-3 transition-transform hover:scale-105"
               style={{ backgroundColor: "#c7a84b", color: "#00101f" }}
+              aria-label="Suscribir"
             >
               <ArrowRight size={20} />
             </button>
           </div>
-        </div>
+        </motion.div>
 
-        <button
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
           className="liquid-glass mt-6 rounded-full px-8 py-3 text-sm font-medium transition-all hover:scale-[1.02]"
           style={{ color: "#fbf9f4" }}
         >
           Descubre más
-        </button>
+        </motion.button>
       </div>
 
+      {/* Social icons */}
       <div className="relative z-10 flex justify-center gap-4 pb-12">
         <button className="liquid-glass rounded-full p-4 transition-all hover:scale-105" style={{ color: "#c7a84b" }} aria-label="Instagram">
           <Instagram size={20} />
@@ -133,6 +199,54 @@ export default function HeroVideo() {
         <button className="liquid-glass rounded-full p-4 transition-all hover:scale-105" style={{ color: "#c7a84b" }} aria-label="Website">
           <Globe size={20} />
         </button>
+      </div>
+
+      {/* Pulsing Border decorativo */}
+      <div className="absolute bottom-8 right-4 z-20 hidden md:block">
+        <div className="relative flex h-20 w-20 items-center justify-center">
+          <PulsingBorder
+            colors={["#c7a84b", "#e0c470", "#9a7f14", "#fbf9f4", "#00101f"]}
+            colorBack="#00000000"
+            speed={1.2}
+            roundness={1}
+            thickness={0.12}
+            softness={0.25}
+            intensity={4}
+            spotsPerColor={4}
+            spotSize={0.1}
+            pulse={0.1}
+            smoke={0.4}
+            smokeSize={3}
+            scale={0.65}
+            rotation={0}
+            style={{
+              width: "60px",
+              height: "60px",
+              borderRadius: "50%",
+            }}
+          />
+
+          <motion.svg
+            className="absolute inset-0 h-full w-full"
+            viewBox="0 0 100 100"
+            animate={{ rotate: 360 }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            style={{ transform: "scale(1.6)" }}
+          >
+            <defs>
+              <path id="circle" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
+            </defs>
+            <text className="text-[7px] font-medium" style={{ fill: "rgba(199, 168, 75, 0.8)", letterSpacing: "0.1em" }}>
+              <textPath href="#circle" startOffset="0%">
+                ELIANA ZAIA · POSTRES ARTESANALES · DESDE 2010 ·
+              </textPath>
+            </text>
+          </motion.svg>
+        </div>
       </div>
     </section>
   );
