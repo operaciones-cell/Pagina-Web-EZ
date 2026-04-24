@@ -33,11 +33,13 @@ export default function Navbar() {
         className="mx-auto flex max-w-5xl items-center justify-between rounded-full px-6 py-3 transition-all duration-500"
         style={{
           backgroundColor: scrolled
-            ? "rgba(0, 16, 31, 0.2)"
+            ? "rgba(0, 16, 31, 0.55)"
             : "rgba(0, 16, 31, 0.92)",
           backdropFilter: scrolled ? "blur(28px) saturate(1.6)" : "blur(8px)",
           WebkitBackdropFilter: scrolled ? "blur(28px) saturate(1.6)" : "blur(8px)",
-          border: "1px solid rgba(251, 249, 244, 0.08)",
+          border: scrolled
+            ? "1px solid rgba(199, 168, 75, 0.35)"
+            : "1px solid rgba(199, 168, 75, 0.15)",
         }}
       >
         <div className="flex items-center">
@@ -73,17 +75,6 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-4 lg:flex">
-          <a
-            href={CONTACT.whatsappMessage}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-medium transition-colors"
-            style={{ color: "rgba(251, 249, 244, 0.75)" }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "#c7a84b")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(251, 249, 244, 0.75)")}
-          >
-            WhatsApp
-          </a>
           <Link
             href="/contacto"
             className="rounded-full px-6 py-2 text-sm font-medium transition-all hover:scale-[1.02]"

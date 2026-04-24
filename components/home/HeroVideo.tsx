@@ -2,9 +2,8 @@
 
 import { useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Instagram, Twitter, Globe } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { PulsingBorder } from "@paper-design/shaders-react";
 
 const HERO_VIDEO = "/videos/hero.mp4";
 
@@ -142,7 +141,6 @@ export default function HeroVideo() {
           >
             todos
           </motion.em>
-          .
         </motion.h1>
 
         <motion.p
@@ -179,58 +177,6 @@ export default function HeroVideo() {
         </motion.div>
       </div>
 
-      {/* Social icons */}
-      <div className="relative z-10 flex justify-center gap-4 pb-12">
-        <button className="liquid-glass rounded-full p-4 transition-all hover:scale-105" style={{ color: "#c7a84b" }} aria-label="Instagram">
-          <Instagram size={20} />
-        </button>
-        <button className="liquid-glass rounded-full p-4 transition-all hover:scale-105" style={{ color: "#c7a84b" }} aria-label="Twitter">
-          <Twitter size={20} />
-        </button>
-        <button className="liquid-glass rounded-full p-4 transition-all hover:scale-105" style={{ color: "#c7a84b" }} aria-label="Website">
-          <Globe size={20} />
-        </button>
-      </div>
-
-      {/* Pulsing Border decorativo */}
-      <div className="absolute bottom-8 right-4 z-20 hidden md:block">
-        <div className="relative flex h-20 w-20 items-center justify-center">
-          <PulsingBorder
-            colors={["#c7a84b", "#e0c470", "#9a7f14", "#fbf9f4"]}
-            speed={1.2}
-            thickness={0.12}
-            softness={0.25}
-            intensity={4}
-            pulse={0.1}
-            style={{
-              width: "60px",
-              height: "60px",
-              borderRadius: "50%",
-            }}
-          />
-
-          <motion.svg
-            className="absolute inset-0 h-full w-full"
-            viewBox="0 0 100 100"
-            animate={{ rotate: 360 }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            style={{ transform: "scale(1.6)" }}
-          >
-            <defs>
-              <path id="circle" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
-            </defs>
-            <text className="text-[7px] font-medium" style={{ fill: "rgba(199, 168, 75, 0.8)", letterSpacing: "0.1em" }}>
-              <textPath href="#circle" startOffset="0%">
-                ELIANA ZAIA · POSTRES ARTESANALES · DESDE 2010 ·
-              </textPath>
-            </text>
-          </motion.svg>
-        </div>
-      </div>
     </section>
   );
 }

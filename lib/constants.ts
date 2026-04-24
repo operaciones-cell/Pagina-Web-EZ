@@ -299,7 +299,6 @@ export const NAV_LINKS = [
   { href: "/nosotros", label: "Nosotros" },
   { href: "/grupo-radici", label: "Grupo Radici" },
   { href: "/blog", label: "Blog" },
-  { href: "/contacto", label: "Contacto" },
 ] as const;
 
 export const FOOTER_LINKS = {
