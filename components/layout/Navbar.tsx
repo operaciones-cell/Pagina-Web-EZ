@@ -44,7 +44,7 @@ export default function Navbar() {
       >
         <Link
           href="/"
-          className="text-lg tracking-tight"
+          className="text-lg tracking-tight whitespace-nowrap"
           style={{
             fontFamily: "'Noto Serif', serif",
             fontWeight: 500,
@@ -56,12 +56,12 @@ export default function Navbar() {
           <em className="italic" style={{ color: "#c7a84b" }}>Zaia</em>
         </Link>
 
-        <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 lg:flex">
+        <ul className="hidden flex-1 items-center justify-center gap-8 lg:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-sm font-medium transition-colors"
+                className="text-sm font-medium transition-colors whitespace-nowrap"
                 style={{ color: "rgba(251, 249, 244, 0.75)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#c7a84b")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(251, 249, 244, 0.75)")}

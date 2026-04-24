@@ -7,19 +7,19 @@ import { ALLIES } from "@/lib/constants";
 export default function AlliesMarquee() {
   return (
     <section
-      className="py-24"
+      className="py-32 md:py-44"
       style={{ backgroundColor: "#f5f3ee" }}
     >
-      <div className="max-w-7xl mx-auto px-6 mb-14 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-6 mb-20 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
           <p
-            className="mb-3 text-xs uppercase tracking-[0.28em]"
+            className="mb-4 text-sm uppercase tracking-[0.3em]"
             style={{ color: "var(--color-gold)" }}
           >
             Nuestros aliados
           </p>
           <h2
-            className="text-3xl md:text-4xl tracking-tight"
+            className="text-4xl md:text-5xl tracking-tight"
             style={{
               fontFamily: "'Noto Serif', serif",
               color: "var(--color-ink)",
@@ -56,19 +56,19 @@ export default function AlliesMarquee() {
           {[...ALLIES, ...ALLIES].map((ally, i) => (
             <div
               key={`${ally.name}-${i}`}
-              className="flex flex-col items-center justify-center gap-3 min-w-[140px] grayscale hover:grayscale-0 transition-all duration-500 opacity-50 hover:opacity-100"
+              className="flex flex-col items-center justify-center gap-5 min-w-[220px] grayscale hover:grayscale-0 transition-all duration-500 opacity-65 hover:opacity-100"
             >
-              <div className="relative w-24 h-16 flex items-center justify-center">
+              <div className="relative w-44 h-28 flex items-center justify-center">
                 <Image
                   src={ally.logo}
                   alt={ally.name}
-                  width={96}
-                  height={64}
+                  width={176}
+                  height={112}
                   className="object-contain"
                 />
               </div>
               <span
-                className="text-xs uppercase tracking-wider whitespace-nowrap"
+                className="text-sm uppercase tracking-wider whitespace-nowrap"
                 style={{ color: "var(--color-text-subtle)" }}
               >
                 {ally.name}

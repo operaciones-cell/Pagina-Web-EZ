@@ -150,7 +150,7 @@ export default function HeroVideo() {
           className="mt-8 max-w-xl px-4 text-sm leading-relaxed sm:text-base md:text-lg"
           style={{ color: "#4a5560" }}
         >
-          Fusión de tradición latina y técnica italiana. Postres artesanales premium que conquistan los paladares más exigentes.
+          Fusionamos la tradición latina con la técnica italiana.
         </motion.p>
 
         <motion.div
