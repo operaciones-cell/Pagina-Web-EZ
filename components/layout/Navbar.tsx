@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-40 px-4 py-4 transition-all duration-500 md:px-6 md:py-6">
       <nav
-        className="mx-auto flex max-w-5xl items-center justify-between rounded-full px-6 py-3 transition-all duration-500"
+        className="relative mx-auto flex max-w-5xl items-center justify-between rounded-full px-6 py-3 transition-all duration-500"
         style={{
           backgroundColor: scrolled
             ? "rgba(0, 16, 31, 0.55)"
@@ -42,37 +42,35 @@ export default function Navbar() {
             : "1px solid rgba(199, 168, 75, 0.15)",
         }}
       >
-        <div className="flex items-center">
-          <Link
-            href="/"
-            className="text-lg tracking-tight"
-            style={{
-              fontFamily: "'Noto Serif', serif",
-              fontWeight: 500,
-              color: "#fbf9f4",
-            }}
-            onClick={() => setIsOpen(false)}
-          >
-            Eliana{" "}
-            <em className="italic" style={{ color: "#c7a84b" }}>Zaia</em>
-          </Link>
+        <Link
+          href="/"
+          className="text-lg tracking-tight"
+          style={{
+            fontFamily: "'Noto Serif', serif",
+            fontWeight: 500,
+            color: "#fbf9f4",
+          }}
+          onClick={() => setIsOpen(false)}
+        >
+          Eliana{" "}
+          <em className="italic" style={{ color: "#c7a84b" }}>Zaia</em>
+        </Link>
 
-          <ul className="ml-8 hidden items-center gap-8 lg:flex">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-sm font-medium transition-colors"
-                  style={{ color: "rgba(251, 249, 244, 0.75)" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#c7a84b")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(251, 249, 244, 0.75)")}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 lg:flex">
+          {NAV_LINKS.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className="text-sm font-medium transition-colors"
+                style={{ color: "rgba(251, 249, 244, 0.75)" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#c7a84b")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(251, 249, 244, 0.75)")}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
 
         <div className="hidden items-center gap-4 lg:flex">
           <Link
