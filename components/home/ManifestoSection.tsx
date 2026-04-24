@@ -35,7 +35,7 @@ export default function ManifestoSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="absolute left-1/2 top-20 z-50 -translate-x-1/2 text-xs uppercase tracking-[0.32em] md:top-28"
+        className="absolute left-1/2 top-[calc(50%-9rem)] z-50 -translate-x-1/2 text-xs uppercase tracking-[0.32em]"
         style={{ color: "#c7a84b" }}
       >
         Manifiesto
