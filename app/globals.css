@@ -2,11 +2,14 @@
 @import "tailwindcss";
 
 @theme {
-  /* Surface Hierarchy (Atelier Nocturno) */
-  --color-surface: #00101f;
-  --color-surface-elevated: #081a2c;
-  --color-surface-card: #0f2238;
-  --color-surface-cream: #fbf9f4;
+  /* Surfaces claras (Editorial) */
+  --color-surface: #fbf9f4;
+  --color-surface-elevated: #f5f3ee;
+  --color-surface-card: #ffffff;
+
+  /* Midnight (texto y navbar) */
+  --color-midnight: #00101f;
+  --color-midnight-elevated: #081a2c;
 
   /* Accents */
   --color-gold: #c7a84b;
@@ -14,9 +17,10 @@
   --color-gold-highlight: #e0c470;
 
   /* Text */
-  --color-text: #fbf9f4;
-  --color-text-muted: rgba(251, 249, 244, 0.70);
-  --color-text-subtle: rgba(251, 249, 244, 0.45);
+  --color-text: #00101f;
+  --color-text-muted: #4a5560;
+  --color-text-subtle: #6b7480;
+  --color-text-on-dark: #fbf9f4;
 
   /* Fonts */
   --font-heading: "Noto Serif", serif;
@@ -25,26 +29,25 @@
 
 html,
 body {
-  background-color: #00101f;
-  color: #fbf9f4;
+  background-color: #fbf9f4;
+  color: #00101f;
   font-family: "Manrope", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 @layer components {
-  .liquid-glass {
-    background: rgba(199, 168, 75, 0.02);
-    background-blend-mode: luminosity;
-    backdrop-filter: blur(12px) saturate(140%);
-    -webkit-backdrop-filter: blur(12px) saturate(140%);
+  .liquid-glass-dark {
+    background: rgba(0, 16, 31, 0.85);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
     border: none;
     box-shadow: inset 0 1px 1px rgba(251, 249, 244, 0.08);
     position: relative;
     overflow: hidden;
   }
 
-  .liquid-glass::before {
+  .liquid-glass-dark::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -65,23 +68,17 @@ body {
     pointer-events: none;
   }
 
-  .section-divider {
-    position: relative;
+  .liquid-glass {
+    background: rgba(251, 249, 244, 0.6);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    border: none;
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.8),
+      0 8px 40px rgba(0, 16, 31, 0.06);
   }
-  .section-divider::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    max-width: 800px;
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(199, 168, 75, 0.4) 50%,
-      transparent 100%
-    );
+
+  .ambient-shadow {
+    box-shadow: 0 8px 40px rgba(0, 16, 31, 0.06);
   }
 }

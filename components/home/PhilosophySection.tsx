@@ -12,8 +12,8 @@ export default function PhilosophySection() {
   return (
     <section
       ref={ref}
-      className="section-divider relative overflow-hidden px-6 py-24 md:py-36"
-      style={{ backgroundColor: "#081a2c" }}
+      className="relative overflow-hidden px-6 py-24 md:py-36"
+      style={{ backgroundColor: "#fbf9f4" }}
     >
       <div className="mx-auto max-w-6xl">
         <motion.div
@@ -31,7 +31,7 @@ export default function PhilosophySection() {
               fontFamily: "'Noto Serif', serif",
               fontWeight: 400,
               letterSpacing: "-0.02em",
-              color: "#fbf9f4",
+              color: "#00101f",
             }}
           >
             Tradición{" "}
@@ -45,7 +45,7 @@ export default function PhilosophySection() {
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.15 }}
-            className="aspect-[4/3] overflow-hidden rounded-3xl"
+            className="ambient-shadow aspect-[4/3] overflow-hidden rounded-3xl"
           >
             <video
               src={PHILOSOPHY_VIDEO}
@@ -70,12 +70,12 @@ export default function PhilosophySection() {
                 style={{
                   fontFamily: "'Noto Serif', serif",
                   fontWeight: 500,
-                  color: "#fbf9f4",
+                  color: "#00101f",
                 }}
               >
                 Recetas heredadas
               </h3>
-              <p className="text-sm leading-relaxed md:text-base" style={{ color: "rgba(251, 249, 244, 0.70)" }}>
+              <p className="text-sm leading-relaxed md:text-base" style={{ color: "#4a5560" }}>
                 Sabores que viajan por generaciones, perfeccionados con paciencia y respeto.
               </p>
             </div>
@@ -86,12 +86,12 @@ export default function PhilosophySection() {
                 style={{
                   fontFamily: "'Noto Serif', serif",
                   fontWeight: 500,
-                  color: "#fbf9f4",
+                  color: "#00101f",
                 }}
               >
                 Técnica italiana
               </h3>
-              <p className="text-sm leading-relaxed md:text-base" style={{ color: "rgba(251, 249, 244, 0.70)" }}>
+              <p className="text-sm leading-relaxed md:text-base" style={{ color: "#4a5560" }}>
                 Procesos refinados con la precisión de la repostería europea contemporánea.
               </p>
             </div>
@@ -102,12 +102,12 @@ export default function PhilosophySection() {
                 style={{
                   fontFamily: "'Noto Serif', serif",
                   fontWeight: 500,
-                  color: "#fbf9f4",
+                  color: "#00101f",
                 }}
               >
                 Innovación sin atajos
               </h3>
-              <p className="text-sm leading-relaxed md:text-base" style={{ color: "rgba(251, 249, 244, 0.70)" }}>
+              <p className="text-sm leading-relaxed md:text-base" style={{ color: "#4a5560" }}>
                 Nuevos formatos como GeliCloud nacen del estudio paciente del oficio.
               </p>
             </div>

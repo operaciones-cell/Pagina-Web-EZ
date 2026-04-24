@@ -34,17 +34,9 @@ export default function ServicesSection() {
   return (
     <section
       ref={ref}
-      className="section-divider relative overflow-hidden px-6 py-24 md:py-36"
-      style={{ backgroundColor: "#00101f" }}
+      className="relative overflow-hidden px-6 py-24 md:py-36"
+      style={{ backgroundColor: "#f5f3ee" }}
     >
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, rgba(199,168,75,0.05) 0%, transparent 60%)",
-        }}
-      />
-
       <div className="relative mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -62,7 +54,7 @@ export default function ServicesSection() {
                 fontFamily: "'Noto Serif', serif",
                 fontWeight: 400,
                 letterSpacing: "-0.02em",
-                color: "#fbf9f4",
+                color: "#00101f",
               }}
             >
               Lo que hacemos
@@ -80,8 +72,8 @@ export default function ServicesSection() {
             >
               <Link href={card.href} className="group block">
                 <div
-                  className="overflow-hidden rounded-3xl transition-all duration-500 hover:-translate-y-1"
-                  style={{ backgroundColor: "#0f2238" }}
+                  className="ambient-shadow overflow-hidden rounded-3xl transition-all duration-500 hover:-translate-y-1"
+                  style={{ backgroundColor: "#ffffff" }}
                 >
                   <div className="relative aspect-video overflow-hidden">
                     <video
@@ -97,7 +89,7 @@ export default function ServicesSection() {
                       className="pointer-events-none absolute inset-0"
                       style={{
                         background:
-                          "linear-gradient(180deg, rgba(0,16,31,0) 50%, rgba(0,16,31,0.5) 100%)",
+                          "linear-gradient(180deg, rgba(0,16,31,0) 50%, rgba(0,16,31,0.4) 100%)",
                       }}
                     />
                   </div>
@@ -119,12 +111,12 @@ export default function ServicesSection() {
                         fontFamily: "'Noto Serif', serif",
                         fontWeight: 400,
                         letterSpacing: "-0.01em",
-                        color: "#fbf9f4",
+                        color: "#00101f",
                       }}
                     >
                       {card.title}
                     </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "rgba(251, 249, 244, 0.60)" }}>
+                    <p className="text-sm leading-relaxed" style={{ color: "#4a5560" }}>
                       {card.description}
                     </p>
                   </div>

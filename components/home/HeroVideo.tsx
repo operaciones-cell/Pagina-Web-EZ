@@ -53,7 +53,7 @@ export default function HeroVideo() {
   }, []);
 
   return (
-    <section className="relative flex min-h-screen flex-col overflow-hidden" style={{ backgroundColor: "#00101f" }}>
+    <section className="relative flex min-h-screen flex-col overflow-hidden pt-24 md:pt-28" style={{ backgroundColor: "#fbf9f4" }}>
       {/* SVG Filters */}
       <svg className="absolute inset-0 h-0 w-0">
         <defs>
@@ -65,10 +65,10 @@ export default function HeroVideo() {
             </feMerge>
           </filter>
           <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#fbf9f4" />
-            <stop offset="30%" stopColor="#e0c470" />
-            <stop offset="70%" stopColor="#c7a84b" />
-            <stop offset="100%" stopColor="#fbf9f4" />
+            <stop offset="0%" stopColor="#9a7f14" />
+            <stop offset="30%" stopColor="#c7a84b" />
+            <stop offset="70%" stopColor="#e0c470" />
+            <stop offset="100%" stopColor="#9a7f14" />
           </linearGradient>
         </defs>
       </svg>
@@ -91,7 +91,7 @@ export default function HeroVideo() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(0,16,31,0.3) 0%, rgba(0,16,31,0.7) 100%)",
+            "radial-gradient(ellipse at center, rgba(251,249,244,0.55) 0%, rgba(251,249,244,0.85) 100%)",
         }}
       />
 
@@ -101,7 +101,7 @@ export default function HeroVideo() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-4 text-xs uppercase tracking-[0.32em]"
-          style={{ color: "#c7a84b" }}
+          style={{ color: "#9a7f14" }}
         >
           Zipaquirá, Colombia · Desde 2010
         </motion.p>
@@ -115,15 +115,15 @@ export default function HeroVideo() {
             fontFamily: "'Noto Serif', serif",
             fontWeight: 400,
             letterSpacing: "-0.02em",
-            color: "#fbf9f4",
-            textShadow: "0 2px 18px rgba(0,16,31,0.5)",
+            color: "#00101f",
+            textShadow: "0 2px 18px rgba(251,249,244,0.6)",
           }}
         >
           Un antojo para{" "}
           <motion.em
             className="italic"
             style={{
-              background: "linear-gradient(135deg, #fbf9f4 0%, #e0c470 30%, #c7a84b 70%, #fbf9f4 100%)",
+              background: "linear-gradient(135deg, #9a7f14 0%, #c7a84b 30%, #e0c470 70%, #9a7f14 100%)",
               backgroundSize: "200% 200%",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -149,7 +149,7 @@ export default function HeroVideo() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-8 max-w-xl px-4 text-sm leading-relaxed sm:text-base md:text-lg"
-          style={{ color: "rgba(251, 249, 244, 0.75)" }}
+          style={{ color: "#4a5560" }}
         >
           Fusión de tradición latina y técnica italiana. Postres artesanales premium que conquistan los paladares más exigentes.
         </motion.p>
@@ -164,8 +164,8 @@ export default function HeroVideo() {
             <input
               type="email"
               placeholder="Ingresa tu correo"
-              className="flex-1 bg-transparent text-sm outline-none"
-              style={{ color: "#fbf9f4" }}
+              className="flex-1 bg-transparent text-sm outline-none placeholder:text-[#4a5560]/60"
+              style={{ color: "#00101f" }}
             />
             <button
               className="rounded-full p-3 transition-transform hover:scale-105"
@@ -182,7 +182,7 @@ export default function HeroVideo() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.2 }}
           className="liquid-glass mt-6 rounded-full px-8 py-3 text-sm font-medium transition-all hover:scale-[1.02]"
-          style={{ color: "#fbf9f4" }}
+          style={{ color: "#00101f" }}
         >
           Descubre más
         </motion.button>

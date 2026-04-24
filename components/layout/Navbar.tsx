@@ -21,7 +21,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 px-4 py-4 md:px-6 md:py-6">
-      <nav className="liquid-glass mx-auto flex max-w-5xl items-center justify-between rounded-full px-6 py-3">
+      <nav className="liquid-glass-dark mx-auto flex max-w-5xl items-center justify-between rounded-full px-6 py-3">
         <div className="flex items-center">
           <Link
             href="/"
@@ -43,9 +43,9 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   className="text-sm font-medium transition-colors"
-                  style={{ color: "rgba(251, 249, 244, 0.70)" }}
+                  style={{ color: "rgba(251, 249, 244, 0.75)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#c7a84b")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(251, 249, 244, 0.70)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(251, 249, 244, 0.75)")}
                 >
                   {link.label}
                 </Link>
@@ -60,9 +60,9 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm font-medium transition-colors"
-            style={{ color: "rgba(251, 249, 244, 0.70)" }}
+            style={{ color: "rgba(251, 249, 244, 0.75)" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "#c7a84b")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(251, 249, 244, 0.70)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(251, 249, 244, 0.75)")}
           >
             WhatsApp
           </a>
