@@ -205,20 +205,12 @@ export default function HeroVideo() {
       <div className="absolute bottom-8 right-4 z-20 hidden md:block">
         <div className="relative flex h-20 w-20 items-center justify-center">
           <PulsingBorder
-            colors={["#c7a84b", "#e0c470", "#9a7f14", "#fbf9f4", "#00101f"]}
-            colorBack="#00000000"
+            colors={["#c7a84b", "#e0c470", "#9a7f14", "#fbf9f4"]}
             speed={1.2}
-            roundness={1}
             thickness={0.12}
             softness={0.25}
             intensity={4}
-            spotsPerColor={4}
-            spotSize={0.1}
             pulse={0.1}
-            smoke={0.4}
-            smokeSize={3}
-            scale={0.65}
-            rotation={0}
             style={{
               width: "60px",
               height: "60px",
