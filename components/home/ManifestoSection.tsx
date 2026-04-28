@@ -29,19 +29,20 @@ export default function ManifestoSection() {
       className="relative"
       style={{ backgroundColor: "#00101f" }}
     >
-      {/* Kicker encima de la lámpara */}
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="absolute left-1/2 top-[calc(50%-9rem)] z-50 -translate-x-1/2 text-xs uppercase tracking-[0.32em]"
-        style={{ color: "#c7a84b" }}
-      >
-        Manifiesto
-      </motion.p>
-
       <LampContainer>
+        {/* Kicker dentro del contenedor: queda arriba del headline,
+            justo debajo de la línea dorada — sin posicionamiento absoluto */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-8 text-xs uppercase tracking-[0.32em]"
+          style={{ color: "#c7a84b" }}
+        >
+          Manifiesto
+        </motion.p>
+
         <motion.h2
           className="max-w-5xl text-center text-3xl leading-[1.3] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl"
           style={{
@@ -74,26 +75,6 @@ export default function ManifestoSection() {
           ))}
         </motion.h2>
 
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: 2.4 }}
-          className="mx-auto mt-12 h-px w-24 origin-center"
-          style={{ backgroundColor: "rgba(199, 168, 75, 0.5)" }}
-        />
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 2.6 }}
-          className="mx-auto mt-6 max-w-xl text-center text-sm leading-relaxed md:text-base"
-          style={{ color: "rgba(251, 249, 244, 0.65)" }}
-        >
-          Desde 2010, en Zipaquirá, cultivamos el oficio de los postres
-          artesanales premium.
-        </motion.p>
       </LampContainer>
     </section>
   );

@@ -11,18 +11,18 @@ const VIDEO_2 = ""; // ← Pega aquí el URL del video 2
 const CARDS = [
   {
     video: VIDEO_1,
-    tag: "Catálogo",
-    title: "Productos Premium",
+    tag: "Para ti",
+    title: "Cerca de ti",
     description:
-      "12 creaciones artesanales que van desde nuestro icónico Crème Brûlée hasta las innovadoras GeliCloud.",
+      "Doce piezas artesanales que encuentras en El Tinto y en miles de puntos de venta del país.",
     href: "/productos",
   },
   {
     video: VIDEO_2,
-    tag: "B2B",
-    title: "Soluciones Empresariales",
+    tag: "Para tu empresa",
+    title: "Producir contigo",
     description:
-      "Maquila bajo marca blanca, distribución exclusiva y desarrollo de productos a medida.",
+      "Producimos a escala para grandes cadenas y desarrollamos productos bajo tu marca.",
     href: "/para-empresas",
   },
 ];
@@ -46,7 +46,7 @@ export default function ServicesSection() {
         >
           <div>
             <p className="mb-4 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
-              Nuestras líneas
+              Lo que hacemos
             </p>
             <h2
               className="text-3xl tracking-tight sm:text-4xl md:text-5xl"
@@ -57,7 +57,8 @@ export default function ServicesSection() {
                 color: "#fbf9f4",
               }}
             >
-              Lo que hacemos
+              Técnica <em className="italic" style={{ color: "#c7a84b" }}>italiana</em>,
+              dulzura <em className="italic" style={{ color: "#c7a84b" }}>latina</em>.
             </h2>
           </div>
         </motion.div>

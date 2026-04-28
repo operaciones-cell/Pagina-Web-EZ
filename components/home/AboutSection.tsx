@@ -21,7 +21,7 @@ export default function AboutSection() {
           className="mb-6 text-xs uppercase tracking-[0.32em]"
           style={{ color: "#c7a84b" }}
         >
-          Nuestra esencia
+          El origen
         </motion.p>
 
         <motion.h2
@@ -36,10 +36,8 @@ export default function AboutSection() {
             color: "#00101f",
           }}
         >
-          Fusionamos la{" "}
-          <em className="italic" style={{ color: "#c7a84b" }}>tradición latina</em>{" "}
-          con la técnica{" "}
-          <em className="italic" style={{ color: "#c7a84b" }}>italiana</em>.
+          De una cocina{" "}
+          <em className="italic" style={{ color: "#c7a84b" }}>en familia</em>.
         </motion.h2>
 
         <motion.p
@@ -49,9 +47,21 @@ export default function AboutSection() {
           className="mt-8 max-w-2xl text-base leading-relaxed md:text-lg"
           style={{ color: "#4a5560" }}
         >
-          Desde 2010, en Zipaquirá, elaboramos postres artesanales premium con
-          recetas que honran nuestras raíces y métodos refinados por generaciones.
-          Cada creación es una conversación entre dos mundos.
+          Después de la Segunda Guerra, su padre cruzó el océano desde Italia con
+          una sola filosofía: pocos ingredientes, mucho oficio. Décadas más tarde,
+          en 1998, Eliana convirtió esa herencia en postres — primero los fines de
+          semana, desde su cocina, para los restaurantes de la sabana. En 2010, lo
+          que empezó como un encargo familiar se volvió empresa.
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-6 max-w-2xl text-base leading-relaxed italic md:text-lg"
+          style={{ color: "#c7a84b" }}
+        >
+          — y hoy es la misma receta, en miles de cucharadas.
         </motion.p>
       </div>
     </section>

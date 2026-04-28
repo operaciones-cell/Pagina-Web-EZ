@@ -23,7 +23,7 @@ export default function PhilosophySection() {
           className="mb-14 text-center md:mb-20"
         >
           <p className="mb-4 text-xs uppercase tracking-[0.32em]" style={{ color: "#c7a84b" }}>
-            Filosofía
+            La forma de trabajar
           </p>
           <h2
             className="text-4xl tracking-tight sm:text-5xl md:text-7xl lg:text-8xl"
@@ -34,9 +34,9 @@ export default function PhilosophySection() {
               color: "#fbf9f4",
             }}
           >
-            Tradición{" "}
-            <em className="italic" style={{ color: "#c7a84b" }}>×</em>{" "}
-            Innovación
+            Pocos ingredientes,
+            <br />
+            mucho <em className="italic" style={{ color: "#c7a84b" }}>oficio</em>
           </h2>
         </motion.div>
 
@@ -73,10 +73,10 @@ export default function PhilosophySection() {
                   color: "#fbf9f4",
                 }}
               >
-                Recetas heredadas
+                Pastelería premium en todo momento
               </h3>
               <p className="text-sm leading-relaxed md:text-base" style={{ color: "rgba(251, 249, 244, 0.7)" }}>
-                Sabores que viajan por generaciones, perfeccionados con paciencia y respeto.
+                La misma pieza para una boda, una cena, o el café del martes. La técnica que cruzó el océano vive en cada una.
               </p>
             </div>
 
@@ -89,10 +89,10 @@ export default function PhilosophySection() {
                   color: "#fbf9f4",
                 }}
               >
-                Técnica italiana
+                El gesto preciso
               </h3>
               <p className="text-sm leading-relaxed md:text-base" style={{ color: "rgba(251, 249, 244, 0.7)" }}>
-                Procesos refinados con la precisión de la repostería europea contemporánea.
+                La técnica italiana se aprende mirando, no leyendo. Cada gesto tiene su porqué.
               </p>
             </div>
 
@@ -105,10 +105,10 @@ export default function PhilosophySection() {
                   color: "#fbf9f4",
                 }}
               >
-                Innovación sin atajos
+                Escala sin atajos
               </h3>
               <p className="text-sm leading-relaxed md:text-base" style={{ color: "rgba(251, 249, 244, 0.7)" }}>
-                Nuevos formatos como GeliCloud nacen del estudio paciente del oficio.
+                Crecer no es bajar la guardia. Lo que era artesanal en 1998 sigue siéndolo hoy.
               </p>
             </div>
           </motion.div>
