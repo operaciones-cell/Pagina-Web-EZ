@@ -67,7 +67,7 @@ export default function HeroVideo() {
             fontWeight: 400,
             color: "#c7a84b",
             letterSpacing: "-0.01em",
-            textShadow: "0 0 2px rgba(251,249,244,0.85), 0 0 5px rgba(251,249,244,0.4)",
+            textShadow: "0 1px 12px rgba(251,249,244,0.5)",
           }}
         >
           Desde 1998
@@ -83,7 +83,7 @@ export default function HeroVideo() {
             fontWeight: 400,
             letterSpacing: "-0.02em",
             color: "#00101f",
-            textShadow: "0 0 2px rgba(251,249,244,0.95), 0 0 6px rgba(251,249,244,0.5)",
+            textShadow: "0 2px 18px rgba(251,249,244,0.6)",
           }}
         >
           El{" "}

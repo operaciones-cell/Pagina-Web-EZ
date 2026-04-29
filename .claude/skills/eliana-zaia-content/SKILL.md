@@ -121,18 +121,23 @@ Principio: **claridad por encima de personalidad**, pero ambas pueden coexistir.
 ## Referencias internas
 
 - `references/storytelling.md` — **leer antes de escribir cualquier frase nueva**. Contiene la narrativa de marca, los 5 actos, el arco del visitante, los personajes y los antagonistas implícitos. Toda frase debe poder anclarse a algún acto
-- `references/voice-and-tone.md` — voz, ejemplos sí/no, modulación de tono según destinatario (B2C / B2B / eventos), reglas para home con doble audiencia
-- `references/copy-patterns.md` — plantillas exactas de cada tipo de pedido (hero, producto, meta, etc.)
-- `references/page-templates.md` — estructura ideal de cada página del sitio (home, productos, contacto, eventos, etc.) con orden de secciones, kickers y headlines de referencia
+- `references/stepps-virality.md` — **framework STEPPS de Jonah Berger aplicado a Eliana Zaia**. Las 6 palancas de viralidad. Toda frase importante debe activar al menos 2 palancas. Incluye checklist de revisión y top palanca por sección del home
+- `references/voice-and-tone.md` — voz, **tensión núcleo "premium pero accesible"**, reglas de musicalidad/rima/paralelismo, modulación según destinatario (B2C / B2B / dual)
+- `references/copy-patterns.md` — plantillas exactas + **reglas de cascade y paralelismo entre cards**
+- `references/page-templates.md` — estructura ideal de cada página del sitio
 - `references/microcopy-bank.md` — banco de microcopy aprobado (botones, formularios, errores, estados vacíos)
-- `references/glossary.md` — diccionario de marca: términos de cocina italiana/latina, ingredientes destacados, técnicas, palabras a preferir
+- `references/glossary.md` — diccionario de marca actualizado (sobremesa, cucharada, alta repostería, **premium permitido como adjetivo**)
+- `references/calibration-feedback.md` — patrones de feedback aprendidos: qué tipo de propuestas suelen aceptarse/rechazarse, sesgos del modelo a evitar
 
 ## Flujo recomendado al escribir frases nuevas
 
 1. Abrir `storytelling.md` → identificar a qué **acto** pertenece la frase pedida
-2. Abrir `voice-and-tone.md` → confirmar el **tono** según destinatario (B2C / B2B / dual)
-3. Abrir `copy-patterns.md` → tomar la **plantilla** correcta según tipo de pedido
-4. Abrir `glossary.md` → elegir **palabras ancla** del acto correspondiente
-5. Escribir 2–3 opciones, cada una explicando qué acto cubre y qué pregunta responde
-6. Validar contra "Lo que NUNCA escribimos" del SKILL.md
-7. Entregar
+2. Abrir `stepps-virality.md` → identificar qué **palancas STEPPS** debería activar la frase (al menos 2)
+3. Abrir `voice-and-tone.md` → confirmar el **tono**, la tensión premium-accesible, y aplicar reglas de musicalidad/paralelismo
+4. Abrir `copy-patterns.md` → tomar la **plantilla** correcta + revisar **cascade** (qué otras secciones se afectan)
+5. Abrir `glossary.md` → elegir **palabras ancla** del acto correspondiente
+6. Abrir `calibration-feedback.md` → evitar sesgos conocidos del modelo
+7. Escribir 2–3 opciones (no 4+), cada una explicando: qué acto cubre, qué STEPPS activa, qué tono usa
+8. Validar contra "Lo que NUNCA escribimos" del SKILL.md
+9. Mostrar **cascade** ANTES de la recomendación (cómo afecta a otras secciones)
+10. Entregar con recomendación clara

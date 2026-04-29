@@ -1,11 +1,27 @@
 # Voice & Tone — Eliana Zaia
 
+## Tensión núcleo de la marca
+
+**Premium pero accesible**. *Artesanal pero escalable*. *Tradicional pero moderna*.
+
+Esta tensión es **el ADN de la voz**. Toda frase debe sostener las DOS dimensiones simultáneamente:
+- Si una frase suena **solo premium** (snob, exclusivo, pretensioso) → falla
+- Si una frase suena **solo accesible** (genérica, cotidiana, sin oficio) → falla
+
+Ejemplos:
+- ❌ "Pastelería boutique para paladares exigentes" → solo premium, snob
+- ❌ "Postres ricos al alcance de todos" → solo accesible, banal
+- ✅ "Pastelería premium en todo momento" → premium (pastelería + premium) + accesible (todo momento)
+- ✅ "Una cocina familiar. Miles de cucharadas." → premium implícito (oficio) + accesible (familiar, cucharadas)
+
 ## Identidad de voz
 
 Tres palabras: **editorial, paciente, contemporánea**.
 
 ### Editorial
 Como un suplemento gastronómico, no como una landing de e-commerce. El lector no está siendo empujado a comprar — está siendo invitado a leer.
+
+**Importante**: editorial NO es snob. No es Apartadó-de-la-realidad. Una marca editorial premium-pero-accesible suena cálida y confiada, no distante.
 
 ### Paciente
 El oficio toma tiempo. La voz también respira. Frases medidas. Pausas. Comas que dejan aire.
@@ -113,6 +129,62 @@ Si el usuario o un texto previo cae en esto, marcarlo y proponer reescritura:
 4. **Repetir el nombre de marca cada 2 frases** → la marca es contexto, no se repite
 5. **Hablar en tercera persona de uno mismo** ("Eliana Zaia es una empresa que...") → hablar en primera persona plural ("cultivamos", "trabajamos")
 6. **Cliché italiano** ("la dolce vita", "mamma mia") → herencia se respeta, no se caricaturiza
+
+## Reglas de musicalidad y rima
+
+**Juan tiene preferencia fuerte por headlines con musicalidad**. No siempre rima estricta, pero sí ritmo, paralelismo, balance entre cláusulas. Cuando una frase falla en este eje, suena "básica" o "plana" aunque conceptualmente esté bien.
+
+### Patrones que funcionan
+
+#### A. Dos beats con coma — paralelismo
+Estructura: *"[X], [Y]."* donde X y Y tienen mismo ritmo o eco fonético.
+
+Ejemplos aprobados:
+- *"Técnica italiana, dulzura latina."* → rima asonante italiana/latina
+- *"Pocos ingredientes, mucho oficio."* → balance ingredientes/oficio
+- *"Una cocina familiar. Miles de cucharadas."* → contraste una/miles
+- *"Pastelería premium en todo momento."* → rítmica completa
+
+#### B. Eco fonético entre secciones
+Mantener ecos sutiles entre headlines de distintas secciones para crear cohesión sin repetir literalmente.
+
+Ejemplos del home actual:
+- Servicios: *"Técnica italiana, dulzura latina."* (-ana / -ina rima asonante)
+- Origen cierre italic: *"...la misma receta, en miles de cucharadas."* (eco a "miles" del Servicios)
+- Alcance: *"De esa cocina, a todo el país."* (eco a "cocina" del Origen)
+
+#### C. Tres golpes (ritmo de tres)
+Estructura: *"[X]. [Y]. [Z]."* — tres cláusulas cortas, paralelas.
+
+Ejemplos:
+- *"De Italia llega la técnica. De la sabana, los ingredientes. De ambas, cada pieza."*
+
+#### D. Inversión sintáctica
+Cuando se puede, invertir la estructura esperada para sorprender:
+- ❌ "Una pieza para cada mesa" (esperada, plana)
+- ✅ "Una cocina detrás de cada cucharada" (inversión, memorable)
+
+### Cuándo NO forzar rima
+
+- Body párrafos largos → la rima se siente jingly publicitaria
+- Microcopy de botones → claridad antes que ritmo
+- Descripciones técnicas para B2B → seriedad antes que musicalidad
+- Mensajes de error o sistema → claridad pura
+
+### Test de musicalidad
+Leé la frase **en voz alta**. Si suena como recitado o frase memorable, andamos bien. Si suena como folleto institucional, falla.
+
+### Paralelismo entre secciones del home
+Las cards de una misma sección deberían tener **estructura paralela**:
+
+Ejemplo aprobado (Servicios):
+- Card 1 título: *"Cerca de ti"* (3 palabras, dirigida al lector)
+- Card 2 título: *"Producir contigo"* (2 palabras, dirigida al lector)
+- ✓ Ambas terminan en pronombre dirigido al lector → par perfecto
+
+Si una card es *"Donde encontrarnos"* y la otra es *"Producir contigo"*, no hay paralelismo. Mantener consistencia.
+
+---
 
 ## Reglas tipográficas de copy
 

@@ -182,6 +182,57 @@ Cuando el usuario pega un texto y pide mejorarlo:
 
 ---
 
+## Patrón H — El cascade (cuando una frase cambia, hay que revisar otras)
+
+Cuando un headline o palabra ancla cambia en una sección, **hay que revisar las otras secciones** para evitar:
+- Repeticiones (la misma palabra en 4 secciones consecutivas)
+- Solapamientos (dos secciones diciendo lo mismo en distintas formas)
+- Pérdida de eco fonético (rimas/paralelismos que se rompen)
+
+### Cómo hacer el cascade
+1. Identificar **palabra ancla** que cambió
+2. Listar las otras secciones donde aparece esa palabra (o variantes)
+3. Para cada una, decidir: ¿se mantiene? ¿se cambia para no repetir? ¿se aprovecha como eco intencional?
+
+### Ejemplo real del proceso
+Cuando elegimos *"Repostería con dos raíces"* para Hero, había riesgo de repetir "raíces" en About (que decía *"dos herencias"*). Solución: About cambió a *"De una cocina en familia"* — distinto, sin solapar.
+
+### Palabras ancla actuales del home (cuidado al cambiarlas)
+- **cocina** — usado en Servicios, Origen, Alcance (aparece 3 veces, OK por arco narrativo)
+- **oficio** — Filosofía H2 + Filosofía cards
+- **italiana / latina** — Servicios H2 + Filosofía Card 1 body
+- **cucharada** — Servicios + Origen italic cierre
+- **familia / familiar** — Servicios + Origen
+- **1998** — Hero kicker + Origen body + Filosofía Card 3 body
+
+Si cambia uno, revisar los otros antes de aprobar.
+
+---
+
+## Patrón I — Paralelismo entre cards de una misma sección
+
+Las cards de una sección deben tener **estructura paralela**. No solo similar — paralela.
+
+### Ejemplo correcto (aprobado)
+- Card 1 título: *"Cerca de ti"* (3 palabras, terminación en pronombre lector)
+- Card 2 título: *"Producir contigo"* (2 palabras, terminación en pronombre lector)
+- ✓ Misma dirección sintáctica al lector
+
+### Ejemplo incorrecto
+- Card 1 título: *"Donde encontrarnos"* (formato lugar)
+- Card 2 título: *"Producir contigo"* (formato dirección al lector)
+- ✗ Estructuras distintas, falta paralelismo visual
+
+### Estructuras paralelas que funcionan
+| Tipo | Patrón | Ejemplo |
+|---|---|---|
+| Pronombre lector | *"X + ti / contigo"* | "Cerca de ti" / "Producir contigo" |
+| Verbo infinitivo | *"X + verbo"* | "Probar la carta" / "Conversar con nosotros" |
+| Adjetivo + lugar | *"X + adjetivo"* | "Para tu mesa" / "Para tu negocio" |
+| Sustantivo solo | *"Sustantivo"* | "Las recetas" / "La técnica" / "El estudio" |
+
+---
+
 ## Reglas comunes a todos los patrones
 
 - **Italic gold** (`*palabra*`) máximo una vez por titular. Es énfasis, no decoración.

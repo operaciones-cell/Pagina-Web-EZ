@@ -48,15 +48,9 @@ export default function HeroVideo() {
         style={{ opacity: 0 }}
       />
 
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, rgba(251,249,244,0.55) 0%, rgba(251,249,244,0.85) 100%)",
-        }}
-      />
 
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 py-12 text-center md:-translate-y-[15%]">
+
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 py-12 text-center md:-translate-y-[5%]">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,10 +58,9 @@ export default function HeroVideo() {
           className="mb-8 text-5xl italic md:text-7xl"
           style={{
             fontFamily: "'Noto Serif', serif",
-            fontWeight: 400,
-            color: "#c7a84b",
+            fontWeight: 500,
+            color: "#9a7f14",
             letterSpacing: "-0.01em",
-            textShadow: "0 0 2px rgba(251,249,244,0.85), 0 0 5px rgba(251,249,244,0.4)",
           }}
         >
           Desde 1998
@@ -82,12 +75,11 @@ export default function HeroVideo() {
             fontFamily: "'Noto Serif', serif",
             fontWeight: 400,
             letterSpacing: "-0.02em",
-            color: "#00101f",
-            textShadow: "0 0 2px rgba(251,249,244,0.95), 0 0 6px rgba(251,249,244,0.5)",
+            color: "#ffffff",
           }}
         >
           El{" "}
-          <em className="italic" style={{ color: "#c7a84b" }}>
+          <em className="italic" style={{ color: "#9a7f14" }}>
             arte
           </em>{" "}
           de lo dulce,
@@ -116,7 +108,7 @@ export default function HeroVideo() {
           <Link
             href="/para-empresas"
             className="inline-flex items-center gap-2 rounded-full border-2 px-10 py-4 text-base font-semibold transition-all hover:scale-[1.03] md:text-lg"
-            style={{ borderColor: "#c7a84b", color: "#00101f" }}
+            style={{ borderColor: "#c7a84b", color: "#ffffff" }}
           >
             Trabajemos juntos
           </Link>
