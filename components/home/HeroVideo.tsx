@@ -65,7 +65,7 @@ export default function HeroVideo() {
           style={{
             fontFamily: "'Noto Serif', serif",
             fontWeight: 400,
-            color: "#c7a84b",
+            color: "#00101f",
             letterSpacing: "-0.01em",
             textShadow: "0 0 2px rgba(251,249,244,0.85), 0 0 5px rgba(251,249,244,0.4)",
           }}

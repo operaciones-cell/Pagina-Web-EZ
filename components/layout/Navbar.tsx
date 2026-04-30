@@ -33,10 +33,10 @@ export default function Navbar() {
         className="relative mx-auto flex max-w-5xl items-center justify-between rounded-full px-6 py-3 transition-all duration-500"
         style={{
           backgroundColor: scrolled
-            ? "rgba(0, 16, 31, 0.55)"
+            ? "rgba(0, 16, 31, 0.35)"
             : "rgba(0, 16, 31, 0.92)",
-          backdropFilter: scrolled ? "blur(28px) saturate(1.6)" : "blur(8px)",
-          WebkitBackdropFilter: scrolled ? "blur(28px) saturate(1.6)" : "blur(8px)",
+          backdropFilter: scrolled ? "blur(32px) saturate(1.8)" : "blur(8px)",
+          WebkitBackdropFilter: scrolled ? "blur(32px) saturate(1.8)" : "blur(8px)",
           border: scrolled
             ? "1px solid rgba(199, 168, 75, 0.35)"
             : "1px solid rgba(199, 168, 75, 0.15)",

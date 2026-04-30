@@ -19,22 +19,20 @@ export const LampContainer = ({
 
   return (
     <div
-      className={`relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden z-0 ${className}`}
+      className={`relative flex min-h-[50vh] w-full flex-col items-center justify-center gap-8 overflow-hidden pt-12 pb-20 z-0 ${className}`}
       style={{ backgroundColor: MIDNIGHT }}
     >
-      <div className="relative flex w-full flex-1 items-center justify-center isolate z-0">
-        {/* Lamp line */}
-        <motion.div
-          initial={{ width: "15rem", opacity: 0 }}
-          whileInView={{ width: "30rem", opacity: 0.55 }}
-          transition={{ delay: 0.2, duration: 1.0, ease: "easeInOut" }}
-          className="absolute inset-auto z-50 h-0.5 w-[30rem] -translate-y-[7rem]"
-          style={{ backgroundColor: GOLD_LIGHT }}
-        />
-      </div>
+      {/* Lamp line */}
+      <motion.div
+        initial={{ width: "15rem", opacity: 0 }}
+        whileInView={{ width: "30rem", opacity: 0.55 }}
+        transition={{ delay: 0.2, duration: 1.0, ease: "easeInOut" }}
+        className="z-50 h-0.5 max-w-[80vw] w-[30rem]"
+        style={{ backgroundColor: GOLD_LIGHT }}
+      />
 
       {/* Content */}
-      <div className="relative z-50 flex -translate-y-80 flex-col items-center px-5">
+      <div className="relative z-50 flex flex-col items-center px-5">
         {children}
       </div>
     </div>

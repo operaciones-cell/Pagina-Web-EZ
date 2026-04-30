@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 
 export default function AboutSection() {
@@ -10,7 +11,7 @@ export default function AboutSection() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden px-6 pt-28 pb-16 md:pt-40 md:pb-20"
+      className="relative overflow-hidden px-6 pt-36 pb-10 md:pt-40 md:pb-12"
       style={{ backgroundColor: "#f5f3ee" }}
     >
       <div className="relative mx-auto max-w-4xl">
@@ -18,10 +19,15 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-6 text-xs uppercase tracking-[0.32em]"
-          style={{ color: "#c7a84b" }}
+          className="mb-6 text-3xl italic md:text-4xl"
+          style={{
+            fontFamily: "'Noto Serif', serif",
+            fontWeight: 400,
+            color: "#c7a84b",
+            letterSpacing: "-0.01em",
+          }}
         >
-          El origen
+          Eliana Zaia
         </motion.p>
 
         <motion.h2
@@ -36,8 +42,8 @@ export default function AboutSection() {
             color: "#00101f",
           }}
         >
-          De una cocina{" "}
-          <em className="italic" style={{ color: "#c7a84b" }}>en familia</em>.
+          El arte de la pastelería{" "}
+          <em className="italic" style={{ color: "#c7a84b" }}>heredada</em>
         </motion.h2>
 
         <motion.p
@@ -47,22 +53,33 @@ export default function AboutSection() {
           className="mt-8 max-w-2xl text-base leading-relaxed md:text-lg"
           style={{ color: "#4a5560" }}
         >
-          Después de la Segunda Guerra, su padre cruzó el océano desde Italia con
-          una sola filosofía: pocos ingredientes, mucho oficio. Décadas más tarde,
-          en 1998, Eliana convirtió esa herencia en postres — primero los fines de
-          semana, desde su cocina, para los restaurantes de la sabana. En 2010, lo
-          que empezó como un encargo familiar se volvió empresa.
+          Desde 1998, Eliana Zaia perfecciona el equilibrio entre la técnica italiana y el sabor latino a través de sus piezas artesanales — hechas para ser compartidas
         </motion.p>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-6 max-w-2xl text-base leading-relaxed italic md:text-lg"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-10 max-w-2xl text-base leading-relaxed italic md:text-lg"
           style={{ color: "#c7a84b" }}
         >
-          — y hoy es la misma receta, en miles de cucharadas.
+          Hoy con la misma perfección, en miles de cucharadas
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.55 }}
+          className="mt-10"
+        >
+          <Link
+            href="/nosotros"
+            className="inline-flex items-center gap-2 rounded-full border-2 px-8 py-3 text-sm font-semibold uppercase tracking-[0.18em] transition-all hover:scale-[1.03] md:text-base"
+            style={{ borderColor: "#c7a84b", color: "#00101f" }}
+          >
+            Conocer la historia <span aria-hidden="true">→</span>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
