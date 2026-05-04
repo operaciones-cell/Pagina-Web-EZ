@@ -11,10 +11,10 @@ export default function AboutSection() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden px-6 pt-36 pb-10 md:pt-40 md:pb-12"
+      className="relative overflow-hidden px-6 pt-24 pb-12 md:pt-28 md:pb-16"
       style={{ backgroundColor: "#f5f3ee" }}
     >
-      <div className="relative mx-auto max-w-4xl">
+      <div className="relative mx-auto max-w-3xl">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -50,7 +50,7 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.25 }}
-          className="mt-8 max-w-2xl text-base leading-relaxed md:text-lg"
+          className="mt-8 text-base leading-relaxed md:text-lg"
           style={{ color: "#4a5560" }}
         >
           Desde 1998, Eliana Zaia perfecciona el equilibrio entre la técnica italiana y el sabor latino a través de sus piezas artesanales — hechas para ser compartidas
@@ -60,7 +60,7 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-10 max-w-2xl text-base leading-relaxed italic md:text-lg"
+          className="mt-10 text-base leading-relaxed italic md:text-lg"
           style={{ color: "#c7a84b" }}
         >
           Hoy con la misma perfección, en miles de cucharadas
