@@ -28,7 +28,7 @@ export default function ProductCard({ product }: { product: Product }) {
               alt={product.name}
               fill
               sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
-              className="object-cover animate-ken-burns"
+              className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110"
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center p-6">

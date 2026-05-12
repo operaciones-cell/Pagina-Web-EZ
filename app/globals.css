@@ -90,7 +90,7 @@ body {
   100% { transform: scale(1.0)  translate(0%, 0%); }
 }
 
-.animate-ken-burns {
+.animate-ken-burns-always {
   animation: ken-burns 12s ease-in-out infinite;
   will-change: transform;
 }

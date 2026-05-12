@@ -8,10 +8,10 @@ import ProductFilter from "@/components/products/ProductFilter";
 
 const CATEGORY_LABELS: Record<string, string> = {
   all: "Todos nuestros postres",
-  premium: "Categoría premium",
-  clasico: "Clásicos de siempre",
-  gelatinas: "Gelatinas artesanales",
-  snack: "Snacks",
+  premium: "Técnica en cada capa",
+  clasico: "Los de siempre, hechos bien",
+  gelatinas: "Color, textura, sabor propio",
+  snack: "Para cualquier momento",
 };
 
 export default function ProductosPage() {
@@ -62,8 +62,8 @@ export default function ProductosPage() {
             className="mt-5 max-w-lg text-sm leading-relaxed md:text-base"
             style={{ color: "#4a5560" }}
           >
-            Técnica italiana, sabor latino. Disponibles en más de 6.500 puntos
-            de venta en Colombia.
+            Artesanales, de técnica italiana. Doce postres disponibles en toda
+            Colombia.
           </motion.p>
         </div>
       </div>
