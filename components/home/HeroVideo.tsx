@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
@@ -19,6 +19,7 @@ function fadeElement(el: HTMLElement, from: number, to: number, duration: number
 
 export default function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [scrollY, setScrollY] = useState(0);
 
   const handleCanPlay = useCallback(() => {
     const v = videoRef.current;
@@ -33,19 +34,42 @@ export default function HeroVideo() {
     v.style.opacity = "0";
   }, []);
 
+  useEffect(() => {
+    const handler = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
   return (
     <section className="relative flex min-h-screen flex-col overflow-hidden pt-24 md:pt-28" style={{ backgroundColor: "#fbf9f4" }}>
-      <video
-        ref={videoRef}
-        src={HERO_VIDEO}
-        muted
-        autoPlay
-        loop
-        playsInline
-        preload="auto"
-        onCanPlay={handleCanPlay}
-        className="absolute inset-0 h-full w-full object-cover object-bottom"
-        style={{ opacity: 0 }}
+      {/* Video con parallax — se desplaza más lento que el scroll */}
+      <div
+        className="pointer-events-none absolute inset-0 will-change-transform"
+        style={{
+          transform: `translate3d(0, ${scrollY * 0.25}px, 0) scale(1.05)`,
+        }}
+      >
+        <video
+          ref={videoRef}
+          src={HERO_VIDEO}
+          muted
+          autoPlay
+          loop
+          playsInline
+          preload="auto"
+          onCanPlay={handleCanPlay}
+          className="absolute inset-0 h-full w-full object-cover object-bottom"
+          style={{ opacity: 0 }}
+        />
+      </div>
+
+      {/* Fade-out cream al scrollear */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundColor: "#fbf9f4",
+          opacity: Math.min(1, scrollY / 600),
+        }}
       />
 
       <div

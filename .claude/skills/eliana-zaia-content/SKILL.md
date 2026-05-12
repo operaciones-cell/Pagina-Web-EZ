@@ -118,6 +118,10 @@ Principio: **claridad por encima de personalidad**, pero ambas pueden coexistir.
 - **`eliana-zaia-design-adapter`**: cuando la pregunta es de forma (paleta, layout, animaciones, ritmo tonal), no de palabras. Si el pedido mezcla ambos (ej. "diseñá y escribí una sección nueva de testimonios"), trabajo en paralelo: este skill da el copy y orden, el otro da la estructura visual.
 - **`anthropic-skills:propuesta-comercial`**: cuando es propuesta comercial PDF para un cliente específico (ya tiene template propio). Yo solo intervengo si me pide que mejore el copy de una propuesta antes de generarla.
 
+## Documento de diseño consolidado
+
+- **`DESIGN.md`** (raíz del proyecto) — sistema de diseño completo de Eliana Zaia: paleta, tipografía, componentes, do's and don'ts, responsive behavior, agent prompt guide. **Leer antes de cualquier propuesta de UI o copy nuevo**. Es el artefacto compartible con devs, agencias o agentes externos.
+
 ## Referencias internas
 
 - `references/storytelling.md` — **leer antes de escribir cualquier frase nueva**. Contiene la narrativa de marca, los 5 actos, el arco del visitante, los personajes y los antagonistas implícitos. Toda frase debe poder anclarse a algún acto

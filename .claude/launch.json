@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "eliana-zaia-dev",
-      "runtimeExecutable": "npm.cmd",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeExecutable": "C:\\Users\\jean1\\ez-dev.bat",
+      "runtimeArgs": [],
       "port": 3000,
       "autoPort": true
     }

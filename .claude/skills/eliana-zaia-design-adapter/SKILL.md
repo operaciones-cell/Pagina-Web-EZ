@@ -95,6 +95,7 @@ Plantillas exactas en `references/output-template.md`.
 
 ## Cross-references
 
+- **`DESIGN.md`** (raíz del proyecto) — sistema de diseño consolidado de Eliana Zaia. Leer antes de proponer cualquier adaptación visual nueva. Contiene paleta, tipografía, componentes y reglas binarias de do's/don'ts.
 - Para preguntas generales de UI/UX no específicas de Eliana Zaia (qué chart usar, paletas para otro proyecto, principios WCAG en abstracto) → usar `ui-ux-pro-max`.
 - Este skill **tiene precedencia** sobre `ui-ux-pro-max` cuando el contexto es Eliana Zaia, porque las reglas de marca aquí son más estrictas.
 

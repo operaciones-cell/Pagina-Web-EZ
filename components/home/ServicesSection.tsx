@@ -85,7 +85,7 @@ export default function ServicesSection() {
                       alt={card.alt}
                       fill
                       sizes="(min-width: 768px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover transition-transform duration-[1800ms] ease-out group-hover:scale-105"
                       style={{ objectPosition: card.objectPosition }}
                     />
                     <div
