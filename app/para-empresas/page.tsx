@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import Image from "next/image";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
 
@@ -34,95 +35,248 @@ const SERVICES = [
   {
     tag: "Distribución",
     title: "Portafolio listo para góndola",
-    body: "Más de 12 referencias con registro INVIMA, empaque retail-ready y código de barras. Desde Crème Brûlée hasta Arroz con Leche — todo disponible para tu cadena.",
+    body: "Más de 12 referencias disponibles para tu cadena, con:",
+    bullets: [
+      "Registro INVIMA vigente",
+      "Código de barras e información nutricional",
+      "Capacidad de producción escalable",
+      "Desde el Tiramisú hasta el Arroz con Leche",
+    ],
   },
   {
-    tag: "Maquila",
+    tag: "Producción a medida",
     title: "Tu idea, nuestra planta",
-    body: "Desarrollamos productos a la medida de tu marca. Gelatinas, postres cremosos, snacks. Desde la formulación hasta el empaque con tu logo.",
+    body: "Desarrollamos cualquier postre a la medida de tu marca. Desde la formulación hasta el empaque y el logo — todo bajo un mismo proceso.",
+    bullets: null,
   },
   {
     tag: "Marca blanca",
     title: "Mismo sabor, tu etiqueta",
-    body: "Tomamos una receta probada de nuestro portafolio y la entregamos bajo tu marca. Mínimo tiempo de desarrollo, máxima confianza en el resultado.",
+    body: "Tomamos una receta probada de nuestro portafolio y la entregamos bajo tu marca. Mínimo tiempo de desarrollo, mismo estándar de siempre.",
+    bullets: null,
   },
 ];
 
 const STEPS = [
-  { n: "01", title: "Contacto", body: "Cuéntanos sobre tu negocio y volúmenes estimados." },
+  { n: "01", title: "Contacto", body: "Cuéntanos sobre tu marca y tu proyecto." },
   { n: "02", title: "Muestra", body: "Enviamos muestras del portafolio o de la propuesta personalizada." },
-  { n: "03", title: "Propuesta", body: "Precios, condiciones de entrega y términos de marca blanca." },
-  { n: "04", title: "Producción", body: "Fabricamos y entregamos. 98% de cumplimiento en entregas." },
+  { n: "03", title: "Propuesta", body: "Te enviamos una propuesta con precios, tiempos y detalles según tu proyecto." },
+  { n: "04", title: "Producción", body: "Fabricamos y entregamos en los tiempos acordados, con el estándar que nos trajo hasta aquí." },
 ];
 
 const STATS = [
   { number: "8", label: "cadenas nacionales" },
   { number: "6.500+", label: "puntos de venta" },
   { number: "31/32", label: "departamentos" },
-  { number: "98%", label: "cumplimiento en entregas" },
+  { number: "26", label: "años de trayectoria" },
 ];
+
+const TABS = [
+  {
+    id: "distribucion",
+    label: "Distribución",
+    title: "Portafolio listo para góndola",
+    body: "Más de 12 referencias disponibles para tu cadena, con:",
+    bullets: ["Registro INVIMA vigente", "Código de barras e información nutricional", "Capacidad de producción escalable", "Desde el Tiramisú hasta el Arroz con Leche"],
+    image: "/images/products/tiramisu.jpg",
+    imageAlt: "Portafolio Eliana Zaia",
+  },
+  {
+    id: "produccion",
+    label: "Producción a medida",
+    title: "Tu idea, nuestra planta",
+    body: "Desarrollamos cualquier postre a la medida de tu marca. Desde la formulación hasta el empaque y el logo — todo bajo un mismo proceso.",
+    bullets: null,
+    image: "/images/empresas/planta-2.jpg",
+    imageAlt: "Planta de producción Eliana Zaia",
+  },
+  {
+    id: "marca-blanca",
+    label: "Marca blanca",
+    title: "Mismo sabor, tu etiqueta",
+    body: "Tomamos una receta probada de nuestro portafolio y la entregamos bajo tu marca. Mínimo tiempo de desarrollo, mismo estándar de siempre.",
+    bullets: null,
+    image: "/images/products/cheesecake.jpg",
+    imageAlt: "Marca blanca Eliana Zaia",
+  },
+];
+
+function ServiciosTabs() {
+  const [active, setActive] = useState(0);
+  const tab = TABS[active];
+
+  return (
+    <section className="px-6 py-20 md:py-28" style={{ backgroundColor: "#fbf9f4" }}>
+      <div className="mx-auto max-w-5xl">
+        {/* Header */}
+        <div className="mb-10">
+          <p className="mb-3 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
+            Lo que ofrecemos
+          </p>
+          <h2 className="text-3xl leading-[1.2] sm:text-4xl"
+            style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#00101f" }}>
+            Tres formas de trabajar juntos.
+          </h2>
+        </div>
+
+        {/* Tabs */}
+        <div className="mb-8 flex gap-1 border-b" style={{ borderColor: "rgba(199,168,75,0.2)" }}>
+          {TABS.map((t, i) => (
+            <button
+              key={t.id}
+              onClick={() => setActive(i)}
+              className="relative px-4 pb-3 pt-2 text-xs font-medium uppercase tracking-[0.18em] transition-colors"
+              style={{ color: active === i ? "#c7a84b" : "#4a5560" }}
+            >
+              {t.label}
+              {active === i && (
+                <motion.div
+                  layoutId="tab-indicator"
+                  className="absolute bottom-0 left-0 right-0 h-0.5"
+                  style={{ backgroundColor: "#c7a84b" }}
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
+            </button>
+          ))}
+        </div>
+
+        {/* Contenido con animación */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={tab.id}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.35 }}
+            className="grid gap-8 md:grid-cols-2 md:gap-12 md:items-center"
+          >
+            {/* Imagen */}
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl order-2 md:order-1" style={{ backgroundColor: "#f5f3ee" }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={tab.image}
+                alt={tab.imageAlt}
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+              />
+            </div>
+
+            {/* Texto */}
+            <div className="order-1 md:order-2">
+              <p className="mb-3 text-xs uppercase tracking-[0.22em]" style={{ color: "#c7a84b" }}>
+                {tab.label}
+              </p>
+              <h3 className="mb-4 text-2xl md:text-3xl"
+                style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, color: "#00101f" }}>
+                {tab.title}
+              </h3>
+              <p className="text-sm leading-relaxed md:text-base" style={{ color: "#4a5560" }}>
+                {tab.body}
+              </p>
+              {tab.bullets && (
+                <ul className="mt-5 space-y-2.5">
+                  {tab.bullets.map((b) => (
+                    <li key={b} className="flex items-start gap-2 text-sm" style={{ color: "#4a5560" }}>
+                      <span className="mt-0.5 flex-shrink-0" style={{ color: "#c7a84b" }}>✓</span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+}
 
 export default function ParaEmpresasPage() {
   return (
     <div className="min-h-screen">
-      {/* Hero — midnight */}
+      {/* Hero — fondo horno con gradiente */}
       <section
-        className="relative px-6 pb-20 pt-36 md:pb-28 md:pt-44"
+        className="relative flex h-screen items-end overflow-hidden"
         style={{ backgroundColor: "#00101f" }}
       >
-        <div className="mx-auto max-w-5xl">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-4 text-xs uppercase tracking-[0.28em]"
-            style={{ color: "#c7a84b" }}
-          >
-            Para empresas
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
-            style={{
-              fontFamily: "'Noto Serif', serif",
-              fontWeight: 400,
-              letterSpacing: "-0.02em",
-              color: "#fbf9f4",
-            }}
-          >
-            Tu cadena. Tu marca.
-            <br />
-            <em className="italic" style={{ color: "#c7a84b" }}>
-              Nuestro oficio.
-            </em>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-6 max-w-xl text-sm leading-relaxed md:text-base"
-            style={{ color: "rgba(251,249,244,0.65)" }}
-          >
-            Proveemos postres artesanales a cadenas, distribuidores y marcas
-            propias en Colombia y Latinoamérica — con la misma técnica que nos
-            trajo hasta aquí.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="mt-10 flex flex-col gap-3 sm:flex-row"
-          >
-            <a
-              href={CONTACT.whatsappMessage}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold transition-all hover:scale-[1.03]"
+        {/* Imagen de fondo */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/empresas/horno.png"
+          alt="Horno artesanal Eliana Zaia"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+            filter: "brightness(0.45)",
+          }}
+        />
+        {/* Gradiente de abajo hacia arriba */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to top, rgba(0,16,31,0.95) 0%, rgba(0,16,31,0.4) 50%, rgba(0,16,31,0.1) 100%)",
+          }}
+        />
+
+        {/* Texto */}
+        <div className="relative z-10 w-full max-w-3xl px-6 pb-16 md:px-12 md:pb-20">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-4 text-xs uppercase tracking-[0.28em]"
+              style={{ color: "#c7a84b" }}
+            >
+              Para empresas
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              className="text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
               style={{
-                backgroundColor: "#c7a84b",
-                color: "#00101f",
+                fontFamily: "'Noto Serif', serif",
+                fontWeight: 400,
+                letterSpacing: "-0.02em",
+                color: "#fbf9f4",
+              }}
+            >
+              Proveedor de postres{" "}
+              <em className="italic" style={{ color: "#c7a84b" }}>
+                artesanales
+              </em>
+              <br />
+              para supermercados, cadenas
+              <br />
+              y distribuidores en Colombia.
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-6 max-w-md text-sm leading-relaxed md:text-base"
+              style={{ color: "rgba(251,249,244,0.65)" }}
+            >
+              Tu lo imaginas, nosotros lo creamos.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="mt-10 flex flex-col gap-3 sm:flex-row"
+            >
+              <a
+                href={CONTACT.whatsappMessage}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold transition-all hover:scale-[1.03]"
+                style={{
+                  backgroundColor: "#c7a84b",
+                  color: "#00101f",
                 boxShadow: "0 6px 24px rgba(199,168,75,0.3)",
               }}
             >
@@ -139,13 +293,13 @@ export default function ParaEmpresasPage() {
             >
               Escribirnos por email
             </a>
-          </motion.div>
-        </div>
+            </motion.div>
+          </div>
       </section>
 
       {/* Stats — still midnight */}
       <section
-        className="px-6 pb-20"
+        className="px-6 pb-20 pt-16"
         style={{ backgroundColor: "#00101f" }}
       >
         <div className="mx-auto max-w-5xl">
@@ -182,71 +336,11 @@ export default function ParaEmpresasPage() {
         </div>
       </section>
 
-      {/* Servicios — cream */}
-      <section
-        className="px-6 py-20 md:py-28"
-        style={{ backgroundColor: "#fbf9f4" }}
-      >
-        <div className="mx-auto max-w-5xl">
-          <FadeIn>
-            <p
-              className="mb-4 text-xs uppercase tracking-[0.28em]"
-              style={{ color: "#c7a84b" }}
-            >
-              Lo que ofrecemos
-            </p>
-            <h2
-              className="mb-12 text-3xl leading-[1.2] sm:text-4xl"
-              style={{
-                fontFamily: "'Noto Serif', serif",
-                fontWeight: 400,
-                letterSpacing: "-0.02em",
-                color: "#00101f",
-              }}
-            >
-              Tres formas de trabajar juntos.
-            </h2>
-          </FadeIn>
-          <div className="grid gap-6 md:grid-cols-3">
-            {SERVICES.map((s, i) => (
-              <FadeIn key={s.tag} delay={i * 0.1}>
-                <div
-                  className="flex h-full flex-col rounded-2xl p-6 md:p-8"
-                  style={{
-                    backgroundColor: "#ffffff",
-                    boxShadow: "0 2px 16px rgba(0,16,31,0.06)",
-                  }}
-                >
-                  <p
-                    className="mb-4 text-xs uppercase tracking-[0.22em]"
-                    style={{ color: "#c7a84b" }}
-                  >
-                    {s.tag}
-                  </p>
-                  <h3
-                    className="mb-3 text-xl md:text-2xl"
-                    style={{
-                      fontFamily: "'Noto Serif', serif",
-                      fontWeight: 400,
-                      color: "#00101f",
-                    }}
-                  >
-                    {s.title}
-                  </h3>
-                  <p
-                    className="text-sm leading-relaxed"
-                    style={{ color: "#4a5560" }}
-                  >
-                    {s.body}
-                  </p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Servicios — tabs interactivos */}
+      <ServiciosTabs />
 
       {/* Proceso — midnight */}
+
       <section
         className="px-6 py-20 md:py-28"
         style={{ backgroundColor: "#00101f" }}
