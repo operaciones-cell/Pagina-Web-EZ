@@ -153,11 +153,12 @@ function ServiciosTabs() {
           >
             {/* Imagen */}
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl order-2 md:order-1" style={{ backgroundColor: "#f5f3ee" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={tab.image}
                 alt={tab.imageAlt}
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
               />
             </div>
 
@@ -242,11 +243,12 @@ export default function ParaEmpresasPage() {
               border: "2px solid rgba(199,168,75,0.3)",
             }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+              <Image
               src="/images/empresas/horno.png"
               alt="Planta Eliana Zaia"
-              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+              fill
+              sizes="320px"
+              className="object-cover"
             />
           </motion.div>
 

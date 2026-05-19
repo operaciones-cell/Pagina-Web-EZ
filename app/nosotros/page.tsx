@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
@@ -148,11 +149,12 @@ export default function NosotrosPage() {
             {/* Foto Eliana */}
             <FadeIn delay={0.1}>
               <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="/images/nosotros/eliana.jpg"
                   alt="Eliana Zaia"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover object-top"
                 />
               </div>
             </FadeIn>
@@ -208,11 +210,12 @@ export default function NosotrosPage() {
           {/* Foto de proceso */}
           <FadeIn className="mt-12">
             <div className="relative h-64 overflow-hidden rounded-2xl md:h-80">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/images/nosotros/proceso.jpg"
                 alt="Proceso artesanal Eliana Zaia"
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+                fill
+                sizes="100vw"
+                className="object-cover"
               />
               <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(251,249,244,0.3) 0%, rgba(251,249,244,0) 50%)" }} />
             </div>
