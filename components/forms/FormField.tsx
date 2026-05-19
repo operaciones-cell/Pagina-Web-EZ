@@ -1,4 +1,3 @@
-// components/forms/FormField.tsx
 interface FormFieldProps {
   label: string;
   name: string;
@@ -24,15 +23,23 @@ export default function FormField({
   rows,
   maxLength,
 }: FormFieldProps) {
-  const baseClasses =
-    "w-full rounded-lg border bg-white px-4 py-3 text-text-primary outline-none transition-colors focus:border-accent-gold focus:ring-1 focus:ring-accent-gold";
-  const errorClasses = error ? "border-red-400" : "border-gray-200";
+  const base =
+    "w-full rounded-xl px-4 py-3 text-sm outline-none transition-all";
+  const style = {
+    backgroundColor: "rgba(251,249,244,0.06)",
+    border: error ? "1px solid rgba(199,100,100,0.6)" : "1px solid rgba(199,168,75,0.2)",
+    color: "#fbf9f4",
+  };
 
   return (
     <div>
-      <label htmlFor={name} className="mb-1.5 block text-sm font-medium text-text-primary">
+      <label
+        htmlFor={name}
+        className="mb-1.5 block text-xs uppercase tracking-[0.16em]"
+        style={{ color: "rgba(251,249,244,0.5)" }}
+      >
         {label}
-        {required && <span className="text-red-400 ml-1">*</span>}
+        {required && <span className="ml-1" style={{ color: "#c7a84b" }}>*</span>}
       </label>
       {rows ? (
         <textarea
@@ -44,7 +51,8 @@ export default function FormField({
           placeholder={placeholder}
           rows={rows}
           maxLength={maxLength}
-          className={`${baseClasses} ${errorClasses} resize-none`}
+          className={`${base} resize-none`}
+          style={style}
         />
       ) : (
         <input
@@ -56,10 +64,15 @@ export default function FormField({
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
           maxLength={maxLength}
-          className={`${baseClasses} ${errorClasses}`}
+          className={base}
+          style={style}
         />
       )}
-      {error && <p className="mt-1 text-sm text-red-400">{error}</p>}
+      {error && (
+        <p className="mt-1 text-xs" style={{ color: "rgba(199,100,100,0.9)" }}>
+          {error}
+        </p>
+      )}
     </div>
   );
 }

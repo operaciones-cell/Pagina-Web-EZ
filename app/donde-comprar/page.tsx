@@ -1,52 +1,116 @@
-// app/donde-comprar/page.tsx
-import type { Metadata } from "next";
+"use client";
+
+import { useRef } from "react";
 import Link from "next/link";
-import Breadcrumbs from "@/components/seo/Breadcrumbs";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import { motion, useInView } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import { ALLIES } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: "Donde comprar postres Eliana Zaia en Colombia",
-  description: "Encuentra postres artesanales Eliana Zaia en PriceSmart, Exito, D1, Ara, Jumbo, Metro y mas cadenas de Colombia.",
-};
+function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  return (
+    <motion.div ref={ref} initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay }} className={className}>
+      {children}
+    </motion.div>
+  );
+}
 
 export default function DondeComprarPage() {
   return (
-    <div className="min-h-screen bg-bg-warm pt-24">
-      <div className="mx-auto max-w-4xl px-6 pb-16">
-        <Breadcrumbs items={[{ name: "Donde Comprar", href: "/donde-comprar" }]} />
+    <div className="min-h-screen" style={{ backgroundColor: "#fbf9f4" }}>
 
-        <ScrollReveal>
-          <h1 className="font-heading text-4xl md:text-5xl font-bold text-text-primary mt-4">
-            ¿Donde comprar postres Eliana Zaia en Colombia?
-          </h1>
-          <p className="mt-4 text-lg text-text-muted">
-            Encuentra nuestros postres artesanales en las principales cadenas de Colombia.
-          </p>
-        </ScrollReveal>
-
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
-          {ALLIES.map((ally, i) => (
-            <ScrollReveal key={ally.name} delay={i * 0.05}>
-              <div className="flex h-24 items-center justify-center rounded-xl bg-white shadow-sm px-4">
-                <span className="font-semibold text-text-primary text-center">{ally.name}</span>
-              </div>
-            </ScrollReveal>
-          ))}
+      {/* Hero */}
+      <section className="px-6 pb-16 pt-36 md:pb-20 md:pt-44" style={{ backgroundColor: "#fbf9f4" }}>
+        <div className="mx-auto max-w-4xl">
+          <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
+            className="mb-4 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
+            Dónde comprar
+          </motion.p>
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
+            className="text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
+            style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#00101f" }}>
+            Nos encuentras donde{" "}
+            <em className="italic" style={{ color: "#c7a84b" }}>importa.</em>
+          </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-5 max-w-lg text-sm leading-relaxed md:text-base" style={{ color: "#4a5560" }}>
+            Más de 6.500 puntos de venta en 31 de 32 departamentos de Colombia.
+          </motion.p>
         </div>
+      </section>
 
-        <div className="mt-12 text-center space-y-4">
-          <p className="text-text-muted">¿No encuentras nuestros productos en tu zona?</p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contacto" className="rounded-full bg-accent-gold px-8 py-3 font-semibold text-bg-dark transition-colors hover:bg-accent-caramel">
-              Contactanos
-            </Link>
-            <Link href="/para-empresas" className="text-accent-gold hover:text-accent-caramel transition-colors">
-              ¿Eres empresa? &rarr;
-            </Link>
+      {/* Aliados — cream */}
+      <section className="px-6 pb-20 md:pb-28" style={{ backgroundColor: "#fbf9f4" }}>
+        <div className="mx-auto max-w-4xl">
+          <FadeIn>
+            <p className="mb-8 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
+              Nuestros aliados
+            </p>
+          </FadeIn>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+            {ALLIES.map((ally, i) => (
+              <FadeIn key={ally.name} delay={i * 0.06}>
+                <div
+                  className="flex h-20 items-center justify-center rounded-2xl px-4 transition-all duration-300 hover:-translate-y-0.5"
+                  style={{
+                    backgroundColor: "#ffffff",
+                    boxShadow: "0 2px 12px rgba(0,16,31,0.06)",
+                  }}
+                >
+                  <span
+                    className="text-center text-sm font-medium"
+                    style={{ color: "#00101f" }}
+                  >
+                    {ally.name}
+                  </span>
+                </div>
+              </FadeIn>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* CTA — midnight */}
+      <section className="px-6 py-16 md:py-20" style={{ backgroundColor: "#00101f" }}>
+        <div className="mx-auto max-w-4xl">
+          <FadeIn>
+            <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+              <div>
+                <p className="mb-4 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
+                  ¿No nos encuentras?
+                </p>
+                <h2 className="text-3xl leading-[1.2] sm:text-4xl"
+                  style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#fbf9f4" }}>
+                  Escribenos y te ayudamos.
+                </h2>
+                <p className="mt-4 max-w-sm text-sm leading-relaxed" style={{ color: "rgba(251,249,244,0.55)" }}>
+                  Si no encontrás nuestros productos en tu zona, cuéntanos — o si eres empresa y querés distribuirlos.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/contacto"
+                  className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold transition-all hover:scale-[1.03]"
+                  style={{ backgroundColor: "#c7a84b", color: "#00101f", boxShadow: "0 6px 24px rgba(199,168,75,0.3)" }}
+                >
+                  Contactarnos
+                  <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+                <Link
+                  href="/para-empresas"
+                  className="inline-flex items-center rounded-full border-2 px-8 py-4 text-sm font-semibold transition-all hover:scale-[1.03]"
+                  style={{ borderColor: "#c7a84b", color: "#fbf9f4" }}
+                >
+                  Para empresas
+                </Link>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
     </div>
   );
 }

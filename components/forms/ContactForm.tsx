@@ -1,4 +1,3 @@
-// components/forms/ContactForm.tsx
 "use client";
 
 import FormField from "./FormField";
@@ -13,19 +12,23 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-xl bg-green-50 border border-green-200 p-8 text-center">
-        <p className="text-lg font-semibold text-green-800">Mensaje enviado</p>
-        <p className="mt-2 text-green-700">Nos pondremos en contacto contigo pronto.</p>
+      <div
+        className="rounded-2xl p-8 text-center"
+        style={{ backgroundColor: "rgba(199,168,75,0.1)", border: "1px solid rgba(199,168,75,0.25)" }}
+      >
+        <p className="text-lg" style={{ fontFamily: "'Noto Serif', serif", color: "#c7a84b" }}>
+          Mensaje enviado
+        </p>
+        <p className="mt-2 text-sm" style={{ color: "rgba(251,249,244,0.6)" }}>
+          Te respondemos en menos de 24 horas.
+        </p>
       </div>
     );
   }
 
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        submit();
-      }}
+      onSubmit={(e) => { e.preventDefault(); submit(); }}
       className="space-y-5"
     >
       <FormField
@@ -46,7 +49,7 @@ export default function ContactForm() {
         error={errors.email}
       />
       <FormField
-        label="Telefono"
+        label="Teléfono"
         name="telefono"
         type="tel"
         required
@@ -64,18 +67,18 @@ export default function ContactForm() {
       />
 
       {status === "error" && (
-        <p className="text-sm text-red-500">
+        <p className="text-sm" style={{ color: "#c7a84b" }}>
           Error al enviar. Intentalo de nuevo o{" "}
-          <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="underline">
-            contactanos por WhatsApp
-          </a>.
+          <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer"
+            className="underline">contactanos por WhatsApp</a>.
         </p>
       )}
 
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full rounded-lg bg-accent-gold px-6 py-3 font-semibold text-bg-dark transition-colors hover:bg-accent-caramel disabled:opacity-60"
+        className="w-full rounded-full py-4 text-sm font-semibold transition-all hover:scale-[1.02] disabled:opacity-60"
+        style={{ backgroundColor: "#c7a84b", color: "#00101f", boxShadow: "0 6px 24px rgba(199,168,75,0.25)" }}
       >
         {status === "loading" ? "Enviando..." : "Enviar mensaje"}
       </button>

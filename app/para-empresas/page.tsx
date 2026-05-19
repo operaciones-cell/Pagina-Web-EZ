@@ -194,107 +194,97 @@ function ServiciosTabs() {
 export default function ParaEmpresasPage() {
   return (
     <div className="min-h-screen">
-      {/* Hero — fondo horno con gradiente */}
+      {/* Hero — estilo Ladurée, cream centrado */}
       <section
-        className="relative flex h-screen items-end overflow-hidden"
-        style={{ backgroundColor: "#00101f" }}
+        className="px-6 pb-16 pt-36 md:pb-20 md:pt-44 text-center"
+        style={{ backgroundColor: "#fbf9f4" }}
       >
-        {/* Imagen de fondo */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/empresas/horno.png"
-          alt="Horno artesanal Eliana Zaia"
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center",
-            filter: "brightness(0.45)",
-          }}
-        />
-        {/* Gradiente de abajo hacia arriba */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to top, rgba(0,16,31,0.95) 0%, rgba(0,16,31,0.4) 50%, rgba(0,16,31,0.1) 100%)",
-          }}
-        />
+        <div className="mx-auto max-w-4xl">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-6 text-xs uppercase tracking-[0.28em]"
+            style={{ color: "#c7a84b" }}
+          >
+            Para empresas
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+            style={{
+              fontFamily: "'Noto Serif', serif",
+              fontWeight: 400,
+              letterSpacing: "-0.02em",
+              color: "#00101f",
+            }}
+          >
+            Proveedor de postres{" "}
+            <em className="italic" style={{ color: "#c7a84b" }}>artesanales</em>
+            <br />
+            para supermercados, cadenas
+            <br />
+            y distribuidores en Colombia.
+          </motion.h1>
 
-        {/* Texto */}
-        <div className="relative z-10 w-full max-w-3xl px-6 pb-16 md:px-12 md:pb-20">
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mb-4 text-xs uppercase tracking-[0.28em]"
-              style={{ color: "#c7a84b" }}
-            >
-              Para empresas
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              className="text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
-              style={{
-                fontFamily: "'Noto Serif', serif",
-                fontWeight: 400,
-                letterSpacing: "-0.02em",
-                color: "#fbf9f4",
-              }}
-            >
-              Proveedor de postres{" "}
-              <em className="italic" style={{ color: "#c7a84b" }}>
-                artesanales
-              </em>
-              <br />
-              para supermercados, cadenas
-              <br />
-              y distribuidores en Colombia.
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-6 max-w-md text-sm leading-relaxed md:text-base"
-              style={{ color: "rgba(251,249,244,0.65)" }}
-            >
-              Tu lo imaginas, nosotros lo creamos.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="mt-10 flex flex-col gap-3 sm:flex-row"
-            >
-              <a
-                href={CONTACT.whatsappMessage}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold transition-all hover:scale-[1.03]"
-                style={{
-                  backgroundColor: "#c7a84b",
-                  color: "#00101f",
-                boxShadow: "0 6px 24px rgba(199,168,75,0.3)",
-              }}
+          {/* Imagen circular */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mx-auto mt-12 overflow-hidden"
+            style={{
+              width: "320px",
+              height: "320px",
+              borderRadius: "50%",
+              border: "2px solid rgba(199,168,75,0.3)",
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/empresas/horno.png"
+              alt="Planta Eliana Zaia"
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+            />
+          </motion.div>
+
+          {/* Subtítulo y CTAs */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="mx-auto mt-8 max-w-md text-sm leading-relaxed md:text-base"
+            style={{ color: "#4a5560" }}
+          >
+            Tu lo imaginas, nosotros lo creamos.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.75 }}
+            className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
+          >
+            <a
+              href={CONTACT.whatsappMessage}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold transition-all hover:scale-[1.03]"
+              style={{ backgroundColor: "#c7a84b", color: "#00101f", boxShadow: "0 6px 24px rgba(199,168,75,0.3)" }}
             >
               Hablemos por WhatsApp
-              <ArrowUpRight
-                size={16}
-                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              />
+              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
               href={`mailto:${CONTACT.email}`}
               className="inline-flex items-center gap-2 rounded-full border-2 px-8 py-4 text-sm font-semibold transition-all hover:scale-[1.03]"
-              style={{ borderColor: "rgba(199,168,75,0.4)", color: "#fbf9f4" }}
+              style={{ borderColor: "#c7a84b", color: "#00101f" }}
             >
               Escribirnos por email
             </a>
-            </motion.div>
-          </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Stats — still midnight */}

@@ -5,29 +5,6 @@ import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
-function Section({
-  children,
-  bg = "cream",
-  className = "",
-}: {
-  children: React.ReactNode;
-  bg?: "cream" | "midnight";
-  className?: string;
-}) {
-  const ref = useRef<HTMLElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-  return (
-    <section
-      ref={ref}
-      className={`px-6 py-20 md:py-28 ${className}`}
-      style={{ backgroundColor: bg === "cream" ? "#fbf9f4" : "#00101f" }}
-      data-inview={inView}
-    >
-      <div className="mx-auto max-w-4xl">{children}</div>
-    </section>
-  );
-}
-
 function FadeIn({
   children,
   delay = 0,
@@ -54,41 +31,44 @@ function FadeIn({
 
 const TIMELINE = [
   {
-    year: "1950s",
-    heading: "Las raíces",
-    body: "El padre de Eliana llega de Italia a Colombia. Trae consigo una técnica, un rigor, y una forma de entender el dulce que no se aprende — se hereda.",
-  },
-  {
-    year: "1998",
-    heading: "El comienzo",
-    body: "Eliana abre un horno informal en Zipaquirá. Sin etiquetas, sin distribución masiva. Solo recetas perfeccionadas y la paciencia que el oficio exige.",
-  },
-  {
     year: "2010",
     heading: "La marca",
-    body: "Eliana Zaia se formaliza. Los postres salen de la cocina y llegan a los primeros aliados comerciales de la región.",
+    body: "Eliana Zaia se formaliza y llega a los primeros aliados comerciales de la región.",
   },
   {
     year: "2016",
     heading: "Las cadenas",
-    body: "Ingreso a las principales cadenas nacionales. La técnica artesanal sobrevive la escala — ese es el diferencial.",
+    body: "Ingreso a las principales cadenas nacionales. La técnica artesanal sobrevive la escala.",
   },
   {
     year: "2024",
     heading: "Grupo Radici",
-    body: "Nace el Grupo Radici. Eliana Zaia, El Tinto, EZ Treats, Moldeza y Radici Wealth Management. Una familia de empresas con raíces comunes.",
+    body: "Nace el Grupo Radici — la familia de empresas que hoy da estructura al legado de Eliana Zaia.",
   },
+  {
+    year: "2026",
+    heading: "Lima",
+    body: "Lo que comenzó en un horno en Zipaquirá hoy cruza fronteras.",
+  },
+];
+
+const VALORES = [
+  { valor: "Oficio", desc: "Cada postre se elabora respetando su tiempo, su técnica y cada detalle del proceso." },
+  { valor: "Herencia", desc: "Una tradición inspirada en la técnica italiana y desarrollada con identidad propia en Colombia." },
+  { valor: "Autenticidad", desc: "Ingredientes seleccionados y procesos artesanales que ponen el sabor y la calidad por encima de todo." },
+  { valor: "Escala con carácter", desc: "Crecemos y llegamos a todo el país manteniendo la esencia que nos distingue." },
 ];
 
 export default function NosotrosPage() {
   return (
     <div className="min-h-screen">
+
       {/* Hero — cream */}
       <section
-        className="relative flex min-h-[60vh] flex-col justify-end px-6 pb-16 pt-36 md:pt-44 md:pb-20"
+        className="relative flex min-h-[70vh] flex-col justify-end px-6 pb-16 pt-36 md:pt-44 md:pb-24"
         style={{ backgroundColor: "#fbf9f4" }}
       >
-        <div className="mx-auto max-w-4xl w-full">
+        <div className="mx-auto max-w-5xl w-full">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -102,7 +82,7 @@ export default function NosotrosPage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
+            className="text-5xl leading-[1.05] tracking-tight sm:text-6xl md:text-7xl"
             style={{
               fontFamily: "'Noto Serif', serif",
               fontWeight: 400,
@@ -131,102 +111,91 @@ export default function NosotrosPage() {
       </section>
 
       {/* Origen — midnight */}
-      <section
-        className="px-6 py-20 md:py-28"
-        style={{ backgroundColor: "#00101f" }}
-      >
-        <div className="mx-auto max-w-4xl">
-          <FadeIn>
-            <p
-              className="mb-6 text-xs uppercase tracking-[0.28em]"
-              style={{ color: "#c7a84b" }}
-            >
-              El origen
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <h2
-              className="mb-8 text-3xl leading-[1.2] sm:text-4xl md:text-5xl"
-              style={{
-                fontFamily: "'Noto Serif', serif",
-                fontWeight: 400,
-                letterSpacing: "-0.02em",
-                color: "#fbf9f4",
-              }}
-            >
-              Un padre italiano.
-              <br />
-              Una hija con el oficio en las manos.
-            </h2>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <div className="max-w-2xl space-y-5">
-              <p
-                className="text-base leading-relaxed md:text-lg"
-                style={{ color: "rgba(251,249,244,0.7)" }}
-              >
-                El padre de Eliana llegó de Italia después de la guerra. Traía
-                una forma de entender la repostería que no se improvisa: rigor,
-                paciencia, ingredientes de primera. Esa técnica pasó de mano en
-                mano sin que nadie lo planeara.
-              </p>
-              <p
-                className="text-base leading-relaxed md:text-lg"
-                style={{ color: "rgba(251,249,244,0.7)" }}
-              >
-                En 1998, Eliana encendió un horno en Zipaquirá. No había
-                distribución, ni etiqueta, ni plan de negocios. Había recetas —
-                y la certeza de que un buen postre no necesita explicaciones.
-              </p>
+      <section className="px-6 py-20 md:py-28" style={{ backgroundColor: "#00101f" }}>
+        <div className="mx-auto max-w-5xl">
+          <div className="grid gap-12 md:grid-cols-2 md:gap-16 md:items-center">
+            {/* Texto */}
+            <div>
+              <FadeIn>
+                <p className="mb-6 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
+                  El origen
+                </p>
+                <h2
+                  className="mb-8 text-3xl leading-[1.2] sm:text-4xl md:text-5xl"
+                  style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#fbf9f4" }}
+                >
+                  Un padre italiano.
+                  <br />
+                  Una hija que convirtió
+                  <br />
+                  el oficio en legado.
+                </h2>
+              </FadeIn>
+              <FadeIn delay={0.15}>
+                <div className="space-y-5">
+                  <p className="text-base leading-relaxed md:text-lg" style={{ color: "rgba(251,249,244,0.7)" }}>
+                    Eliana creció aprendiendo la técnica de su padre. En 1998,
+                    comenzó a darle su propia identidad.
+                  </p>
+                  <p className="text-base leading-relaxed md:text-lg" style={{ color: "rgba(251,249,244,0.7)" }}>
+                    No había etiquetas ni canales de distribución; solo recetas,
+                    técnica y la convicción de que un buen postre habla por sí solo.
+                  </p>
+                </div>
+              </FadeIn>
             </div>
-          </FadeIn>
+
+            {/* Foto Eliana */}
+            <FadeIn delay={0.1}>
+              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/nosotros/eliana.jpg"
+                  alt="Eliana Zaia"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+                />
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
-      {/* Timeline — cream */}
-      <section
-        className="px-6 py-20 md:py-28"
-        style={{ backgroundColor: "#fbf9f4" }}
-      >
-        <div className="mx-auto max-w-4xl">
+      {/* Timeline — cream con años grandes */}
+      <section className="px-6 py-20 md:py-28" style={{ backgroundColor: "#fbf9f4" }}>
+        <div className="mx-auto max-w-5xl">
           <FadeIn>
-            <p
-              className="mb-12 text-xs uppercase tracking-[0.28em]"
-              style={{ color: "#c7a84b" }}
-            >
+            <p className="mb-16 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
               El recorrido
             </p>
           </FadeIn>
-          <div className="space-y-0">
+          <div>
             {TIMELINE.map((item, i) => (
               <FadeIn key={item.year} delay={i * 0.08}>
                 <div
-                  className="flex gap-8 border-t py-8 md:py-10"
+                  className="grid border-t py-8 md:grid-cols-[200px_1fr] md:py-10 md:gap-12"
                   style={{ borderColor: "rgba(199,168,75,0.2)" }}
                 >
-                  <div className="w-16 flex-shrink-0 md:w-20">
+                  <div>
                     <span
-                      className="text-sm font-medium"
-                      style={{ color: "#c7a84b" }}
+                      className="text-5xl md:text-7xl"
+                      style={{
+                        fontFamily: "'Noto Serif', serif",
+                        fontWeight: 400,
+                        color: "rgba(199,168,75,0.25)",
+                        lineHeight: 1,
+                      }}
                     >
                       {item.year}
                     </span>
                   </div>
-                  <div className="flex-1">
+                  <div className="mt-3 md:mt-0 md:pt-2">
                     <h3
                       className="mb-2 text-lg md:text-xl"
-                      style={{
-                        fontFamily: "'Noto Serif', serif",
-                        fontWeight: 400,
-                        color: "#00101f",
-                      }}
+                      style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, color: "#00101f" }}
                     >
                       {item.heading}
                     </h3>
-                    <p
-                      className="text-sm leading-relaxed md:text-base"
-                      style={{ color: "#4a5560" }}
-                    >
+                    <p className="text-sm leading-relaxed md:text-base" style={{ color: "#4a5560" }}>
                       {item.body}
                     </p>
                   </div>
@@ -235,144 +204,110 @@ export default function NosotrosPage() {
             ))}
             <div style={{ borderTop: "1px solid rgba(199,168,75,0.2)" }} />
           </div>
+
+          {/* Foto de proceso */}
+          <FadeIn className="mt-12">
+            <div className="relative h-64 overflow-hidden rounded-2xl md:h-80">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/nosotros/proceso.jpg"
+                alt="Proceso artesanal Eliana Zaia"
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+              />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(251,249,244,0.3) 0%, rgba(251,249,244,0) 50%)" }} />
+            </div>
+          </FadeIn>
         </div>
       </section>
 
-      {/* El oficio — midnight */}
-      <section
-        className="px-6 py-20 md:py-28"
-        style={{ backgroundColor: "#00101f" }}
-      >
-        <div className="mx-auto max-w-4xl">
-          <div className="grid gap-12 md:grid-cols-2 md:gap-16 md:items-center">
-            <FadeIn>
-              <p
-                className="mb-6 text-xs uppercase tracking-[0.28em]"
-                style={{ color: "#c7a84b" }}
-              >
-                El oficio
-              </p>
-              <h2
-                className="mb-6 text-3xl leading-[1.2] sm:text-4xl"
-                style={{
-                  fontFamily: "'Noto Serif', serif",
-                  fontWeight: 400,
-                  letterSpacing: "-0.02em",
-                  color: "#fbf9f4",
-                }}
-              >
-                Artesanal a escala nacional.
-              </h2>
-              <p
-                className="text-base leading-relaxed"
-                style={{ color: "rgba(251,249,244,0.7)" }}
-              >
-                La mayoría de las marcas eligen entre calidad artesanal y
-                distribución masiva. Eliana Zaia eligió los dos — y pasó 26
-                años demostrando que no son opuestos.
-              </p>
-            </FadeIn>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { number: "31/32", label: "departamentos" },
-                { number: "6.500+", label: "puntos de venta" },
-                { number: "26", label: "años de oficio" },
-                { number: "8", label: "cadenas nacionales" },
-              ].map((stat, i) => (
-                <FadeIn key={stat.label} delay={i * 0.08}>
-                  <div
-                    className="rounded-2xl p-5"
-                    style={{
-                      backgroundColor: "rgba(251,249,244,0.05)",
-                      border: "1px solid rgba(199,168,75,0.15)",
-                    }}
-                  >
-                    <p
-                      className="text-2xl md:text-3xl"
-                      style={{
-                        fontFamily: "'Noto Serif', serif",
-                        fontWeight: 400,
-                        color: "#c7a84b",
-                      }}
-                    >
-                      {stat.number}
-                    </p>
-                    <p
-                      className="mt-1 text-xs"
-                      style={{ color: "rgba(251,249,244,0.5)" }}
-                    >
-                      {stat.label}
-                    </p>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
+      {/* Lo que creemos — midnight */}
+      <section className="px-6 py-20 md:py-28" style={{ backgroundColor: "#00101f" }}>
+        <div className="mx-auto max-w-5xl">
+          <FadeIn>
+            <p className="mb-10 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
+              Nuestra razón de ser
+            </p>
+          </FadeIn>
+
+          {/* Frases grandes */}
+          <div className="mb-16 space-y-4">
+            {[
+              "Creemos que un postre bien hecho no necesita explicaciones.",
+              "Que artesanal y nacional no son opuestos.",
+              "Que la técnica italiana tiene mucho que decirle al sabor latino.",
+            ].map((frase, i) => (
+              <FadeIn key={i} delay={i * 0.1}>
+                <p
+                  className="text-2xl leading-snug md:text-3xl lg:text-4xl"
+                  style={{
+                    fontFamily: "'Noto Serif', serif",
+                    fontWeight: 400,
+                    color: "#fbf9f4",
+                    opacity: 1 - i * 0.2,
+                  }}
+                >
+                  {frase}
+                </p>
+              </FadeIn>
+            ))}
+          </div>
+
+          {/* Valores */}
+          <div className="grid gap-px sm:grid-cols-2" style={{ backgroundColor: "rgba(199,168,75,0.12)" }}>
+            {VALORES.map((v, i) => (
+              <FadeIn key={v.valor} delay={i * 0.08}>
+                <div className="p-6 md:p-8" style={{ backgroundColor: "#00101f" }}>
+                  <p className="mb-3 text-xs uppercase tracking-[0.22em]" style={{ color: "#c7a84b" }}>
+                    {v.valor}
+                  </p>
+                  <p className="text-sm leading-relaxed" style={{ color: "rgba(251,249,244,0.6)" }}>
+                    {v.desc}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA — cream */}
-      <section
-        className="px-6 py-20 md:py-28"
-        style={{ backgroundColor: "#fbf9f4" }}
-      >
-        <div className="mx-auto max-w-4xl">
+      <section className="px-6 py-20 md:py-28" style={{ backgroundColor: "#fbf9f4" }}>
+        <div className="mx-auto max-w-5xl">
           <FadeIn>
             <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
               <div>
-                <p
-                  className="mb-4 text-xs uppercase tracking-[0.28em]"
-                  style={{ color: "#c7a84b" }}
-                >
-                  Siguiente paso
+                <p className="mb-4 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
+                  Conoce más
                 </p>
                 <h2
                   className="text-3xl leading-[1.2] sm:text-4xl"
-                  style={{
-                    fontFamily: "'Noto Serif', serif",
-                    fontWeight: 400,
-                    letterSpacing: "-0.02em",
-                    color: "#00101f",
-                  }}
+                  style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#00101f" }}
                 >
-                  ¿Producimos juntos?
+                  ¿Quieres conocer el grupo?
                 </h2>
-                <p
-                  className="mt-4 max-w-sm text-sm leading-relaxed md:text-base"
-                  style={{ color: "#4a5560" }}
-                >
-                  Para cadenas, distribuidores y marcas blancas — con la misma
-                  técnica que nos trajo hasta aquí.
-                </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href="/para-empresas"
-                  className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold transition-all hover:scale-[1.03]"
-                  style={{
-                    backgroundColor: "#c7a84b",
-                    color: "#00101f",
-                    boxShadow: "0 6px 24px rgba(199,168,75,0.3)",
-                  }}
-                >
-                  Para empresas
-                  <ArrowUpRight
-                    size={16}
-                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  />
-                </Link>
-                <Link
                   href="/grupo-radici"
-                  className="inline-flex items-center gap-2 rounded-full border-2 px-8 py-4 text-sm font-semibold transition-all hover:scale-[1.03]"
-                  style={{ borderColor: "#c7a84b", color: "#00101f" }}
+                  className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold transition-all hover:scale-[1.03]"
+                  style={{ backgroundColor: "#c7a84b", color: "#00101f", boxShadow: "0 6px 24px rgba(199,168,75,0.3)" }}
                 >
                   Grupo Radici
+                  <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+                <Link
+                  href="/productos"
+                  className="inline-flex items-center rounded-full border-2 px-8 py-4 text-sm font-semibold transition-all hover:scale-[1.03]"
+                  style={{ borderColor: "#c7a84b", color: "#00101f" }}
+                >
+                  Nuestros productos
                 </Link>
               </div>
             </div>
           </FadeIn>
         </div>
       </section>
+
     </div>
   );
 }
