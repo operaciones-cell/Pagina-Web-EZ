@@ -235,6 +235,7 @@ export default function ParaEmpresasPage() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mx-auto mt-12 overflow-hidden"
             style={{
+              position: "relative",
               width: "320px",
               height: "320px",
               borderRadius: "50%",
