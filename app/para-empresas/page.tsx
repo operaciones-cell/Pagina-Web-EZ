@@ -195,7 +195,7 @@ export default function ParaEmpresasPage() {
     <div className="min-h-screen">
       {/* Hero — fondo horno oscuro con texto abajo izquierda */}
       <section
-        className="relative flex min-h-screen items-end overflow-hidden"
+        className="relative min-h-screen overflow-hidden"
         style={{ backgroundColor: "#00101f" }}
       >
         <Image
@@ -211,20 +211,14 @@ export default function ParaEmpresasPage() {
           className="absolute inset-0"
           style={{ background: "linear-gradient(to top, rgba(0,16,31,0.95) 0%, rgba(0,16,31,0.4) 50%, rgba(0,16,31,0.1) 100%)" }}
         />
-        <div className="relative z-10 w-full max-w-3xl px-6 pb-16 md:px-12 md:pb-20">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+        <div className="absolute bottom-0 left-0 z-10 w-full max-w-3xl px-6 pb-16 md:px-12 md:pb-20">
+          <p
             className="mb-4 text-xs uppercase tracking-[0.28em]"
             style={{ color: "#c7a84b" }}
           >
             Para empresas
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
+          </p>
+          <h1
             className="text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
             style={{
               fontFamily: "'Noto Serif', serif",
@@ -239,22 +233,14 @@ export default function ParaEmpresasPage() {
             para supermercados, cadenas
             <br />
             y distribuidores en Colombia.
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+          </h1>
+          <p
             className="mt-6 max-w-md text-sm leading-relaxed md:text-base"
             style={{ color: "rgba(251,249,244,0.65)" }}
           >
             Tu lo imaginas, nosotros lo creamos.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="mt-10 flex flex-col gap-3 sm:flex-row"
-          >
+          </p>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <a
               href={CONTACT.whatsappMessage}
               target="_blank"
@@ -272,7 +258,7 @@ export default function ParaEmpresasPage() {
             >
               Escribirnos por email
             </a>
-          </motion.div>
+          </div>
         </div>
       </section>
 
