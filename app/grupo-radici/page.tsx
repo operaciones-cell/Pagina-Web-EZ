@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { GRUPO_RADICI, CONTACT } from "@/lib/constants";
 
@@ -15,13 +14,11 @@ function FadeIn({
   delay?: number;
   className?: string;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
   return (
     <motion.div
-      ref={ref}
       initial={{ opacity: 0, y: 24 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.7, delay }}
       className={className}
     >
