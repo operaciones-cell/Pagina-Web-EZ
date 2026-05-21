@@ -62,10 +62,8 @@ export default function DondeComprarPage() {
                     src={ally.logo}
                     alt={ally.name}
                     style={{
-                      maxHeight: "36px",
-                      maxWidth: "100%",
-                      width: "auto",
-                      height: "auto",
+                      width: "100%",
+                      height: "100%",
                       objectFit: "contain",
                       display: "block",
                     }}
