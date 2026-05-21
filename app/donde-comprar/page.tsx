@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { ALLIES } from "@/lib/constants";
@@ -51,22 +52,31 @@ export default function DondeComprarPage() {
               Nuestros aliados
             </p>
           </FadeIn>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {ALLIES.map((ally, i) => (
               <FadeIn key={ally.name} delay={i * 0.06}>
                 <div
-                  className="flex h-20 items-center justify-center rounded-2xl px-4 transition-all duration-300 hover:-translate-y-0.5"
+                  className="flex h-24 items-center justify-center rounded-2xl px-4 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
                   style={{
                     backgroundColor: "#ffffff",
                     boxShadow: "0 2px 12px rgba(0,16,31,0.06)",
                   }}
                 >
-                  <span
-                    className="text-center text-sm font-medium"
-                    style={{ color: "#00101f" }}
-                  >
-                    {ally.name}
-                  </span>
+                  {ally.logo ? (
+                    <div className="relative h-12 w-full">
+                      <Image
+                        src={ally.logo}
+                        alt={ally.name}
+                        fill
+                        sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, 50vw"
+                        className="object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <span className="text-center text-sm font-medium" style={{ color: "#00101f" }}>
+                      {ally.name}
+                    </span>
+                  )}
                 </div>
               </FadeIn>
             ))}

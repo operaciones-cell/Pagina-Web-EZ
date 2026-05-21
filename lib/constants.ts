@@ -275,6 +275,8 @@ export const ALLIES: Ally[] = [
   { name: "Cencosud", logo: "/images/allies/cencosud.svg" },
   { name: "Tiendas D1", logo: "/images/allies/d1.svg" },
   { name: "Tiendas Ara", logo: "/images/allies/ara.svg" },
+  { name: "Novaventas", logo: "/images/allies/novaventas.svg" },
+  { name: "Rappi", logo: "/images/allies/rappi.svg" },
 ];
 
 export const GRUPO_RADICI: GrupoEmpresa[] = [
