@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { ALLIES } from "@/lib/constants";
@@ -62,21 +61,12 @@ export default function DondeComprarPage() {
                     boxShadow: "0 2px 12px rgba(0,16,31,0.06)",
                   }}
                 >
-                  {ally.logo ? (
-                    <div className="relative h-12 w-full">
-                      <Image
-                        src={ally.logo}
-                        alt={ally.name}
-                        fill
-                        sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, 50vw"
-                        className="object-contain"
-                      />
-                    </div>
-                  ) : (
-                    <span className="text-center text-sm font-medium" style={{ color: "#00101f" }}>
-                      {ally.name}
-                    </span>
-                  )}
+                  <img
+                    src={ally.logo}
+                    alt={ally.name}
+                    className="max-h-12 max-w-[80%] object-contain"
+                    style={{ width: "auto", height: "auto", mixBlendMode: "multiply" }}
+                  />
                 </div>
               </FadeIn>
             ))}
