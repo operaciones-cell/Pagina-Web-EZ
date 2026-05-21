@@ -196,21 +196,14 @@ export default function ParaEmpresasPage() {
       {/* Hero — fondo horno oscuro con texto abajo izquierda */}
       <section
         className="relative min-h-screen overflow-hidden"
-        style={{ backgroundColor: "#00101f" }}
+        style={{
+          backgroundColor: "#00101f",
+          backgroundImage: "linear-gradient(to top, rgba(0,16,31,0.95) 0%, rgba(0,16,31,0.4) 50%, rgba(0,16,31,0.1) 100%), url('/images/empresas/horno.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
       >
-        <Image
-          src="/images/empresas/horno.png"
-          alt="Horno artesanal Eliana Zaia"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-          style={{ filter: "brightness(0.45)" }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(to top, rgba(0,16,31,0.95) 0%, rgba(0,16,31,0.4) 50%, rgba(0,16,31,0.1) 100%)" }}
-        />
         <div className="absolute bottom-0 left-0 z-10 w-full max-w-3xl px-6 pb-16 md:px-12 md:pb-20">
           <p
             className="mb-4 text-xs uppercase tracking-[0.28em]"
