@@ -21,10 +21,10 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 export default function DondeComprarPage() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#fbf9f4" }}>
+    <div className="min-h-screen" style={{ backgroundColor: "#00101f" }}>
 
       {/* Hero */}
-      <section className="px-6 pb-16 pt-36 md:pb-20 md:pt-44" style={{ backgroundColor: "#fbf9f4" }}>
+      <section className="px-6 pb-16 pt-36 md:pb-20 md:pt-44" style={{ backgroundColor: "#00101f" }}>
         <div className="mx-auto max-w-4xl">
           <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
             className="mb-4 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
@@ -32,40 +32,45 @@ export default function DondeComprarPage() {
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
-            style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#00101f" }}>
+            style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#fbf9f4" }}>
             Nos encuentras donde{" "}
             <em className="italic" style={{ color: "#c7a84b" }}>importa.</em>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-5 max-w-lg text-sm leading-relaxed md:text-base" style={{ color: "#4a5560" }}>
+            className="mt-5 max-w-lg text-sm leading-relaxed md:text-base" style={{ color: "rgba(251,249,244,0.6)" }}>
             Más de 6.500 puntos de venta en 31 de 32 departamentos de Colombia.
           </motion.p>
         </div>
       </section>
 
-      {/* Aliados — cream */}
-      <section className="px-6 pb-20 md:pb-28" style={{ backgroundColor: "#fbf9f4" }}>
+      {/* Aliados — midnight */}
+      <section className="px-6 pb-20 md:pb-28" style={{ backgroundColor: "#00101f" }}>
         <div className="mx-auto max-w-4xl">
           <FadeIn>
             <p className="mb-8 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
               Nuestros aliados
             </p>
           </FadeIn>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {ALLIES.map((ally, i) => (
               <FadeIn key={ally.name} delay={i * 0.06}>
                 <div
-                  className="flex h-24 items-center justify-center rounded-2xl px-4 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+                  className="flex h-24 items-center justify-center rounded-2xl p-4 transition-all duration-300 hover:-translate-y-0.5"
                   style={{
-                    backgroundColor: "#ffffff",
-                    boxShadow: "0 2px 12px rgba(0,16,31,0.06)",
+                    backgroundColor: "rgba(251,249,244,0.05)",
+                    border: "1px solid rgba(199,168,75,0.1)",
                   }}
                 >
                   <img
                     src={ally.logo}
                     alt={ally.name}
-                    className="max-h-12 max-w-[80%] object-contain"
-                    style={{ width: "auto", height: "auto", mixBlendMode: "multiply" }}
+                    style={{
+                      maxHeight: "48px",
+                      maxWidth: "100%",
+                      width: "auto",
+                      height: "auto",
+                      objectFit: "contain",
+                    }}
                   />
                 </div>
               </FadeIn>
