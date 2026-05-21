@@ -55,24 +55,18 @@ export default function DondeComprarPage() {
             {ALLIES.map((ally, i) => (
               <FadeIn key={ally.name} delay={i * 0.06}>
                 <div
-                  className="flex h-20 items-center justify-center rounded-xl p-4 transition-all duration-300 hover:-translate-y-0.5"
+                  className="flex h-16 items-center justify-center rounded-xl px-4 transition-all duration-300 hover:-translate-y-0.5"
                   style={{
                     backgroundColor: "rgba(251,249,244,0.04)",
                     border: "1px solid rgba(199,168,75,0.12)",
                   }}
                 >
-                  <img
-                    src={ally.logo}
-                    alt={ally.name}
-                    style={{
-                      maxHeight: "40px",
-                      maxWidth: "90%",
-                      width: "auto",
-                      height: "auto",
-                      objectFit: "contain",
-                      display: "block",
-                    }}
-                  />
+                  <span
+                    className="text-center text-xs font-medium uppercase tracking-[0.12em]"
+                    style={{ color: "rgba(251,249,244,0.75)" }}
+                  >
+                    {ally.name}
+                  </span>
                 </div>
               </FadeIn>
             ))}
