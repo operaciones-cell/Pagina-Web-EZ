@@ -270,7 +270,7 @@ export const ALLIES: Ally[] = [
   { name: "PriceSmart", logo: "/images/allies/pricesmart.svg" },
   { name: "Grupo Exito", logo: "/images/allies/exito.svg" },
   { name: "Mercaldas", logo: "/images/allies/mercaldas.svg" },
-  { name: "Isimo Mercado", logo: "/images/allies/isimo.jpg" },
+  { name: "Isimo Mercado", logo: "/images/allies/isimo.svg" },
   { name: "Kokoriko", logo: "/images/allies/kokoriko.jpg" },
   { name: "Cencosud", logo: "/images/allies/cencosud.svg" },
   { name: "Tiendas D1", logo: "/images/allies/d1.svg" },
