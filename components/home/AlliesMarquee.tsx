@@ -6,22 +6,23 @@ import { ALLIES } from "@/lib/constants";
 export default function AlliesMarquee() {
   return (
     <section
-      className="py-32 md:py-44"
+      className="py-24 md:py-32"
       style={{ backgroundColor: "#f5f3ee" }}
     >
-      <div className="max-w-7xl mx-auto px-6 mb-20 flex flex-col sm:flex-row items-center justify-between gap-4">
+      {/* Header */}
+      <div className="max-w-7xl mx-auto px-6 mb-14 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
         <div>
           <p
-            className="mb-4 text-sm uppercase tracking-[0.3em]"
-            style={{ color: "var(--color-gold)" }}
+            className="mb-3 text-xs uppercase tracking-[0.3em]"
+            style={{ color: "#c7a84b" }}
           >
             Nuestros aliados
           </p>
           <h2
-            className="text-4xl md:text-5xl tracking-tight"
+            className="text-3xl md:text-4xl"
             style={{
               fontFamily: "'Noto Serif', serif",
-              color: "var(--color-ink)",
+              color: "#00101f",
               fontWeight: 400,
               letterSpacing: "-0.02em",
             }}
@@ -31,19 +32,24 @@ export default function AlliesMarquee() {
         </div>
         <Link
           href="/donde-comprar"
-          className="text-sm uppercase tracking-[0.22em] transition-colors"
-          style={{ color: "var(--color-gold)" }}
+          className="text-xs uppercase tracking-[0.22em] transition-opacity hover:opacity-60 whitespace-nowrap"
+          style={{ color: "#c7a84b" }}
         >
-          Ver puntos de venta &rarr;
+          Ver todos →
         </Link>
       </div>
 
-      <div className="overflow-hidden group">
+      {/* Línea superior */}
+      <div style={{ borderTop: "1px solid rgba(0,16,31,0.1)" }} />
+
+      {/* Marquee */}
+      <div className="overflow-hidden py-8">
         <div
-          className="flex w-max gap-16 items-center"
+          className="flex w-max items-center"
           style={{
-            animation: "marquee 30s linear infinite",
+            animation: "marquee 35s linear infinite",
             animationPlayState: "running",
+            gap: "0",
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.animationPlayState = "paused";
@@ -55,28 +61,49 @@ export default function AlliesMarquee() {
           {[...ALLIES, ...ALLIES].map((ally, i) => (
             <div
               key={`${ally.name}-${i}`}
-              className="flex items-center justify-center transition-all duration-500 opacity-50 hover:opacity-100"
-              style={{ minWidth: "160px" }}
+              className="flex items-center"
             >
               <span
-                className="text-sm font-medium uppercase tracking-[0.2em] whitespace-nowrap"
-                style={{ color: "var(--color-ink)" }}
+                className="text-base md:text-lg font-normal whitespace-nowrap transition-all duration-300 hover:opacity-100 cursor-default"
+                style={{
+                  fontFamily: "'Noto Serif', serif",
+                  color: "#00101f",
+                  opacity: 0.45,
+                  letterSpacing: "-0.01em",
+                  padding: "0 3rem",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLSpanElement).style.opacity = "1";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLSpanElement).style.opacity = "0.45";
+                }}
               >
                 {ally.name}
+              </span>
+              {/* Separador */}
+              <span
+                style={{
+                  color: "#c7a84b",
+                  opacity: 0.4,
+                  fontSize: "0.5rem",
+                  flexShrink: 0,
+                }}
+              >
+                ◆
               </span>
             </div>
           ))}
         </div>
       </div>
 
+      {/* Línea inferior */}
+      <div style={{ borderBottom: "1px solid rgba(0,16,31,0.1)" }} />
+
       <style jsx>{`
         @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
         }
       `}</style>
     </section>
