@@ -47,9 +47,8 @@ export default function AlliesMarquee() {
         <div
           className="flex w-max items-center"
           style={{
-            animation: "marquee 35s linear infinite",
+            animation: "marquee 40s linear infinite",
             animationPlayState: "running",
-            gap: "0",
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.animationPlayState = "paused";
@@ -63,35 +62,25 @@ export default function AlliesMarquee() {
               key={`${ally.name}-${i}`}
               className="flex items-center"
             >
-              <span
-                className="text-base md:text-lg font-normal whitespace-nowrap transition-all duration-300 hover:opacity-100 cursor-default"
-                style={{
-                  fontFamily: "'Noto Serif', serif",
-                  color: "#00101f",
-                  opacity: 0.45,
-                  letterSpacing: "-0.01em",
-                  padding: "0 3rem",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLSpanElement).style.opacity = "1";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLSpanElement).style.opacity = "0.45";
-                }}
+              {/* Logo */}
+              <div
+                className="flex items-center justify-center transition-all duration-400 opacity-40 hover:opacity-90"
+                style={{ padding: "0 2.5rem", height: "36px" }}
               >
-                {ally.name}
-              </span>
-              {/* Separador */}
-              <span
-                style={{
-                  color: "#c7a84b",
-                  opacity: 0.4,
-                  fontSize: "0.5rem",
-                  flexShrink: 0,
-                }}
-              >
-                ◆
-              </span>
+                <img
+                  src={ally.logo}
+                  alt={ally.name}
+                  style={{
+                    height: "36px",
+                    width: "auto",
+                    maxWidth: "120px",
+                    objectFit: "contain",
+                    display: "block",
+                  }}
+                />
+              </div>
+              {/* Separador dorado */}
+              <span style={{ color: "#c7a84b", opacity: 0.35, fontSize: "0.4rem", flexShrink: 0 }}>◆</span>
             </div>
           ))}
         </div>
