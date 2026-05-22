@@ -65,15 +65,15 @@ export default function AlliesMarquee() {
               {/* Logo */}
               <div
                 className="flex items-center justify-center transition-all duration-300 opacity-55 hover:opacity-100"
-                style={{ padding: "0 4rem", height: "80px" }}
+                style={{ padding: "0 4rem", height: "100px" }}
               >
                 <img
                   src={ally.logo}
                   alt={ally.name}
                   style={{
-                    height: "80px",
+                    height: "100px",
                     width: "auto",
-                    maxWidth: "200px",
+                    maxWidth: "240px",
                     objectFit: "contain",
                     display: "block",
                   }}
