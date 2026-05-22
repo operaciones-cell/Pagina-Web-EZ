@@ -87,8 +87,16 @@ export default function ServicesSection() {
               style={{
                 border: "1px solid rgba(251,249,244,0.08)",
               }}
-              onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(199,168,75,0.4)")}
-              onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(251,249,244,0.08)")}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = "rgba(199,168,75,0.85)";
+                e.currentTarget.style.boxShadow = "0 0 30px rgba(199,168,75,0.2), inset 0 0 20px rgba(199,168,75,0.04)";
+                e.currentTarget.style.backgroundColor = "rgba(199,168,75,0.03)";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = "rgba(251,249,244,0.08)";
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.backgroundColor = "transparent";
+              }}
             >
               <Link href={card.href} className="block">
                 {/* Imagen */}
