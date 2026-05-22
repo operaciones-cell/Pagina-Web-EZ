@@ -152,21 +152,31 @@ export default function HeroVideo() {
           >
             <Link
               href="/productos"
-              className="group inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold transition-all hover:scale-[1.03] md:text-base"
+              className="group inline-flex items-center gap-3 rounded-sm px-5 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02]"
               style={{
-                backgroundColor: "#c7a84b",
-                color: "#00101f",
-                boxShadow: "0 6px 24px rgba(199,168,75,0.35)",
+                background: "linear-gradient(135deg, rgba(199,168,75,0.15), rgba(199,168,75,0.08))",
+                border: "1px solid rgba(199,168,75,0.5)",
+                backdropFilter: "blur(12px)",
+                boxShadow: "inset 0 1px 0 rgba(199,168,75,0.2), 0 0 24px rgba(199,168,75,0.15)",
+                color: "#fbf9f4",
               }}
             >
+              <span className="h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#c7a84b" }} />
               Ver nuestros postres
-              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight size={13} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: "#c7a84b" }} />
             </Link>
             <Link
               href="/para-empresas"
-              className="inline-flex items-center rounded-full border-2 px-8 py-3.5 text-sm font-semibold transition-all hover:scale-[1.03] md:text-base"
-              style={{ borderColor: "#c7a84b", color: "#fbf9f4" }}
+              className="group inline-flex items-center gap-3 rounded-sm px-5 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02]"
+              style={{
+                background: "rgba(251,249,244,0.04)",
+                border: "1px solid rgba(251,249,244,0.15)",
+                backdropFilter: "blur(12px)",
+                boxShadow: "inset 0 1px 0 rgba(251,249,244,0.1)",
+                color: "rgba(251,249,244,0.75)",
+              }}
             >
+              <span className="h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "rgba(251,249,244,0.4)" }} />
               Trabajemos juntos
             </Link>
           </motion.div>
