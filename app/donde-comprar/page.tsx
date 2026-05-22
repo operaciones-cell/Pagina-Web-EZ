@@ -21,10 +21,10 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 export default function DondeComprarPage() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#00101f" }}>
+    <div className="min-h-screen" style={{ backgroundColor: "#fbf9f4" }}>
 
       {/* Hero */}
-      <section className="px-6 pb-16 pt-36 md:pb-20 md:pt-44" style={{ backgroundColor: "#00101f" }}>
+      <section className="px-6 pb-16 pt-36 md:pb-20 md:pt-44" style={{ backgroundColor: "#fbf9f4" }}>
         <div className="mx-auto max-w-4xl">
           <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
             className="mb-4 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
@@ -32,19 +32,19 @@ export default function DondeComprarPage() {
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
-            style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#fbf9f4" }}>
+            style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#00101f" }}>
             Nos encuentras donde{" "}
             <em className="italic" style={{ color: "#c7a84b" }}>importa.</em>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-5 max-w-lg text-sm leading-relaxed md:text-base" style={{ color: "rgba(251,249,244,0.6)" }}>
+            className="mt-5 max-w-lg text-sm leading-relaxed md:text-base" style={{ color: "#4a5560" }}>
             Más de 6.500 puntos de venta en 31 de 32 departamentos de Colombia.
           </motion.p>
         </div>
       </section>
 
-      {/* Aliados — midnight */}
-      <section className="px-6 pb-20 md:pb-28" style={{ backgroundColor: "#00101f" }}>
+      {/* Aliados — cream */}
+      <section className="px-6 pb-20 md:pb-28" style={{ backgroundColor: "#fbf9f4" }}>
         <div className="mx-auto max-w-4xl">
           <FadeIn>
             <p className="mb-8 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
@@ -56,7 +56,7 @@ export default function DondeComprarPage() {
               <FadeIn key={ally.name} delay={i * 0.06}>
                 <div
                   className="flex h-20 items-center justify-center rounded-xl px-5 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-                  style={{ backgroundColor: "#fbf9f4" }}
+                  style={{ backgroundColor: "#ffffff", boxShadow: "0 2px 12px rgba(0,16,31,0.07)" }}
                 >
                   <img
                     src={ally.logo}
