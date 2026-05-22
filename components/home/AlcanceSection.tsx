@@ -92,16 +92,6 @@ export default function AlcanceSection() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.85 }}
-          className="mt-12 max-w-2xl text-base leading-relaxed italic md:mt-14 md:text-lg"
-          style={{ color: "#c7a84b" }}
-        >
-          — Sin perder el oficio en el camino
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 1.0 }}
           className="mt-3 max-w-2xl text-base leading-relaxed italic md:text-lg"
           style={{ color: "#c7a84b" }}
