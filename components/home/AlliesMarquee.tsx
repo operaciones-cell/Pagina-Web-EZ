@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { ALLIES } from "@/lib/constants";
 
 export default function AlliesMarquee() {
@@ -56,19 +55,24 @@ export default function AlliesMarquee() {
           {[...ALLIES, ...ALLIES].map((ally, i) => (
             <div
               key={`${ally.name}-${i}`}
-              className="flex flex-col items-center justify-center gap-5 min-w-[220px] grayscale hover:grayscale-0 transition-all duration-500 opacity-65 hover:opacity-100"
+              className="flex flex-col items-center justify-center gap-3 min-w-[160px] grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100"
             >
-              <div className="relative w-44 h-28 flex items-center justify-center">
-                <Image
+              <div className="flex items-center justify-center" style={{ height: "56px", width: "140px" }}>
+                <img
                   src={ally.logo}
                   alt={ally.name}
-                  width={176}
-                  height={112}
-                  className="object-contain"
+                  style={{
+                    maxHeight: "56px",
+                    maxWidth: "140px",
+                    width: "auto",
+                    height: "auto",
+                    objectFit: "contain",
+                    display: "block",
+                  }}
                 />
               </div>
               <span
-                className="text-sm uppercase tracking-wider whitespace-nowrap"
+                className="text-xs uppercase tracking-wider whitespace-nowrap"
                 style={{ color: "var(--color-text-subtle)" }}
               >
                 {ally.name}
