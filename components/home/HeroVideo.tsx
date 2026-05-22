@@ -54,7 +54,7 @@ export default function HeroVideo() {
           src="/images/hero.jpg"
           alt="Eliana Zaia"
           className="absolute inset-0 h-full w-full object-cover object-center"
-          style={{ filter: "brightness(0.55)" }}
+          style={{ filter: "brightness(0.75)" }}
         />
       </div>
 
@@ -63,7 +63,7 @@ export default function HeroVideo() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(to top, rgba(0,16,31,0.95) 0%, rgba(0,16,31,0.5) 40%, rgba(0,16,31,0.15) 70%, rgba(0,16,31,0) 100%)",
+            "linear-gradient(to top, rgba(0,16,31,0.92) 0%, rgba(0,16,31,0.35) 40%, rgba(0,16,31,0.05) 70%, rgba(0,16,31,0) 100%)",
         }}
       />
 

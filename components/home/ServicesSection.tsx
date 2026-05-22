@@ -11,7 +11,7 @@ const CARDS = [
     objectPosition: "50% 60%",
     tag: "Para ti",
     title: "Cada creación",
-    description: "Doce piezas artesanales que encuentras en El Tinto y en miles de puntos de venta.",
+    description: "13 piezas artesanales que encuentras en El Tinto y en miles de puntos de venta.",
     cta: "Ver productos",
     href: "/productos",
     offset: false,
