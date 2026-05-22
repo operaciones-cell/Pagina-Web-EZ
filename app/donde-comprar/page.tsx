@@ -90,7 +90,7 @@ export default function DondeComprarPage() {
           <FadeIn delay={0.1}>
             <div className="overflow-hidden rounded-2xl" style={{ boxShadow: "0 4px 24px rgba(0,16,31,0.1)" }}>
               <iframe
-                src="https://maps.google.com/maps?q=El+Tinto+Zipaquira+Colombia&output=embed&z=15"
+                src="https://maps.google.com/maps?q=4.9183722,-74.0228410&output=embed&z=17"
                 width="100%"
                 height="380"
                 style={{ border: 0, display: "block" }}
