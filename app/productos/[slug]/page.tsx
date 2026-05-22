@@ -71,7 +71,7 @@ export default async function ProductPage({ params }: Props) {
                 <span
                   className="text-2xl"
                   style={{
-                    fontFamily: "'Noto Serif', serif",
+                    fontFamily: "'Cormorant Garamond', serif",
                     fontStyle: "italic",
                     color: "#4a5560",
                   }}
@@ -110,7 +110,7 @@ export default async function ProductPage({ params }: Props) {
             <h1
               className="text-4xl leading-[1.1] md:text-5xl"
               style={{
-                fontFamily: "'Noto Serif', serif",
+                fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 400,
                 letterSpacing: "-0.02em",
                 color: "#00101f",
@@ -122,7 +122,7 @@ export default async function ProductPage({ params }: Props) {
             {/* Descripción corta */}
             <p
               className="mt-4 text-base italic leading-relaxed"
-              style={{ color: "#c7a84b", fontFamily: "'Noto Serif', serif" }}
+              style={{ color: "#c7a84b", fontFamily: "'Cormorant Garamond', serif" }}
             >
               {product.description}
             </p>

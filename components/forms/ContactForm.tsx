@@ -16,7 +16,7 @@ export default function ContactForm() {
         className="rounded-2xl p-8 text-center"
         style={{ backgroundColor: "rgba(199,168,75,0.1)", border: "1px solid rgba(199,168,75,0.25)" }}
       >
-        <p className="text-lg" style={{ fontFamily: "'Noto Serif', serif", color: "#c7a84b" }}>
+        <p className="text-lg" style={{ fontFamily: "'Cormorant Garamond', serif", color: "#c7a84b" }}>
           Mensaje enviado
         </p>
         <p className="mt-2 text-sm" style={{ color: "rgba(251,249,244,0.6)" }}>

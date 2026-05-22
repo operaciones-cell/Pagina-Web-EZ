@@ -85,7 +85,7 @@ export default function HeroVideo() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-3xl italic md:text-5xl"
             style={{
-              fontFamily: "'Noto Serif', serif",
+              fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 400,
               color: "#c7a84b",
               letterSpacing: "-0.01em",
@@ -100,7 +100,7 @@ export default function HeroVideo() {
             transition={{ duration: 0.9, delay: 0.35 }}
             className="text-5xl leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
             style={{
-              fontFamily: "'Noto Serif', serif",
+              fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 400,
               letterSpacing: "-0.02em",
               color: "#fbf9f4",

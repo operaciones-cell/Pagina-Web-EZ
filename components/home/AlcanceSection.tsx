@@ -45,7 +45,7 @@ export default function AlcanceSection() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="mb-12 text-3xl leading-[1.15] tracking-tight sm:text-4xl md:mb-16 md:text-5xl lg:text-6xl"
           style={{
-            fontFamily: "'Noto Serif', serif",
+            fontFamily: "'Cormorant Garamond', serif",
             fontWeight: 400,
             letterSpacing: "-0.02em",
             color: "#fbf9f4",
@@ -71,7 +71,7 @@ export default function AlcanceSection() {
               <p
                 className="mb-2 text-4xl tracking-tight md:text-5xl lg:text-6xl"
                 style={{
-                  fontFamily: "'Noto Serif', serif",
+                  fontFamily: "'Cormorant Garamond', serif",
                   fontWeight: 400,
                   letterSpacing: "-0.02em",
                   color: "#fbf9f4",

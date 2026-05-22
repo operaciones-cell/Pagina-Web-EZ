@@ -68,7 +68,7 @@ export default function ServicesSection() {
           </div>
           <h2
             className="max-w-2xl text-3xl sm:text-4xl md:text-5xl"
-            style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#fbf9f4" }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#fbf9f4" }}
           >
             Técnica <em className="italic" style={{ color: "#c7a84b" }}>italiana</em>,
             dulzura <em className="italic" style={{ color: "#c7a84b" }}>latina</em>.
@@ -109,7 +109,7 @@ export default function ServicesSection() {
                   </span>
                   <h3
                     className="text-2xl md:text-3xl"
-                    style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, color: "#fbf9f4", letterSpacing: "-0.01em" }}
+                    style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, color: "#fbf9f4", letterSpacing: "-0.01em" }}
                   >
                     {card.title}
                   </h3>

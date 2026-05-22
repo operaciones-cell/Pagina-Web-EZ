@@ -112,7 +112,7 @@ function ServiciosTabs() {
             Lo que ofrecemos
           </p>
           <h2 className="text-3xl leading-[1.2] sm:text-4xl"
-            style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#00101f" }}>
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#00101f" }}>
             Tres formas de trabajar juntos.
           </h2>
         </div>
@@ -166,7 +166,7 @@ function ServiciosTabs() {
                 {tab.label}
               </p>
               <h3 className="mb-4 text-2xl md:text-3xl"
-                style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, color: "#00101f" }}>
+                style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, color: "#00101f" }}>
                 {tab.title}
               </h3>
               <p className="text-sm leading-relaxed md:text-base" style={{ color: "#4a5560" }}>
@@ -214,7 +214,7 @@ export default function ParaEmpresasPage() {
           <h1
             className="text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
             style={{
-              fontFamily: "'Noto Serif', serif",
+              fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 400,
               letterSpacing: "-0.02em",
               color: "#fbf9f4",
@@ -274,7 +274,7 @@ export default function ParaEmpresasPage() {
                   <p
                     className="text-2xl md:text-3xl"
                     style={{
-                      fontFamily: "'Noto Serif', serif",
+                      fontFamily: "'Cormorant Garamond', serif",
                       fontWeight: 400,
                       color: "#c7a84b",
                     }}
@@ -314,7 +314,7 @@ export default function ParaEmpresasPage() {
             <h2
               className="mb-12 text-3xl leading-[1.2] sm:text-4xl"
               style={{
-                fontFamily: "'Noto Serif', serif",
+                fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 400,
                 letterSpacing: "-0.02em",
                 color: "#fbf9f4",
@@ -340,7 +340,7 @@ export default function ParaEmpresasPage() {
                     <h3
                       className="mb-1 text-lg"
                       style={{
-                        fontFamily: "'Noto Serif', serif",
+                        fontFamily: "'Cormorant Garamond', serif",
                         fontWeight: 400,
                         color: "#fbf9f4",
                       }}
@@ -380,7 +380,7 @@ export default function ParaEmpresasPage() {
                 <h2
                   className="text-3xl leading-[1.2] sm:text-4xl"
                   style={{
-                    fontFamily: "'Noto Serif', serif",
+                    fontFamily: "'Cormorant Garamond', serif",
                     fontWeight: 400,
                     letterSpacing: "-0.02em",
                     color: "#00101f",

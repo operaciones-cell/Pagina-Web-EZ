@@ -16,7 +16,7 @@ export default function Footer() {
             <Link
               href="/"
               className="text-2xl"
-              style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, color: "#fbf9f4" }}
+              style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, color: "#fbf9f4" }}
             >
               Eliana <em className="italic" style={{ color: "#c7a84b" }}>Zaia</em>
             </Link>

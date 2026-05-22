@@ -42,7 +42,7 @@ export default function ProductosPage() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
             style={{
-              fontFamily: "'Noto Serif', serif",
+              fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 400,
               letterSpacing: "-0.02em",
               color: "#00101f",
@@ -130,7 +130,7 @@ export default function ProductosPage() {
             <h2
               className="text-2xl md:text-3xl"
               style={{
-                fontFamily: "'Noto Serif', serif",
+                fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 400,
                 letterSpacing: "-0.01em",
                 color: "#fbf9f4",

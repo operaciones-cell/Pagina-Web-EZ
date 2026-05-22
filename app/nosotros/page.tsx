@@ -82,7 +82,7 @@ export default function NosotrosPage() {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="text-5xl leading-[1.05] tracking-tight sm:text-6xl md:text-7xl"
             style={{
-              fontFamily: "'Noto Serif', serif",
+              fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 400,
               letterSpacing: "-0.02em",
               color: "#00101f",
@@ -120,7 +120,7 @@ export default function NosotrosPage() {
                 </p>
                 <h2
                   className="mb-8 text-3xl leading-[1.2] sm:text-4xl md:text-5xl"
-                  style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#fbf9f4" }}
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#fbf9f4" }}
                 >
                   Un padre italiano.
                   <br />
@@ -178,7 +178,7 @@ export default function NosotrosPage() {
                     <span
                       className="text-5xl md:text-7xl"
                       style={{
-                        fontFamily: "'Noto Serif', serif",
+                        fontFamily: "'Cormorant Garamond', serif",
                         fontWeight: 400,
                         color: "rgba(199,168,75,0.25)",
                         lineHeight: 1,
@@ -190,7 +190,7 @@ export default function NosotrosPage() {
                   <div className="mt-3 md:mt-0 md:pt-2">
                     <h3
                       className="mb-2 text-lg md:text-xl"
-                      style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, color: "#00101f" }}
+                      style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, color: "#00101f" }}
                     >
                       {item.heading}
                     </h3>
@@ -240,7 +240,7 @@ export default function NosotrosPage() {
                 <p
                   className="text-2xl leading-snug md:text-3xl lg:text-4xl"
                   style={{
-                    fontFamily: "'Noto Serif', serif",
+                    fontFamily: "'Cormorant Garamond', serif",
                     fontWeight: 400,
                     color: "#fbf9f4",
                     opacity: 1 - i * 0.2,
@@ -281,7 +281,7 @@ export default function NosotrosPage() {
                 </p>
                 <h2
                   className="text-3xl leading-[1.2] sm:text-4xl"
-                  style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#00101f" }}
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#00101f" }}
                 >
                   ¿Quieres conocer el grupo?
                 </h2>

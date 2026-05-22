@@ -21,7 +21,7 @@ export default function AboutSection() {
           transition={{ duration: 0.6 }}
           className="mb-6 text-3xl italic md:text-4xl"
           style={{
-            fontFamily: "'Noto Serif', serif",
+            fontFamily: "'Cormorant Garamond', serif",
             fontWeight: 400,
             color: "#c7a84b",
             letterSpacing: "-0.01em",
@@ -36,7 +36,7 @@ export default function AboutSection() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-3xl leading-[1.15] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl"
           style={{
-            fontFamily: "'Noto Serif', serif",
+            fontFamily: "'Cormorant Garamond', serif",
             fontWeight: 400,
             letterSpacing: "-0.02em",
             color: "#00101f",

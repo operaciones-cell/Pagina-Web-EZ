@@ -28,7 +28,7 @@ export default function PhilosophySection() {
           <h2
             className="text-4xl tracking-tight sm:text-5xl md:text-7xl lg:text-8xl"
             style={{
-              fontFamily: "'Noto Serif', serif",
+              fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 400,
               letterSpacing: "-0.02em",
               color: "#fbf9f4",
@@ -68,7 +68,7 @@ export default function PhilosophySection() {
               <h3
                 className="mb-3 text-xl md:text-2xl"
                 style={{
-                  fontFamily: "'Noto Serif', serif",
+                  fontFamily: "'Cormorant Garamond', serif",
                   fontWeight: 500,
                   color: "#fbf9f4",
                 }}
@@ -84,7 +84,7 @@ export default function PhilosophySection() {
               <h3
                 className="mb-3 text-xl md:text-2xl"
                 style={{
-                  fontFamily: "'Noto Serif', serif",
+                  fontFamily: "'Cormorant Garamond', serif",
                   fontWeight: 500,
                   color: "#fbf9f4",
                 }}
@@ -100,7 +100,7 @@ export default function PhilosophySection() {
               <h3
                 className="mb-3 text-xl md:text-2xl"
                 style={{
-                  fontFamily: "'Noto Serif', serif",
+                  fontFamily: "'Cormorant Garamond', serif",
                   fontWeight: 500,
                   color: "#fbf9f4",
                 }}

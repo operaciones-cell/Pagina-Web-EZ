@@ -35,7 +35,7 @@ export default function ProductCard({ product }: { product: Product }) {
               <span
                 className="text-center text-sm leading-snug"
                 style={{
-                  fontFamily: "'Noto Serif', serif",
+                  fontFamily: "'Cormorant Garamond', serif",
                   fontStyle: "italic",
                   color: "#4a5560",
                 }}
@@ -59,7 +59,7 @@ export default function ProductCard({ product }: { product: Product }) {
               <h3
                 className="truncate text-base md:text-lg"
                 style={{
-                  fontFamily: "'Noto Serif', serif",
+                  fontFamily: "'Cormorant Garamond', serif",
                   fontWeight: 400,
                   color: "#00101f",
                 }}

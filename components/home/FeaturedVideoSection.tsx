@@ -28,7 +28,7 @@ export default function FeaturedVideoSection() {
           <h2
             className="text-3xl tracking-tight sm:text-4xl md:text-5xl"
             style={{
-              fontFamily: "'Noto Serif', serif",
+              fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 400,
               letterSpacing: "-0.02em",
               color: "#00101f",

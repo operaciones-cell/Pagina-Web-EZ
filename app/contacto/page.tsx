@@ -32,7 +32,7 @@ export default function ContactoPage() {
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
-            style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#00101f" }}>
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#00101f" }}>
             Hablemos de{" "}
             <em className="italic" style={{ color: "#c7a84b" }}>tu proyecto.</em>
           </motion.h1>
@@ -63,7 +63,7 @@ export default function ContactoPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group inline-flex items-center gap-2 text-lg transition-colors hover:text-[#c7a84b]"
-                    style={{ fontFamily: "'Noto Serif', serif", color: "#fbf9f4" }}
+                    style={{ fontFamily: "'Cormorant Garamond', serif", color: "#fbf9f4" }}
                   >
                     {CONTACT.phone}
                     <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: "#c7a84b" }} />
@@ -76,7 +76,7 @@ export default function ContactoPage() {
                   <a
                     href={`mailto:${CONTACT.email}`}
                     className="text-lg transition-colors hover:text-[#c7a84b]"
-                    style={{ fontFamily: "'Noto Serif', serif", color: "#fbf9f4" }}
+                    style={{ fontFamily: "'Cormorant Garamond', serif", color: "#fbf9f4" }}
                   >
                     {CONTACT.email}
                   </a>

@@ -46,7 +46,7 @@ export default function ManifestoSection() {
         <motion.h2
           className="max-w-5xl text-center text-3xl leading-[1.3] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl"
           style={{
-            fontFamily: "'Noto Serif', serif",
+            fontFamily: "'Cormorant Garamond', serif",
             fontWeight: 400,
             letterSpacing: "-0.02em",
           }}

@@ -88,7 +88,7 @@ export default function GrupoRadiciPage() {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
             style={{
-              fontFamily: "'Noto Serif', serif",
+              fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 400,
               letterSpacing: "-0.02em",
               color: "#00101f",
@@ -161,7 +161,7 @@ export default function GrupoRadiciPage() {
                       <h2
                         className="mb-2 text-2xl md:text-3xl"
                         style={{
-                          fontFamily: "'Noto Serif', serif",
+                          fontFamily: "'Cormorant Garamond', serif",
                           fontWeight: 400,
                           color: "#00101f",
                         }}
@@ -221,7 +221,7 @@ export default function GrupoRadiciPage() {
               <h2
                 className="text-3xl leading-[1.2] sm:text-4xl"
                 style={{
-                  fontFamily: "'Noto Serif', serif",
+                  fontFamily: "'Cormorant Garamond', serif",
                   fontWeight: 400,
                   letterSpacing: "-0.02em",
                   color: "#fbf9f4",

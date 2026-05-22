@@ -21,7 +21,7 @@ export default function AlliesMarquee() {
           <h2
             className="text-3xl md:text-4xl"
             style={{
-              fontFamily: "'Noto Serif', serif",
+              fontFamily: "'Cormorant Garamond', serif",
               color: "#00101f",
               fontWeight: 400,
               letterSpacing: "-0.02em",

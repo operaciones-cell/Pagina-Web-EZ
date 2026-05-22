@@ -46,7 +46,7 @@ export default function Navbar() {
           href="/"
           className="text-lg tracking-tight whitespace-nowrap"
           style={{
-            fontFamily: "'Noto Serif', serif",
+            fontFamily: "'Cormorant Garamond', serif",
             fontWeight: 500,
             color: "#fbf9f4",
           }}
@@ -127,7 +127,7 @@ export default function Navbar() {
                       href={link.href}
                       className="text-3xl"
                       style={{
-                        fontFamily: "'Noto Serif', serif",
+                        fontFamily: "'Cormorant Garamond', serif",
                         fontWeight: 400,
                         color: "#fbf9f4",
                       }}
