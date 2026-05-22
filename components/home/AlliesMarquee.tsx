@@ -57,15 +57,13 @@ export default function AlliesMarquee() {
               key={`${ally.name}-${i}`}
               className="flex flex-col items-center justify-center gap-3 min-w-[160px] grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100"
             >
-              <div className="flex items-center justify-center" style={{ height: "56px", width: "140px" }}>
+              <div className="flex items-center justify-center" style={{ height: "48px", width: "120px" }}>
                 <img
                   src={ally.logo}
                   alt={ally.name}
                   style={{
-                    maxHeight: "56px",
-                    maxWidth: "140px",
-                    width: "auto",
-                    height: "auto",
+                    width: "120px",
+                    height: "48px",
                     objectFit: "contain",
                     display: "block",
                   }}
