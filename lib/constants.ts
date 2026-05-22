@@ -267,16 +267,15 @@ export const PRODUCTS: Product[] = [
 ];
 
 export const ALLIES: Ally[] = [
-  { name: "PriceSmart", logo: "/images/allies/pricesmart.svg" },
-  { name: "Grupo Exito", logo: "/images/allies/exito.svg" },
-  { name: "Mercaldas", logo: "/images/allies/mercaldas.svg" },
-  { name: "Isimo Mercado", logo: "/images/allies/isimo.svg" },
-  { name: "Kokoriko", logo: "/images/allies/kokoriko.jpg" },
-  { name: "Cencosud", logo: "/images/allies/cencosud.svg" },
-  { name: "Tiendas D1", logo: "/images/allies/d1.svg" },
-  { name: "Tiendas Ara", logo: "/images/allies/ara.svg" },
-  { name: "Novaventas", logo: "/images/allies/novaventas.svg" },
-  { name: "Rappi", logo: "/images/allies/rappi.svg" },
+  { name: "Tiendas D1", logo: "/images/allies/d1.png" },
+  { name: "Rappi", logo: "/images/allies/rappi.png" },
+  { name: "Mercaldas", logo: "/images/allies/mercaldas.png" },
+  { name: "Tiendas Ara", logo: "/images/allies/ara.png" },
+  { name: "Novaventas", logo: "/images/allies/novaventas.png" },
+  { name: "Cafam", logo: "/images/allies/cafam.png" },
+  { name: "Mimos", logo: "/images/allies/mimos.png" },
+  { name: "Oxxo", logo: "/images/allies/oxxo.png" },
+  { name: "PPC", logo: "/images/allies/ppc.png" },
 ];
 
 export const GRUPO_RADICI: GrupoEmpresa[] = [
