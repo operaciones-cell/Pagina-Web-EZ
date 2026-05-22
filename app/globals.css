@@ -83,6 +83,11 @@ body {
   }
 }
 
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px #c7a84b, 0 0 12px rgba(199,168,75,0.5); }
+  50% { opacity: 0.5; box-shadow: 0 0 3px #c7a84b, 0 0 6px rgba(199,168,75,0.3); }
+}
+
 @keyframes ken-burns {
   0%   { transform: scale(1.0)  translate(0%, 0%); }
   33%  { transform: scale(1.12) translate(-3%, -2%); }
