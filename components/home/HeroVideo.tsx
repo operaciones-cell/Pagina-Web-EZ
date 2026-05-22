@@ -45,22 +45,16 @@ export default function HeroVideo() {
       className="relative flex h-[100svh] w-full items-end overflow-hidden"
       style={{ backgroundColor: "#00101f" }}
     >
-      {/* Video con parallax + oscurecido */}
+      {/* Foto hero con parallax + oscurecido */}
       <div
         className="pointer-events-none absolute inset-0 will-change-transform"
         style={{ transform: `translate3d(0, ${scrollY * 0.25}px, 0) scale(1.05)` }}
       >
-        <video
-          ref={videoRef}
-          src={HERO_VIDEO}
-          muted
-          autoPlay
-          loop
-          playsInline
-          preload="auto"
-          onCanPlay={handleCanPlay}
+        <img
+          src="/images/hero.jpg"
+          alt="Eliana Zaia"
           className="absolute inset-0 h-full w-full object-cover object-center"
-          style={{ opacity: 0, filter: "brightness(0.55)" }}
+          style={{ filter: "brightness(0.55)" }}
         />
       </div>
 
