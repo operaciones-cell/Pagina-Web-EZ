@@ -43,7 +43,7 @@ export default function AlliesMarquee() {
       <div style={{ borderTop: "1px solid rgba(0,16,31,0.1)" }} />
 
       {/* Marquee */}
-      <div className="overflow-hidden py-8">
+      <div className="overflow-hidden py-12">
         <div
           className="flex w-max items-center"
           style={{
@@ -64,23 +64,23 @@ export default function AlliesMarquee() {
             >
               {/* Logo */}
               <div
-                className="flex items-center justify-center transition-all duration-400 opacity-40 hover:opacity-90"
-                style={{ padding: "0 2.5rem", height: "36px" }}
+                className="flex items-center justify-center transition-all duration-300 opacity-50 hover:opacity-100"
+                style={{ padding: "0 3.5rem", height: "64px" }}
               >
                 <img
                   src={ally.logo}
                   alt={ally.name}
                   style={{
-                    height: "36px",
+                    height: "56px",
                     width: "auto",
-                    maxWidth: "120px",
+                    maxWidth: "160px",
                     objectFit: "contain",
                     display: "block",
                   }}
                 />
               </div>
               {/* Separador dorado */}
-              <span style={{ color: "#c7a84b", opacity: 0.35, fontSize: "0.4rem", flexShrink: 0 }}>◆</span>
+              <span style={{ color: "#c7a84b", opacity: 0.4, fontSize: "0.45rem", flexShrink: 0 }}>◆</span>
             </div>
           ))}
         </div>
