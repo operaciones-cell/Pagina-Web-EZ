@@ -75,6 +75,49 @@ export default function DondeComprarPage() {
         </div>
       </section>
 
+      {/* El Tinto — mapa */}
+      <section className="px-6 pb-20 md:pb-28" style={{ backgroundColor: "#fbf9f4" }}>
+        <div className="mx-auto max-w-4xl">
+          <FadeIn>
+            <p className="mb-3 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
+              Tiendas propias
+            </p>
+            <h2 className="mb-8 text-2xl sm:text-3xl"
+              style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#00101f" }}>
+              Visítanos en <em className="italic" style={{ color: "#c7a84b" }}>El Tinto</em>
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <div className="overflow-hidden rounded-2xl" style={{ boxShadow: "0 4px 24px rgba(0,16,31,0.1)" }}>
+              <iframe
+                src="https://maps.google.com/maps?q=El+Tinto+Zipaquira+Colombia&output=embed&z=15"
+                width="100%"
+                height="380"
+                style={{ border: 0, display: "block" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+            <div className="mt-5 flex items-center justify-between">
+              <p className="text-sm" style={{ color: "#4a5560" }}>
+                Zipaquirá, Colombia — Donde los postres cobran vida.
+              </p>
+              <a
+                href="https://maps.app.goo.gl/BwcGGyEdEr7hXhYH6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-70"
+                style={{ color: "#c7a84b" }}
+              >
+                Ver en Maps
+                <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* CTA — midnight */}
       <section className="px-6 py-16 md:py-20" style={{ backgroundColor: "#00101f" }}>
         <div className="mx-auto max-w-4xl">

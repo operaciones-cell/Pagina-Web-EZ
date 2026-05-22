@@ -1,31 +1,31 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 const CARDS = [
   {
     image: "/images/services/card-tiramisu.jpg",
-    alt: "Tiramisú Eliana Zaia sobre tabla de madera con granos de café",
+    alt: "Tiramisú Eliana Zaia",
     objectPosition: "50% 60%",
-    tag: "Para ti",
-    title: "Para ti, cada creación.",
-    description:
-      "Doce piezas artesanales que encuentras en El Tinto y en miles de puntos de venta.",
+    tag: "Para ti — Consumidor",
+    title: "Cada creación",
+    description: "Doce piezas artesanales que encuentras en El Tinto y en miles de puntos de venta.",
+    cta: "Ver productos",
     href: "/productos",
+    offset: false,
   },
   {
     image: "/images/services/card-golosito.jpg",
-    alt: "Gelatinas Golosito de figuras coloridas — desarrollo bajo marca blanca",
+    alt: "Producción para empresas — Eliana Zaia",
     objectPosition: "50% 80%",
-    tag: "Para tu empresa",
+    tag: "Para tu marca — B2B",
     title: "Producir contigo",
-    description:
-      "Para tu cadena. Con tu marca. Desde tu idea. Mismo sabor.",
+    description: "Para tu cadena. Con tu marca. Desde tu idea. Mismo sabor.",
+    cta: "Conversemos",
     href: "/para-empresas",
+    offset: true,
   },
 ];
 
@@ -37,95 +37,98 @@ export default function ServicesSection() {
     <section
       ref={ref}
       className="relative overflow-hidden px-6 py-24 md:py-36"
-      style={{ backgroundColor: "#00101f" }}
+      style={{
+        background: "linear-gradient(180deg, rgba(0,16,31,0.97) 0%, rgba(0,16,31,0.88) 50%, rgba(0,16,31,0.97) 100%)",
+        backgroundColor: "#00101f",
+      }}
     >
+      {/* Glow ambiental */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-[10%] top-[20%] h-72 w-72 rounded-full"
+        style={{
+          background: "radial-gradient(circle, rgba(199,168,75,0.25), transparent 70%)",
+          filter: "blur(60px)",
+        }}
+      />
+
       <div className="relative mx-auto max-w-6xl">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="mb-12 flex flex-col gap-3 md:mb-16 md:flex-row md:items-end md:justify-between"
+          className="mb-16 md:mb-20"
         >
-          <div>
-            <p className="mb-4 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
-              Nuestra propuesta
-            </p>
-            <h2
-              className="text-3xl tracking-tight sm:text-4xl md:text-5xl"
-              style={{
-                fontFamily: "'Noto Serif', serif",
-                fontWeight: 400,
-                letterSpacing: "-0.02em",
-                color: "#fbf9f4",
-              }}
-            >
-              Técnica <em className="italic" style={{ color: "#c7a84b" }}>italiana</em>,
-              dulzura <em className="italic" style={{ color: "#c7a84b" }}>latina</em>.
-            </h2>
+          <div className="mb-4 flex items-center gap-4">
+            <span className="text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
+              02 — Nuestra propuesta
+            </span>
+            <span className="h-px w-16" style={{ backgroundColor: "rgba(251,249,244,0.15)" }} />
           </div>
+          <h2
+            className="max-w-2xl text-3xl sm:text-4xl md:text-5xl"
+            style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#fbf9f4" }}
+          >
+            Técnica <em className="italic" style={{ color: "#c7a84b" }}>italiana</em>,
+            dulzura <em className="italic" style={{ color: "#c7a84b" }}>latina</em>.
+          </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+        {/* Cards */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {CARDS.map((card, i) => (
-            <motion.div
-              key={card.tag}
-              initial={{ opacity: 0, y: 50 }}
+            <motion.article
+              key={card.title}
+              initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: i * 0.15 }}
-              className="h-full"
+              className={`group relative overflow-hidden rounded-sm transition-all duration-700 ${card.offset ? "md:mt-20" : ""}`}
+              style={{
+                border: "1px solid rgba(251,249,244,0.08)",
+              }}
+              onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(199,168,75,0.4)")}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(251,249,244,0.08)")}
             >
-              <Link href={card.href} className="group block h-full">
-                <div
-                  className="ambient-shadow flex h-full flex-col overflow-hidden rounded-3xl transition-all duration-500 hover:-translate-y-1"
-                  style={{ backgroundColor: "#ffffff" }}
-                >
-                  <div className="relative aspect-square overflow-hidden">
-                    <Image
-                      src={card.image}
-                      alt={card.alt}
-                      fill
-                      sizes="(min-width: 768px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-[1800ms] ease-out group-hover:scale-105"
-                      style={{ objectPosition: card.objectPosition }}
+              <Link href={card.href} className="block">
+                {/* Imagen */}
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={card.image}
+                    alt={card.alt}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-[1800ms] ease-out group-hover:scale-105"
+                    style={{ filter: "brightness(0.7)", objectPosition: card.objectPosition || "50% 50%" }}
+                  />
+                </div>
+
+                {/* Contenido */}
+                <div className="space-y-4 p-8 md:p-10">
+                  <span className="text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
+                    {card.tag}
+                  </span>
+                  <h3
+                    className="text-2xl md:text-3xl"
+                    style={{ fontFamily: "'Noto Serif', serif", fontWeight: 400, color: "#fbf9f4", letterSpacing: "-0.01em" }}
+                  >
+                    {card.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "rgba(251,249,244,0.55)" }}>
+                    {card.description}
+                  </p>
+                  {/* CTA con línea que crece */}
+                  <div className="flex items-center gap-3 pt-2">
+                    <span
+                      className="h-px transition-all duration-700 group-hover:w-14"
+                      style={{ width: "2rem", backgroundColor: "rgba(251,249,244,0.35)" }}
                     />
-                    <div
-                      className="pointer-events-none absolute inset-0"
-                      style={{
-                        background:
-                          "linear-gradient(180deg, rgba(0,16,31,0) 60%, rgba(0,16,31,0.35) 100%)",
-                      }}
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col p-4 md:p-5">
-                    <div className="mb-2 flex items-center justify-between">
-                      <p className="text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
-                        {card.tag}
-                      </p>
-                      <span
-                        className="rounded-full p-1.5 transition-all group-hover:scale-110"
-                        style={{ backgroundColor: "rgba(199, 168, 75, 0.15)", color: "#c7a84b" }}
-                      >
-                        <ArrowUpRight size={14} />
-                      </span>
-                    </div>
-                    <h3
-                      className="mb-1.5 text-lg md:text-xl"
-                      style={{
-                        fontFamily: "'Noto Serif', serif",
-                        fontWeight: 400,
-                        letterSpacing: "-0.01em",
-                        color: "#00101f",
-                      }}
-                    >
-                      {card.title}
-                    </h3>
-                    <p className="text-xs leading-relaxed md:text-sm" style={{ color: "#4a5560" }}>
-                      {card.description}
-                    </p>
+                    <span className="text-xs uppercase tracking-[0.22em]" style={{ color: "rgba(251,249,244,0.7)" }}>
+                      {card.cta}
+                    </span>
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>
