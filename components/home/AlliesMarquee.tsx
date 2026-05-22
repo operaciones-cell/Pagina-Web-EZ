@@ -55,23 +55,12 @@ export default function AlliesMarquee() {
           {[...ALLIES, ...ALLIES].map((ally, i) => (
             <div
               key={`${ally.name}-${i}`}
-              className="flex flex-col items-center justify-center gap-3 min-w-[160px] grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100"
+              className="flex items-center justify-center transition-all duration-500 opacity-50 hover:opacity-100"
+              style={{ minWidth: "160px" }}
             >
-              <div className="flex items-center justify-center" style={{ height: "48px", width: "120px" }}>
-                <img
-                  src={ally.logo}
-                  alt={ally.name}
-                  style={{
-                    width: "120px",
-                    height: "48px",
-                    objectFit: "contain",
-                    display: "block",
-                  }}
-                />
-              </div>
               <span
-                className="text-xs uppercase tracking-wider whitespace-nowrap"
-                style={{ color: "var(--color-text-subtle)" }}
+                className="text-sm font-medium uppercase tracking-[0.2em] whitespace-nowrap"
+                style={{ color: "var(--color-ink)" }}
               >
                 {ally.name}
               </span>
