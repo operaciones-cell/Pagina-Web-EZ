@@ -12,7 +12,7 @@ const CARDS = [
     alt: "Tiramisú Eliana Zaia sobre tabla de madera con granos de café",
     objectPosition: "50% 60%",
     tag: "Para ti",
-    title: "Cerca de ti",
+    title: "Para ti, cada creación.",
     description:
       "Doce piezas artesanales que encuentras en El Tinto y en miles de puntos de venta.",
     href: "/productos",
