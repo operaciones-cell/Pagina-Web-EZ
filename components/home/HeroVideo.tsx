@@ -79,35 +79,6 @@ export default function HeroVideo() {
       {/* Texto — centrado con max-w, anclado al fondo */}
       <div className="relative z-10 w-full max-w-2xl px-6 pb-16 md:px-12 md:pb-24">
         <div className="space-y-5">
-          {/* Badge pill */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-6 inline-flex max-w-sm items-center gap-3 rounded-sm px-4 py-2.5"
-            style={{
-              background: "linear-gradient(135deg, rgba(251,249,244,0.06), rgba(199,168,75,0.08), rgba(251,249,244,0.04))",
-              border: "1px solid rgba(251,249,244,0.15)",
-              backdropFilter: "blur(12px)",
-              boxShadow: "inset 0 1px 0 rgba(251,249,244,0.15), 0 0 40px rgba(199,168,75,0.12)",
-            }}
-          >
-            <span
-              className="h-1.5 w-1.5 flex-shrink-0 rounded-full"
-              style={{
-                backgroundColor: "#c7a84b",
-                boxShadow: "0 0 6px #c7a84b, 0 0 12px rgba(199,168,75,0.5)",
-                animation: "pulse 2s ease-in-out infinite",
-              }}
-            />
-            <span className="text-xs uppercase tracking-[0.2em] whitespace-nowrap" style={{ color: "rgba(251,249,244,0.8)" }}>
-              Disponible en 6.500 puntos — Colombia
-            </span>
-            <span className="ml-auto text-xs uppercase tracking-[0.2em] whitespace-nowrap" style={{ color: "rgba(199,168,75,0.6)" }}>
-              Activo
-            </span>
-          </motion.div>
-
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
