@@ -6,6 +6,8 @@ import { organizationSchema } from "@/lib/seo";
 export default function Footer() {
   return (
     <footer style={{ backgroundColor: "#00101f" }}>
+      {/* Línea dorada separadora */}
+      <div style={{ height: "1px", background: "linear-gradient(to right, transparent, rgba(199,168,75,0.6) 30%, rgba(199,168,75,0.6) 70%, transparent)" }} />
       <SchemaOrg data={organizationSchema()} />
       <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
 
