@@ -229,7 +229,7 @@ export const PRODUCTS: Product[] = [
     category: "gelatinas",
     description: "Pequeñas porciones de gelatina elaboradas para disfrutar un momento dulce, fresco y práctico.",
     longDescription: "Las Gelitas de Eliana Zaia son porciones individuales de gelatina artesanal, perfectas para loncheras, snacks o postres rápidos. Sabores frutales naturales en una presentación práctica que mantiene toda la calidad artesanal de nuestra marca.",
-    image: "/images/products/gelifit.jpg",
+    image: "/images/products/gelitas.jpg",
     packagingImage: "/images/packaging/gelitas.jpg",
     featured: false,
     ingredients: ["Gelatina", "Azúcar", "Saborizantes naturales", "Ácido cítrico"],
