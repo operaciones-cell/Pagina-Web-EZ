@@ -61,7 +61,7 @@ export const PRODUCTS: Product[] = [
     category: "clasico",
     description: "Delicadamente horneada para lograr una textura suave y un sabor sutilmente caramelizado.",
     longDescription: "La Leche Asada de Eliana Zaia rescata una de las recetas más queridas de la tradición latinoamericana. Elaborada con leche fresca y horneada lentamente hasta lograr su característico dorado, cada porción es un viaje a los sabores de la infancia.",
-    image: "/images/products/leche-asada.jpg",
+    image: "/images/products/leche-asada.png",
     packagingImage: "/images/packaging/leche-asada.jpg",
     featured: true,
     ingredients: ["Leche fresca", "Huevos", "Azúcar", "Canela", "Vainilla"],
