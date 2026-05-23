@@ -103,7 +103,7 @@ export const PRODUCTS: Product[] = [
     category: "premium",
     description: "Textura de flan, alma de cacao. Un placer sin prisas.",
     longDescription: "Nuestro Flan de Chocolate fusiona la suavidad del flan tradicional con la intensidad del cacao premium. Una experiencia de sabor que satisface hasta los paladares más exigentes. Elaborado con chocolate seleccionado y técnica artesanal.",
-    image: "/images/products/flan-de-chocolate.jpg",
+    image: "/images/products/flan-de-chocolate.png",
     packagingImage: "/images/packaging/flan-de-chocolate.jpg",
     featured: false,
     ingredients: ["Chocolate", "Leche", "Huevos", "Azúcar", "Cacao"],
