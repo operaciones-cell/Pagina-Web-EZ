@@ -62,7 +62,7 @@ export default function ProductosPage() {
             className="mt-5 max-w-lg text-sm leading-relaxed md:text-base"
             style={{ color: "#4a5560" }}
           >
-            Artesanales, de técnica italiana. Doce postres disponibles en toda
+            Artesanales, de técnica italiana. Trece postres disponibles en toda
             Colombia.
           </motion.p>
         </div>

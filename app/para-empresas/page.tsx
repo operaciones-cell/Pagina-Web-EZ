@@ -205,12 +205,22 @@ export default function ParaEmpresasPage() {
         }}
       >
         <div className="absolute bottom-0 left-0 z-10 w-full max-w-3xl px-6 pb-16 md:px-12 md:pb-20">
-          <p
-            className="mb-4 text-xs uppercase tracking-[0.28em]"
-            style={{ color: "#c7a84b" }}
-          >
-            Para empresas
-          </p>
+          <div className="mb-5 flex items-center gap-3">
+            <span
+              className="h-px w-6"
+              style={{ backgroundColor: "#c7a84b" }}
+            />
+            <p
+              className="text-sm font-medium uppercase tracking-[0.32em]"
+              style={{ color: "#c7a84b" }}
+            >
+              Para empresas
+            </p>
+            <span
+              className="h-px w-6"
+              style={{ backgroundColor: "#c7a84b" }}
+            />
+          </div>
           <h1
             className="text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
             style={{
@@ -222,34 +232,45 @@ export default function ParaEmpresasPage() {
           >
             Proveedor de postres{" "}
             <em className="italic" style={{ color: "#c7a84b" }}>artesanales</em>
-            <br />
-            para supermercados, cadenas
-            <br />
-            y distribuidores en Colombia.
           </h1>
           <p
-            className="mt-6 max-w-md text-sm leading-relaxed md:text-base"
-            style={{ color: "rgba(251,249,244,0.65)" }}
+            className="mt-4 text-2xl leading-[1.25] sm:text-3xl md:text-4xl"
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 400,
+              letterSpacing: "-0.01em",
+              color: "rgba(251,249,244,0.78)",
+            }}
           >
-            Tu lo imaginas, nosotros lo creamos.
+            para supermercados, cadenas y distribuidores en Colombia.
           </p>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={CONTACT.whatsappMessage}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold transition-all hover:scale-[1.03]"
-              style={{ backgroundColor: "#c7a84b", color: "#00101f", boxShadow: "0 6px 24px rgba(199,168,75,0.3)" }}
+          <div className="mt-6 flex max-w-xl items-center gap-4">
+            <span
+              className="h-6 w-px flex-shrink-0"
+              style={{ backgroundColor: "#c7a84b" }}
+            />
+            <p
+              className="text-base italic leading-relaxed md:text-lg"
+              style={{ color: "rgba(251,249,244,0.95)" }}
             >
-              Hablemos por WhatsApp
-              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
+              Tú lo imaginas, nosotros lo creamos.
+            </p>
+          </div>
+          <div className="mt-10">
             <a
               href={`mailto:${CONTACT.email}`}
-              className="inline-flex items-center gap-2 rounded-full border-2 px-8 py-4 text-sm font-semibold transition-all hover:scale-[1.03]"
-              style={{ borderColor: "rgba(199,168,75,0.4)", color: "#fbf9f4" }}
+              className="group inline-flex items-center gap-3 rounded-sm px-5 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02]"
+              style={{
+                background: "linear-gradient(135deg, rgba(199,168,75,0.15), rgba(199,168,75,0.08))",
+                border: "1px solid rgba(199,168,75,0.5)",
+                backdropFilter: "blur(12px)",
+                boxShadow: "inset 0 1px 0 rgba(199,168,75,0.2), 0 0 24px rgba(199,168,75,0.15)",
+                color: "#fbf9f4",
+              }}
             >
-              Escribirnos por email
+              <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ backgroundColor: "#c7a84b" }} />
+              Pedir propuesta comercial
+              <ArrowUpRight size={13} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: "#c7a84b" }} />
             </a>
           </div>
         </div>
@@ -400,24 +421,28 @@ export default function ParaEmpresasPage() {
                   href={CONTACT.whatsappMessage}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold transition-all hover:scale-[1.03]"
+                  className="group inline-flex items-center gap-3 rounded-sm px-5 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02]"
                   style={{
-                    backgroundColor: "#c7a84b",
+                    background: "linear-gradient(135deg, rgba(199,168,75,0.18), rgba(199,168,75,0.08))",
+                    border: "1px solid rgba(199,168,75,0.5)",
+                    boxShadow: "inset 0 1px 0 rgba(199,168,75,0.2)",
                     color: "#00101f",
-                    boxShadow: "0 6px 24px rgba(199,168,75,0.3)",
                   }}
                 >
+                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ backgroundColor: "#c7a84b" }} />
                   WhatsApp
-                  <ArrowUpRight
-                    size={16}
-                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  />
+                  <ArrowUpRight size={13} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: "#c7a84b" }} />
                 </a>
                 <a
                   href={`mailto:${CONTACT.email}`}
-                  className="inline-flex items-center rounded-full border-2 px-8 py-4 text-sm font-semibold transition-all hover:scale-[1.03]"
-                  style={{ borderColor: "#c7a84b", color: "#00101f" }}
+                  className="group inline-flex items-center gap-3 rounded-sm px-5 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02]"
+                  style={{
+                    background: "rgba(0,16,31,0.04)",
+                    border: "1px solid rgba(0,16,31,0.15)",
+                    color: "#4a5560",
+                  }}
                 >
+                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ backgroundColor: "#4a5560" }} />
                   Email
                 </a>
               </div>
