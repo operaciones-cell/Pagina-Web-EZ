@@ -76,8 +76,8 @@ const TABS = [
     title: "Portafolio listo para góndola",
     body: "Más de 12 referencias disponibles para tu cadena, con:",
     bullets: ["Registro INVIMA vigente", "Código de barras e información nutricional", "Capacidad de producción escalable", "Desde el Tiramisú hasta el Arroz con Leche"],
-    image: "/images/products/tiramisu.jpg",
-    imageAlt: "Portafolio Eliana Zaia",
+    image: "/images/empresas/distribucion.jpg",
+    imageAlt: "Portafolio listo para góndola — Eliana Zaia",
   },
   {
     id: "produccion",
@@ -85,8 +85,8 @@ const TABS = [
     title: "Tu idea, nuestra planta",
     body: "Desarrollamos cualquier postre a la medida de tu marca. Desde la formulación hasta el empaque y el logo — todo bajo un mismo proceso.",
     bullets: null,
-    image: "/images/empresas/planta-2.jpg",
-    imageAlt: "Planta de producción Eliana Zaia",
+    image: "/images/empresas/produccion.png",
+    imageAlt: "Producción a medida — Eliana Zaia",
   },
   {
     id: "marca-blanca",
@@ -94,8 +94,8 @@ const TABS = [
     title: "Mismo sabor, tu etiqueta",
     body: "Tomamos una receta probada de nuestro portafolio y la entregamos bajo tu marca. Mínimo tiempo de desarrollo, mismo estándar de siempre.",
     bullets: null,
-    image: "/images/products/cheesecake.jpg",
-    imageAlt: "Marca blanca Eliana Zaia",
+    image: "/images/empresas/marca-blanca.png",
+    imageAlt: "Marca blanca — Eliana Zaia",
   },
 ];
 
@@ -150,13 +150,13 @@ function ServiciosTabs() {
             className="grid gap-8 md:grid-cols-2 md:gap-12 md:items-center"
           >
             {/* Imagen */}
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl order-2 md:order-1" style={{ backgroundColor: "#f5f3ee" }}>
+            <div className="group relative aspect-[4/3] overflow-hidden rounded-sm order-2 md:order-1" style={{ backgroundColor: "#f5f3ee" }}>
               <Image
                 src={tab.image}
                 alt={tab.imageAlt}
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover"
+                className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105"
               />
             </div>
 
@@ -204,59 +204,57 @@ export default function ParaEmpresasPage() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="absolute bottom-0 left-0 z-10 w-full max-w-3xl px-6 pb-16 md:px-12 md:pb-20">
-          <div className="mb-5 flex items-center gap-3">
-            <span
-              className="h-px w-6"
-              style={{ backgroundColor: "#c7a84b" }}
-            />
-            <p
-              className="text-sm font-medium uppercase tracking-[0.32em]"
-              style={{ color: "#c7a84b" }}
-            >
+        <motion.div
+          className="absolute bottom-0 left-0 z-10 w-full max-w-3xl px-6 pb-16 md:px-12 md:pb-20"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.15 } },
+          }}
+        >
+          <motion.div
+            className="mb-5 flex items-center gap-3"
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } } }}
+          >
+            <span className="h-px w-6" style={{ backgroundColor: "#c7a84b" }} />
+            <p className="text-sm font-medium uppercase tracking-[0.32em]" style={{ color: "#c7a84b" }}>
               Para empresas
             </p>
-            <span
-              className="h-px w-6"
-              style={{ backgroundColor: "#c7a84b" }}
-            />
-          </div>
-          <h1
+            <span className="h-px w-6" style={{ backgroundColor: "#c7a84b" }} />
+          </motion.div>
+
+          <motion.h1
             className="text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
-            style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontWeight: 400,
-              letterSpacing: "-0.02em",
-              color: "#fbf9f4",
-            }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#fbf9f4" }}
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } } }}
           >
             Proveedor de postres{" "}
             <em className="italic" style={{ color: "#c7a84b" }}>artesanales</em>
-          </h1>
-          <p
+          </motion.h1>
+
+          <motion.p
             className="mt-4 text-2xl leading-[1.25] sm:text-3xl md:text-4xl"
-            style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontWeight: 400,
-              letterSpacing: "-0.01em",
-              color: "rgba(251,249,244,0.78)",
-            }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, letterSpacing: "-0.01em", color: "rgba(251,249,244,0.78)" }}
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } } }}
           >
             para supermercados, cadenas y distribuidores en Colombia.
-          </p>
-          <div className="mt-6 flex max-w-xl items-center gap-4">
-            <span
-              className="h-6 w-px flex-shrink-0"
-              style={{ backgroundColor: "#c7a84b" }}
-            />
-            <p
-              className="text-base italic leading-relaxed md:text-lg"
-              style={{ color: "rgba(251,249,244,0.95)" }}
-            >
+          </motion.p>
+
+          <motion.div
+            className="mt-6 flex max-w-xl items-center gap-4"
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } } }}
+          >
+            <span className="h-6 w-px flex-shrink-0" style={{ backgroundColor: "#c7a84b" }} />
+            <p className="text-base italic leading-relaxed md:text-lg" style={{ color: "rgba(251,249,244,0.95)" }}>
               Tú lo imaginas, nosotros lo creamos.
             </p>
-          </div>
-          <div className="mt-10">
+          </motion.div>
+
+          <motion.div
+            className="mt-10"
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } } }}
+          >
             <a
               href={`mailto:${CONTACT.email}`}
               className="group inline-flex items-center gap-3 rounded-sm px-5 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02]"
@@ -272,8 +270,8 @@ export default function ParaEmpresasPage() {
               Pedir propuesta comercial
               <ArrowUpRight size={13} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: "#c7a84b" }} />
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Stats — still midnight */}
@@ -286,7 +284,7 @@ export default function ParaEmpresasPage() {
             {STATS.map((s, i) => (
               <FadeIn key={s.label} delay={i * 0.08}>
                 <div
-                  className="rounded-2xl p-6 text-center"
+                  className="rounded-sm p-6 text-center"
                   style={{
                     backgroundColor: "rgba(251,249,244,0.04)",
                     border: "1px solid rgba(199,168,75,0.12)",
@@ -304,7 +302,7 @@ export default function ParaEmpresasPage() {
                   </p>
                   <p
                     className="mt-1 text-xs leading-snug"
-                    style={{ color: "rgba(251,249,244,0.45)" }}
+                    style={{ color: "rgba(251,249,244,0.65)" }}
                   >
                     {s.label}
                   </p>
@@ -407,7 +405,7 @@ export default function ParaEmpresasPage() {
                     color: "#00101f",
                   }}
                 >
-                  ¿Producimos<br />juntos?
+                  ¿Producimos<br /><em className="italic" style={{ color: "#c7a84b" }}>juntos?</em>
                 </h2>
                 <p
                   className="mt-4 max-w-sm text-sm leading-relaxed"
@@ -421,17 +419,17 @@ export default function ParaEmpresasPage() {
                   href={CONTACT.whatsappMessage}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-3 rounded-sm px-5 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02]"
+                  className="group inline-flex items-center gap-3 rounded-sm px-5 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02] hover:brightness-105"
                   style={{
-                    background: "linear-gradient(135deg, rgba(199,168,75,0.18), rgba(199,168,75,0.08))",
-                    border: "1px solid rgba(199,168,75,0.5)",
-                    boxShadow: "inset 0 1px 0 rgba(199,168,75,0.2)",
+                    backgroundColor: "#c7a84b",
+                    border: "1px solid #c7a84b",
+                    boxShadow: "0 6px 24px rgba(199,168,75,0.3)",
                     color: "#00101f",
                   }}
                 >
-                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ backgroundColor: "#c7a84b" }} />
+                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ backgroundColor: "#00101f" }} />
                   WhatsApp
-                  <ArrowUpRight size={13} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: "#c7a84b" }} />
+                  <ArrowUpRight size={13} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: "#00101f" }} />
                 </a>
                 <a
                   href={`mailto:${CONTACT.email}`}
