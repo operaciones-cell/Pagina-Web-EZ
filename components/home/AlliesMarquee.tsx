@@ -27,7 +27,7 @@ export default function AlliesMarquee() {
               letterSpacing: "-0.02em",
             }}
           >
-            Nos encuentras donde importa
+            De grandes aliados a tu cuchara.
           </h2>
         </div>
         <Link
@@ -35,7 +35,7 @@ export default function AlliesMarquee() {
           className="text-xs uppercase tracking-[0.22em] transition-opacity hover:opacity-60 whitespace-nowrap"
           style={{ color: "#c7a84b" }}
         >
-          Ver todos →
+          Donde encontrarnos →
         </Link>
       </div>
 

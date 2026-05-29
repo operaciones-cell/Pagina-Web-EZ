@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
 
 function FadeIn({
@@ -257,7 +256,7 @@ export default function ParaEmpresasPage() {
           >
             <a
               href={`mailto:${CONTACT.email}`}
-              className="group inline-flex items-center gap-3 rounded-sm px-5 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02]"
+              className="inline-flex items-center rounded-sm px-5 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02]"
               style={{
                 background: "linear-gradient(135deg, rgba(199,168,75,0.15), rgba(199,168,75,0.08))",
                 border: "1px solid rgba(199,168,75,0.5)",
@@ -266,9 +265,7 @@ export default function ParaEmpresasPage() {
                 color: "#fbf9f4",
               }}
             >
-              <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ backgroundColor: "#c7a84b" }} />
               Pedir propuesta comercial
-              <ArrowUpRight size={13} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: "#c7a84b" }} />
             </a>
           </motion.div>
         </motion.div>
@@ -419,7 +416,7 @@ export default function ParaEmpresasPage() {
                   href={CONTACT.whatsappMessage}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-3 rounded-sm px-5 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02] hover:brightness-105"
+                  className="inline-flex items-center rounded-sm px-5 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02] hover:brightness-105"
                   style={{
                     backgroundColor: "#c7a84b",
                     border: "1px solid #c7a84b",
@@ -427,20 +424,17 @@ export default function ParaEmpresasPage() {
                     color: "#00101f",
                   }}
                 >
-                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ backgroundColor: "#00101f" }} />
                   WhatsApp
-                  <ArrowUpRight size={13} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: "#00101f" }} />
                 </a>
                 <a
                   href={`mailto:${CONTACT.email}`}
-                  className="group inline-flex items-center gap-3 rounded-sm px-5 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02]"
+                  className="inline-flex items-center rounded-sm px-5 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02]"
                   style={{
                     background: "rgba(0,16,31,0.04)",
                     border: "1px solid rgba(0,16,31,0.15)",
                     color: "#4a5560",
                   }}
                 >
-                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ backgroundColor: "#4a5560" }} />
                   Email
                 </a>
               </div>

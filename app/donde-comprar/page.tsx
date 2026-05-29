@@ -43,38 +43,6 @@ export default function DondeComprarPage() {
         </div>
       </section>
 
-      {/* Aliados — cream */}
-      <section className="px-6 pb-20 md:pb-28" style={{ backgroundColor: "#fbf9f4" }}>
-        <div className="mx-auto max-w-4xl">
-          <FadeIn>
-            <p className="mb-8 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
-              Nuestros aliados
-            </p>
-          </FadeIn>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {ALLIES.map((ally, i) => (
-              <FadeIn key={ally.name} delay={i * 0.06}>
-                <div
-                  className="flex h-20 items-center justify-center rounded-xl px-5 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-                  style={{ backgroundColor: "#ffffff", boxShadow: "0 2px 12px rgba(0,16,31,0.07)" }}
-                >
-                  <img
-                    src={ally.logo}
-                    alt={ally.name}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                      display: "block",
-                    }}
-                  />
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* El Tinto — mapa */}
       <section className="px-6 pb-20 md:pb-28" style={{ backgroundColor: "#fbf9f4" }}>
         <div className="mx-auto max-w-4xl">
@@ -115,6 +83,38 @@ export default function DondeComprarPage() {
               </a>
             </div>
           </FadeIn>
+        </div>
+      </section>
+
+      {/* Aliados — cream */}
+      <section className="px-6 pb-20 md:pb-28" style={{ backgroundColor: "#fbf9f4" }}>
+        <div className="mx-auto max-w-4xl">
+          <FadeIn>
+            <p className="mb-8 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
+              Nuestros aliados
+            </p>
+          </FadeIn>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {ALLIES.map((ally, i) => (
+              <FadeIn key={ally.name} delay={i * 0.06}>
+                <div
+                  className="flex h-20 items-center justify-center rounded-xl px-5 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                  style={{ backgroundColor: "#ffffff", boxShadow: "0 2px 12px rgba(0,16,31,0.07)" }}
+                >
+                  <img
+                    src={ally.logo}
+                    alt={ally.name}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                      display: "block",
+                    }}
+                  />
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 

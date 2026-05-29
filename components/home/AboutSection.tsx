@@ -74,7 +74,7 @@ export default function AboutSection() {
         >
           <Link
             href="/nosotros"
-            className="group inline-flex items-center gap-3 rounded-sm px-6 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02]"
+            className="inline-flex items-center rounded-sm px-6 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02]"
             style={{
               background: "linear-gradient(135deg, rgba(199,168,75,0.08), rgba(199,168,75,0.04))",
               border: "1px solid rgba(199,168,75,0.7)",
@@ -83,9 +83,7 @@ export default function AboutSection() {
               color: "#00101f",
             }}
           >
-            <span className="h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#c7a84b" }} />
             Conocer la historia
-            <span className="transition-transform group-hover:translate-x-0.5" style={{ color: "#c7a84b" }}>→</span>
           </Link>
         </motion.div>
       </div>

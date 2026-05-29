@@ -148,7 +148,7 @@ export default function ProductosPage() {
           </div>
           <a
             href="/para-empresas"
-            className="group inline-flex flex-shrink-0 items-center gap-3 rounded-sm px-6 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02]"
+            className="inline-flex flex-shrink-0 items-center rounded-sm px-6 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02]"
             style={{
               background: "linear-gradient(135deg, rgba(199,168,75,0.15), rgba(199,168,75,0.08))",
               border: "1px solid rgba(199,168,75,0.7)",
@@ -157,9 +157,7 @@ export default function ProductosPage() {
               color: "#fbf9f4",
             }}
           >
-            <span className="h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#c7a84b" }} />
             Hablemos de tu proyecto
-            <span className="transition-transform group-hover:translate-x-0.5" style={{ color: "#c7a84b" }}>→</span>
           </a>
         </div>
       </div>
