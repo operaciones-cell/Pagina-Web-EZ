@@ -61,50 +61,72 @@ export default function NosotrosPage() {
   return (
     <div className="min-h-screen">
 
-      {/* Hero — cream */}
-      <section
-        className="relative flex min-h-[70vh] flex-col justify-end px-6 pb-16 pt-36 md:pt-44 md:pb-24"
-        style={{ backgroundColor: "#fbf9f4" }}
-      >
-        <div className="mx-auto max-w-5xl w-full">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-4 text-xs uppercase tracking-[0.28em]"
-            style={{ color: "#c7a84b" }}
+      {/* Hero — texto centrado izquierda + card flotante derecha */}
+      <section className="relative min-h-screen overflow-hidden" style={{ backgroundColor: "#fbf9f4" }}>
+        <div className="mx-auto flex min-h-screen max-w-7xl flex-col items-center gap-12 px-6 pt-32 md:flex-row md:gap-16 md:px-12 md:pt-0">
+
+          {/* Texto — centrado verticalmente */}
+          <motion.div
+            className="w-full md:w-1/2"
+            initial="hidden"
+            animate="visible"
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.15 } } }}
           >
-            Nuestra historia
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
+            <motion.p
+              className="mb-5 text-xs uppercase tracking-[0.28em]"
+              style={{ color: "#c7a84b" }}
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } } }}
+            >
+              Nuestra historia
+            </motion.p>
+            <motion.h1
+              className="text-5xl leading-[1.05] sm:text-6xl md:text-6xl lg:text-7xl"
+              style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#00101f" }}
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } } }}
+            >
+              Desde 1998,{" "}
+              <em className="italic" style={{ color: "#c7a84b" }}>cada postre</em>
+              <br />
+              cuenta una historia.
+            </motion.h1>
+            <motion.div
+              className="mt-6 flex items-center gap-4"
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } } }}
+            >
+              <span className="h-px w-8 flex-shrink-0" style={{ backgroundColor: "#c7a84b" }} />
+              <p className="text-base leading-relaxed md:text-lg" style={{ color: "#4a5560" }}>
+                Una herencia italiana, un horno en Zipaquirá, y 26 años
+                perfeccionando el equilibrio entre técnica y sabor.
+              </p>
+            </motion.div>
+          </motion.div>
+
+          {/* Card flotante — derecha */}
+          <motion.div
+            className="hidden w-full pb-0 pt-24 md:flex md:w-1/2 md:items-center md:py-16"
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="text-5xl leading-[1.05] tracking-tight sm:text-6xl md:text-7xl"
-            style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontWeight: 400,
-              letterSpacing: "-0.02em",
-              color: "#00101f",
-            }}
+            transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1], delay: 0.35 }}
           >
-            Desde 1998,{" "}
-            <em className="italic" style={{ color: "#c7a84b" }}>
-              cada postre
-            </em>
-            <br />
-            cuenta una historia.
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-6 max-w-xl text-base leading-relaxed md:text-lg"
-            style={{ color: "#4a5560" }}
-          >
-            Una herencia italiana, un horno en Zipaquirá, y 26 años
-            perfeccionando el equilibrio entre técnica y sabor.
-          </motion.p>
+            <div
+              className="relative w-full overflow-hidden rounded-sm"
+              style={{
+                aspectRatio: "3/4",
+                maxHeight: "78vh",
+                boxShadow: "0 24px 64px rgba(0,16,31,0.1)",
+              }}
+            >
+              <Image
+                src="/images/nosotros/hero.png"
+                alt="Eliana Zaia — producción artesanal"
+                fill
+                priority
+                sizes="(min-width: 768px) 45vw, 100vw"
+                className="object-cover object-center"
+              />
+            </div>
+          </motion.div>
+
         </div>
       </section>
 
@@ -147,8 +169,8 @@ export default function NosotrosPage() {
             <FadeIn delay={0.1}>
               <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
                 <Image
-                  src="/images/nosotros/eliana.jpg"
-                  alt="Eliana Zaia"
+                  src="/images/nosotros/origen.png"
+                  alt="Equipo Eliana Zaia"
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover object-top"
@@ -160,8 +182,8 @@ export default function NosotrosPage() {
       </section>
 
       {/* Timeline — cream con años grandes */}
-      <section className="px-6 py-20 md:py-28" style={{ backgroundColor: "#fbf9f4" }}>
-        <div className="mx-auto max-w-5xl">
+      <section className="pt-20 md:pt-28" style={{ backgroundColor: "#fbf9f4" }}>
+        <div className="mx-auto max-w-5xl px-6">
           <FadeIn>
             <p className="mb-16 text-xs uppercase tracking-[0.28em]" style={{ color: "#c7a84b" }}>
               El recorrido
@@ -203,21 +225,31 @@ export default function NosotrosPage() {
             ))}
             <div style={{ borderTop: "1px solid rgba(199,168,75,0.2)" }} />
           </div>
-
-          {/* Foto de proceso */}
-          <FadeIn className="mt-12">
-            <div className="relative h-64 overflow-hidden rounded-2xl md:h-80">
-              <Image
-                src="/images/nosotros/proceso.jpg"
-                alt="Proceso artesanal Eliana Zaia"
-                fill
-                sizes="100vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(251,249,244,0.3) 0%, rgba(251,249,244,0) 50%)" }} />
-            </div>
-          </FadeIn>
         </div>
+
+        {/* Pull quote — full bleed */}
+        <FadeIn className="mt-16">
+          <div
+            className="relative overflow-hidden"
+            style={{
+              backgroundImage: "linear-gradient(rgba(0,16,31,0.55), rgba(0,16,31,0.55)), url('/images/nosotros/zipaquira.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center center",
+            }}
+          >
+            <div className="flex flex-col items-center gap-5 px-8 py-24 text-center md:py-36">
+              <span className="h-px w-16" style={{ backgroundColor: "#c7a84b" }} />
+              <p
+                className="max-w-2xl text-2xl leading-snug sm:text-3xl md:text-4xl"
+                style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, letterSpacing: "-0.02em", color: "#fbf9f4" }}
+              >
+                De un horno en Zipaquirá,{" "}
+                <em className="italic" style={{ color: "#c7a84b" }}>a todo el país.</em>
+              </p>
+              <span className="h-px w-16" style={{ backgroundColor: "#c7a84b" }} />
+            </div>
+          </div>
+        </FadeIn>
       </section>
 
       {/* Lo que creemos — midnight */}
@@ -228,29 +260,6 @@ export default function NosotrosPage() {
               Nuestra razón de ser
             </p>
           </FadeIn>
-
-          {/* Frases grandes */}
-          <div className="mb-16 space-y-4">
-            {[
-              "Creemos que un postre bien hecho no necesita explicaciones.",
-              "Que artesanal y nacional no son opuestos.",
-              "Que la técnica italiana tiene mucho que decirle al sabor latino.",
-            ].map((frase, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
-                <p
-                  className="text-2xl leading-snug md:text-3xl lg:text-4xl"
-                  style={{
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontWeight: 400,
-                    color: "#fbf9f4",
-                    opacity: 1 - i * 0.2,
-                  }}
-                >
-                  {frase}
-                </p>
-              </FadeIn>
-            ))}
-          </div>
 
           {/* Valores */}
           <div className="grid gap-px sm:grid-cols-2" style={{ backgroundColor: "rgba(199,168,75,0.12)" }}>
