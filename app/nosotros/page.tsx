@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 
 function FadeIn({
   children,
@@ -298,16 +297,15 @@ export default function NosotrosPage() {
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/grupo-radici"
-                  className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold transition-all hover:scale-[1.03]"
-                  style={{ backgroundColor: "#c7a84b", color: "#00101f", boxShadow: "0 6px 24px rgba(199,168,75,0.3)" }}
+                  className="inline-flex items-center rounded-sm px-5 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02] hover:brightness-105"
+                  style={{ backgroundColor: "#c7a84b", border: "1px solid #c7a84b", boxShadow: "0 6px 24px rgba(199,168,75,0.3)", color: "#00101f" }}
                 >
                   Grupo Radici
-                  <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
                 <Link
                   href="/productos"
-                  className="inline-flex items-center rounded-full border-2 px-8 py-4 text-sm font-semibold transition-all hover:scale-[1.03]"
-                  style={{ borderColor: "#c7a84b", color: "#00101f" }}
+                  className="inline-flex items-center rounded-sm px-5 py-3 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:scale-[1.02]"
+                  style={{ background: "rgba(0,16,31,0.04)", border: "1px solid rgba(0,16,31,0.15)", color: "#4a5560" }}
                 >
                   Nuestros productos
                 </Link>

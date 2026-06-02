@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { GRUPO_RADICI, CONTACT } from "@/lib/constants";
@@ -29,7 +30,7 @@ function FadeIn({
 
 const EMPRESA_DETAILS: Record<
   string,
-  { tag: string; description: string; location: string; href?: string }
+  { tag: string; description: string; location: string; href?: string; image?: string }
 > = {
   "Eliana Zaia": {
     tag: "Repostería",
@@ -37,12 +38,14 @@ const EMPRESA_DETAILS: Record<
       "La marca principal del grupo. Postres artesanales de técnica italiana distribuidos en 31 de 32 departamentos de Colombia.",
     location: "Zipaquirá, Colombia",
     href: "/",
+    image: "/images/grupo/eliana-zai.jpeg",
   },
   "El Tinto": {
     tag: "Cafetería",
     description:
       "Espacios donde los postres Eliana Zaia cobran vida. Experiencia de marca directa al consumidor.",
     location: "Colombia",
+    image: "/images/grupo/el-tinto.jpeg",
   },
   "EZ Treats": {
     tag: "Producción",
@@ -55,6 +58,7 @@ const EMPRESA_DETAILS: Record<
     description:
       "Producción y distribución de moldes e insumos para la industria de repostería.",
     location: "Colombia",
+    image: "/images/grupo/moldeza.jpg",
   },
   "Radici Wealth Management": {
     tag: "Finanzas",
@@ -124,12 +128,12 @@ export default function GrupoRadiciPage() {
               return (
                 <FadeIn key={empresa.name} delay={i * 0.08}>
                   <div
-                    className="flex flex-col gap-4 border-t py-8 md:flex-row md:items-start md:gap-12 md:py-10"
-                    style={{ borderColor: "rgba(199,168,75,0.18)" }}
+                    className="grid border-t py-8 md:py-10 md:gap-12"
+                    style={{ borderColor: "rgba(199,168,75,0.18)", gridTemplateColumns: detail?.image ? "2rem 1fr 256px" : "2rem 1fr" }}
                   >
                     {/* Index */}
                     <span
-                      className="w-8 flex-shrink-0 text-xs font-medium"
+                      className="text-xs font-medium pt-1"
                       style={{ color: "rgba(199,168,75,0.5)" }}
                     >
                       {String(i + 1).padStart(2, "0")}
@@ -141,55 +145,53 @@ export default function GrupoRadiciPage() {
                         {detail?.tag && (
                           <span
                             className="rounded-full px-3 py-1 text-xs uppercase tracking-[0.18em]"
-                            style={{
-                              backgroundColor: "rgba(199,168,75,0.1)",
-                              color: "#c7a84b",
-                            }}
+                            style={{ backgroundColor: "rgba(199,168,75,0.1)", color: "#c7a84b" }}
                           >
                             {detail.tag}
                           </span>
                         )}
                         {detail?.location && (
-                          <span
-                            className="text-xs"
-                            style={{ color: "#4a5560" }}
-                          >
+                          <span className="text-xs" style={{ color: "#4a5560" }}>
                             {detail.location}
                           </span>
                         )}
                       </div>
                       <h2
                         className="mb-2 text-2xl md:text-3xl"
-                        style={{
-                          fontFamily: "'Cormorant Garamond', serif",
-                          fontWeight: 400,
-                          color: "#00101f",
-                        }}
+                        style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, color: "#00101f" }}
                       >
                         {empresa.name}
                       </h2>
                       {detail?.description && (
-                        <p
-                          className="max-w-md text-sm leading-relaxed"
-                          style={{ color: "#4a5560" }}
-                        >
+                        <p className="max-w-md text-sm leading-relaxed" style={{ color: "#4a5560" }}>
                           {detail.description}
                         </p>
                       )}
                     </div>
 
+                    {/* Imagen */}
+                    {detail?.image && (
+                      <div
+                        className="group relative overflow-hidden rounded-sm"
+                        style={{ height: "144px" }}
+                        style={{ backgroundColor: "#f5f3ee" }}
+                      >
+                        <Image
+                          src={detail.image}
+                          alt={empresa.name}
+                          fill
+                          sizes="(min-width: 768px) 208px, 100vw"
+                          className="object-cover object-center transition-transform duration-[1400ms] ease-out group-hover:scale-105"
+                        />
+                      </div>
+                    )}
+
                     {/* Link */}
                     {detail?.href && (
-                      <Link
-                        href={detail.href}
-                        className="group flex-shrink-0 self-start"
-                      >
+                      <Link href={detail.href} className="group flex-shrink-0 self-start">
                         <span
                           className="flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110"
-                          style={{
-                            backgroundColor: "rgba(199,168,75,0.12)",
-                            color: "#c7a84b",
-                          }}
+                          style={{ backgroundColor: "rgba(199,168,75,0.12)", color: "#c7a84b" }}
                         >
                           <ArrowUpRight size={16} />
                         </span>
