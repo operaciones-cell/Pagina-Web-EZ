@@ -65,6 +65,7 @@ const EMPRESA_DETAILS: Record<
     description:
       "Gestión patrimonial y financiera del grupo empresarial Radici.",
     location: "Colombia",
+    image: "/images/grupo/radici.jpg",
   },
 };
 
