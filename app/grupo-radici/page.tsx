@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { GRUPO_RADICI, CONTACT } from "@/lib/constants";
+import { useState, useEffect } from "react";
 
 function FadeIn({
   children,
@@ -38,7 +39,7 @@ const EMPRESA_DETAILS: Record<
       "La marca principal del grupo. Postres artesanales de técnica italiana distribuidos en 31 de 32 departamentos de Colombia.",
     location: "Zipaquirá, Colombia",
     href: "/",
-    image: "/images/grupo/eliana-zai.jpeg",
+    image: "/images/grupo/eliana-zaia.jpeg",
   },
   "El Tinto": {
     tag: "Cafetería",
@@ -69,34 +70,616 @@ const EMPRESA_DETAILS: Record<
   },
 };
 
-export default function GrupoRadiciPage() {
+/* ─── Panel derecho: imagen o placeholder animado ─── */
+function ImagePanel({ empresa }: { empresa: { name: string } }) {
+  const detail = EMPRESA_DETAILS[empresa.name];
+
   return (
-    <div className="min-h-screen">
-      {/* Hero — cream */}
-      <section
-        className="px-6 pb-16 pt-36 md:pb-20 md:pt-44"
-        style={{ backgroundColor: "#fbf9f4" }}
-      >
-        <div className="mx-auto max-w-5xl">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-4 text-xs uppercase tracking-[0.28em]"
+    <AnimatePresence mode="wait">
+      {detail?.image ? (
+        <motion.div
+          key={empresa.name}
+          className="absolute inset-0"
+          initial={{ opacity: 0, scale: 1.04 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.97 }}
+          transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+          <Image
+            src={detail.image}
+            alt={empresa.name}
+            fill
+            sizes="320px"
+            className="object-cover object-center"
+          />
+          {/* Gradient overlay */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(0,16,31,0.72) 0%, transparent 55%)",
+            }}
+          />
+          {/* Label bottom */}
+          <div className="absolute bottom-6 left-6 right-6">
+            <p
+              className="mb-1 text-xs uppercase tracking-[0.22em]"
+              style={{ color: "rgba(199,168,75,0.8)" }}
+            >
+              {detail?.tag}
+            </p>
+            <p
+              className="text-xl leading-tight"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 400,
+                color: "#fbf9f4",
+              }}
+            >
+              {empresa.name}
+            </p>
+          </div>
+          {/* Link a página si hay href */}
+          {detail?.href && (
+            <Link href={detail.href}>
+              <span
+                className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
+                style={{
+                  backgroundColor: "rgba(199,168,75,0.18)",
+                  backdropFilter: "blur(8px)",
+                  color: "#c7a84b",
+                }}
+              >
+                <ArrowUpRight size={15} />
+              </span>
+            </Link>
+          )}
+        </motion.div>
+      ) : (
+        /* Placeholder animado para EZ Treats */
+        <motion.div
+          key={empresa.name + "-placeholder"}
+          className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden"
+          style={{ backgroundColor: "#00101f" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          {/* Círculos pulsantes */}
+          {[0, 1, 2, 3].map((i) => (
+            <motion.div
+              key={i}
+              className="absolute rounded-full border"
+              style={{
+                borderColor: `rgba(199,168,75,${0.15 - i * 0.03})`,
+                width: 80 + i * 60,
+                height: 80 + i * 60,
+              }}
+              animate={{ scale: [1, 1.18, 1], opacity: [0.6, 0.15, 0.6] }}
+              transition={{
+                duration: 3.5,
+                delay: i * 0.7,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+          {/* Texto central */}
+          <p
+            className="relative mb-3 text-xs uppercase tracking-[0.32em]"
             style={{ color: "#c7a84b" }}
           >
-            El grupo
-          </motion.p>
+            Próximamente
+          </p>
+          <p
+            className="relative text-center text-2xl leading-tight"
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 400,
+              color: "#fbf9f4",
+            }}
+          >
+            {empresa.name}
+          </p>
+          <div
+            className="relative mt-3 flex items-center gap-1.5"
+          >
+            <MapPin size={11} style={{ color: "rgba(199,168,75,0.5)" }} />
+            <p
+              className="text-xs"
+              style={{ color: "rgba(251,249,244,0.35)" }}
+            >
+              {EMPRESA_DETAILS[empresa.name]?.location}
+            </p>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
+/* ─── Sección empresas — desktop: lista + panel sticky ─── */
+function EmpresasSection() {
+  const empresas = GRUPO_RADICI;
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  return (
+    <section
+      className="px-6 pb-24 md:pb-32"
+      style={{ backgroundColor: "#fbf9f4" }}
+    >
+      <div className="mx-auto max-w-5xl">
+
+        {/* ── Desktop ── */}
+        <div className="hidden md:flex items-start gap-16 xl:gap-20">
+
+          {/* Lista izquierda */}
+          <div className="flex-1 min-w-0">
+            {empresas.map((empresa, i) => {
+              const detail = EMPRESA_DETAILS[empresa.name];
+              const isActive = i === activeIndex;
+
+              return (
+                <motion.div
+                  key={empresa.name}
+                  className="group relative border-t py-7 cursor-default"
+                  style={{ borderColor: "rgba(199,168,75,0.18)" }}
+                  onMouseEnter={() => setActiveIndex(i)}
+                  onFocus={() => setActiveIndex(i)}
+                  tabIndex={0}
+                >
+                  {/* Línea dorada activa */}
+                  <motion.div
+                    className="absolute left-0 top-0 h-px origin-left"
+                    style={{ backgroundColor: "#c7a84b" }}
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: isActive ? 1 : 0 }}
+                    transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  />
+
+                  <div className="flex items-start justify-between gap-6">
+                    <div className="min-w-0 flex-1">
+                      {/* Número + tag */}
+                      <div className="mb-1.5 flex items-center gap-3">
+                        <span
+                          className="text-xs tabular-nums"
+                          style={{ color: "rgba(199,168,75,0.45)" }}
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        {detail?.tag && (
+                          <motion.span
+                            className="rounded-full px-2.5 py-0.5 text-xs uppercase tracking-[0.16em]"
+                            animate={{
+                              backgroundColor: isActive
+                                ? "rgba(199,168,75,0.15)"
+                                : "transparent",
+                              color: "#c7a84b",
+                            }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            {detail.tag}
+                          </motion.span>
+                        )}
+                      </div>
+
+                      {/* Nombre */}
+                      <motion.h2
+                        className="text-3xl xl:text-4xl leading-none"
+                        style={{
+                          fontFamily: "'Cormorant Garamond', serif",
+                          fontWeight: 400,
+                        }}
+                        animate={{ color: isActive ? "#c7a84b" : "#00101f" }}
+                        transition={{ duration: 0.35 }}
+                      >
+                        {empresa.name}
+                      </motion.h2>
+
+                      {/* Descripción — expande al activarse */}
+                      <AnimatePresence initial={false}>
+                        {isActive && detail?.description && (
+                          <motion.p
+                            key="desc"
+                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                            animate={{ opacity: 1, height: "auto", marginTop: 10 }}
+                            exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                            transition={{ duration: 0.4, ease: "easeOut" }}
+                            className="max-w-sm text-sm leading-relaxed overflow-hidden"
+                            style={{ color: "#4a5560" }}
+                          >
+                            {detail.description}
+                          </motion.p>
+                        )}
+                      </AnimatePresence>
+                    </div>
+
+                    {/* Ubicación + flecha */}
+                    <div className="flex shrink-0 flex-col items-end gap-3 pt-0.5">
+                      <motion.div
+                        className="flex items-center gap-1.5"
+                        animate={{ opacity: isActive ? 1 : 0.35 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <MapPin size={12} style={{ color: "#4a5560" }} />
+                        <span className="text-xs whitespace-nowrap" style={{ color: "#4a5560" }}>
+                          {detail?.location}
+                        </span>
+                      </motion.div>
+
+                      {detail?.href && (
+                        <AnimatePresence>
+                          {isActive && (
+                            <motion.div
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              exit={{ opacity: 0, scale: 0.8 }}
+                              transition={{ duration: 0.25 }}
+                            >
+                              <Link href={detail.href}>
+                                <span
+                                  className="flex h-9 w-9 items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
+                                  style={{
+                                    backgroundColor: "rgba(199,168,75,0.12)",
+                                    color: "#c7a84b",
+                                  }}
+                                >
+                                  <ArrowUpRight size={15} />
+                                </span>
+                              </Link>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+            <div style={{ borderTop: "1px solid rgba(199,168,75,0.18)" }} />
+          </div>
+
+          {/* Panel imagen derecha — sticky */}
+          <div className="w-72 xl:w-80 shrink-0 sticky top-32 self-start">
+            <div
+              className="relative overflow-hidden rounded-sm"
+              style={{
+                height: "min(80vh, 620px)",
+                borderTop: "1px solid rgba(199,168,75,0.18)",
+              }}
+            >
+              <ImagePanel empresa={empresas[activeIndex]} />
+            </div>
+
+            {/* Indicadores debajo del panel */}
+            <div className="mt-4 flex items-center justify-center gap-2">
+              {empresas.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveIndex(i)}
+                  className="transition-all duration-300"
+                  style={{
+                    width: i === activeIndex ? 20 : 6,
+                    height: 3,
+                    borderRadius: 2,
+                    backgroundColor:
+                      i === activeIndex
+                        ? "#c7a84b"
+                        : "rgba(199,168,75,0.25)",
+                  }}
+                  aria-label={`Ver ${GRUPO_RADICI[i].name}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ── Mobile: tarjetas ── */}
+        <div className="md:hidden grid gap-5">
+          {empresas.map((empresa, i) => {
+            const detail = EMPRESA_DETAILS[empresa.name];
+            return (
+              <FadeIn key={empresa.name} delay={i * 0.07}>
+                <div
+                  className="overflow-hidden rounded-sm border"
+                  style={{ borderColor: "rgba(199,168,75,0.2)" }}
+                >
+                  {/* Imagen o placeholder */}
+                  <div className="relative w-full" style={{ height: 200 }}>
+                    {detail?.image ? (
+                      <>
+                        <Image
+                          src={detail.image}
+                          alt={empresa.name}
+                          fill
+                          className="object-cover"
+                        />
+                        <div
+                          className="absolute inset-0"
+                          style={{
+                            background:
+                              "linear-gradient(to top, rgba(0,16,31,0.5) 0%, transparent 60%)",
+                          }}
+                        />
+                      </>
+                    ) : (
+                      <div
+                        className="absolute inset-0 flex flex-col items-center justify-center gap-2"
+                        style={{ backgroundColor: "#00101f" }}
+                      >
+                        {[0, 1].map((k) => (
+                          <motion.div
+                            key={k}
+                            className="absolute rounded-full border"
+                            style={{
+                              borderColor: "rgba(199,168,75,0.15)",
+                              width: 60 + k * 50,
+                              height: 60 + k * 50,
+                            }}
+                            animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.1, 0.5] }}
+                            transition={{ duration: 3, delay: k * 1, repeat: Infinity }}
+                          />
+                        ))}
+                        <p
+                          className="relative text-xs uppercase tracking-[0.28em]"
+                          style={{ color: "#c7a84b" }}
+                        >
+                          Próximamente
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Contenido */}
+                  <div className="p-5" style={{ backgroundColor: "#fbf9f4" }}>
+                    <div className="mb-2 flex flex-wrap items-center gap-2">
+                      <span
+                        className="rounded-full px-2.5 py-0.5 text-xs uppercase tracking-[0.16em]"
+                        style={{
+                          backgroundColor: "rgba(199,168,75,0.1)",
+                          color: "#c7a84b",
+                        }}
+                      >
+                        {detail?.tag}
+                      </span>
+                      <span className="flex items-center gap-1 text-xs" style={{ color: "#4a5560" }}>
+                        <MapPin size={10} />
+                        {detail?.location}
+                      </span>
+                    </div>
+                    <h2
+                      className="mb-2 text-2xl"
+                      style={{
+                        fontFamily: "'Cormorant Garamond', serif",
+                        fontWeight: 400,
+                        color: "#00101f",
+                      }}
+                    >
+                      {empresa.name}
+                    </h2>
+                    <p className="text-sm leading-relaxed" style={{ color: "#4a5560" }}>
+                      {detail?.description}
+                    </p>
+                    {detail?.href && (
+                      <Link
+                        href={detail.href}
+                        className="group mt-4 inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.18em]"
+                        style={{ color: "#c7a84b" }}
+                      >
+                        Ver sitio
+                        <ArrowUpRight
+                          size={13}
+                          className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        />
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              </FadeIn>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Diagrama de raíces ─── */
+const ROOTS = [
+  { path: "M 500,8 C 460,100 180,200 80,300",  cx: 80,  cy: 300, name: "Eliana Zaia", detailKey: "Eliana Zaia",              tag: "REPOSTERÍA", delay: 0,   xAlign: "left"   },
+  { path: "M 500,8 C 485,110 310,220 265,300", cx: 265, cy: 300, name: "El Tinto",    detailKey: "El Tinto",                 tag: "CAFETERÍA",  delay: 0.2, xAlign: "center" },
+  { path: "M 500,8 C 500,120 500,220 500,300", cx: 500, cy: 300, name: "EZ Treats",   detailKey: "EZ Treats",                tag: "PRODUCCIÓN", delay: 0.4, xAlign: "center" },
+  { path: "M 500,8 C 515,110 680,220 730,300", cx: 730, cy: 300, name: "Moldeza",     detailKey: "Moldeza",                  tag: "INSUMOS",    delay: 0.6, xAlign: "center" },
+  { path: "M 500,8 C 540,100 820,200 920,300", cx: 920, cy: 300, name: "Radici WM",   detailKey: "Radici Wealth Management", tag: "FINANZAS",   delay: 0.8, xAlign: "right"  },
+];
+
+function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => void }) {
+  const [started, setStarted] = useState(false);
+  const [hovered, setHovered] = useState<number | null>(null);
+
+  useEffect(() => {
+    const t = setTimeout(() => setStarted(true), 400);
+    return () => clearTimeout(t);
+  }, []);
+
+  const handleHover = (i: number | null) => {
+    setHovered(i);
+    onHoverChange(i);
+  };
+
+  return (
+    <div className="relative hidden w-full max-w-5xl md:block">
+      <svg viewBox="0 0 1000 380" className="w-full overflow-visible" aria-hidden="true" style={{ position: "relative", zIndex: 1 }}>
+        <circle cx={500} cy={8} r={4} fill="#c7a84b"
+          style={{ opacity: started ? 1 : 0, transition: "opacity 0.4s ease 0.4s" }} />
+
+        {ROOTS.map((root, i) => (
+          <g key={root.name}>
+            <motion.path
+              d={root.path} fill="none" stroke="#c7a84b"
+              strokeWidth={hovered === i ? 1.8 : 1}
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={started
+                ? { pathLength: 1, opacity: hovered === i ? 0.9 : 0.35 }
+                : { pathLength: 0, opacity: 0 }}
+              transition={{
+                pathLength: { duration: 1.4, delay: root.delay, ease: [0.25, 0.46, 0.45, 0.94] },
+                opacity:    { duration: 0.4 },
+                strokeWidth:{ duration: 0.3 },
+              }}
+            />
+            <circle cx={root.cx} cy={root.cy} r={hovered === i ? 6 : 4} fill="#c7a84b"
+              style={{
+                opacity: started ? (hovered === i ? 1 : 0.6) : 0,
+                transition: `opacity 0.3s ease ${started ? 0 : root.delay + 1.5}s`,
+              }} />
+            <text x={root.cx} y={root.cy + 22} textAnchor="middle"
+              fill={hovered === i ? "#c7a84b" : "#fbf9f4"} fontSize={18}
+              fontFamily="'Cormorant Garamond', serif"
+              style={{
+                opacity: started ? 1 : 0,
+                transition: `opacity 0.5s ease ${started ? 0 : root.delay + 1.6}s, fill 0.3s ease`,
+              }}>
+              {root.name}
+            </text>
+            <text x={root.cx} y={root.cy + 37} textAnchor="middle"
+              fill="#c7a84b" fontSize={11} fontFamily="system-ui, sans-serif" letterSpacing={2}
+              style={{
+                opacity: started ? 0.55 : 0,
+                transition: `opacity 0.5s ease ${started ? 0 : root.delay + 1.75}s`,
+              }}>
+              {root.tag}
+            </text>
+          </g>
+        ))}
+      </svg>
+
+      {/* Zonas de hover invisibles sobre cada empresa */}
+      {ROOTS.map((root, i) => (
+        <div
+          key={root.name}
+          className="absolute cursor-default"
+          style={{ left: `${(root.cx / 1000) * 100}%`, top: "79%", transform: "translateX(-50%)", width: 130, height: 60, zIndex: 2 }}
+          onMouseEnter={() => handleHover(i)}
+          onMouseLeave={() => handleHover(null)}
+        />
+      ))}
+    </div>
+  );
+}
+
+/* ─── Page ─── */
+export default function GrupoRadiciPage() {
+  const [hoveredRoot, setHoveredRoot] = useState<number | null>(null);
+
+  return (
+    <div className="min-h-screen">
+
+      {/* Hero — dark, centrado, diagrama de raíces animado */}
+      <section
+        className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pb-12 pt-32"
+        style={{ backgroundColor: "#00101f" }}
+      >
+        {/* Imagen de fondo — aparece al hover de cada empresa */}
+        <AnimatePresence mode="sync">
+          {hoveredRoot !== null && (() => {
+            const detail = EMPRESA_DETAILS[ROOTS[hoveredRoot].detailKey];
+            return detail?.image ? (
+              /* Con imagen */
+              <motion.div
+                key={`img-${hoveredRoot}`}
+                className="pointer-events-none absolute inset-0"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.38 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.7, ease: "easeInOut" }}
+              >
+                <Image
+                  src={detail.image}
+                  alt={ROOTS[hoveredRoot].name}
+                  fill
+                  sizes="100vw"
+                  className="object-cover object-center scale-110"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: "radial-gradient(ellipse 60% 70% at 50% 50%, rgba(0,16,31,0.2) 0%, rgba(0,16,31,0.92) 100%)",
+                  }}
+                />
+              </motion.div>
+            ) : (
+              /* Sin imagen — EZ Treats */
+              <motion.div
+                key={`nimg-${hoveredRoot}`}
+                className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-3"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                {/* Círculos pulsantes dorados */}
+                {[0, 1, 2, 3].map((k) => (
+                  <motion.div
+                    key={k}
+                    className="absolute rounded-full border"
+                    style={{
+                      borderColor: `rgba(199,168,75,${0.12 - k * 0.02})`,
+                      width: 120 + k * 110,
+                      height: 120 + k * 110,
+                    }}
+                    animate={{ scale: [1, 1.12, 1], opacity: [0.6, 0.1, 0.6] }}
+                    transition={{ duration: 4, delay: k * 0.9, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                ))}
+                {/* Texto central */}
+                <motion.p
+                  className="relative text-xs uppercase tracking-[0.38em]"
+                  style={{ color: "rgba(199,168,75,0.55)" }}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                >
+                  Próximamente
+                </motion.p>
+                <motion.p
+                  className="relative text-lg"
+                  style={{ fontFamily: "'Cormorant Garamond', serif", color: "rgba(251,249,244,0.35)" }}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.35, duration: 0.5 }}
+                >
+                  Lima · Perú
+                </motion.p>
+              </motion.div>
+            );
+          })()}
+        </AnimatePresence>
+
+        {/* Halo de luz detrás del título */}
+        <div
+          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{
+            width: 600,
+            height: 400,
+            background: "radial-gradient(ellipse, rgba(199,168,75,0.07) 0%, transparent 70%)",
+          }}
+        />
+
+        {/* Texto */}
+        <div className="relative mb-12 text-center md:mb-16">
+
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
+            transition={{ duration: 0.9, delay: 0.12 }}
+            className="text-5xl leading-[1.05] sm:text-6xl md:text-8xl"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 400,
               letterSpacing: "-0.02em",
-              color: "#00101f",
+              color: "#fbf9f4",
             }}
           >
             Grupo{" "}
@@ -105,112 +688,55 @@ export default function GrupoRadiciPage() {
             </em>
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="mt-6 max-w-xl text-sm leading-relaxed md:text-base"
-            style={{ color: "#4a5560" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="mx-auto mt-5 max-w-xs text-sm leading-relaxed sm:max-w-sm"
+            style={{ color: "rgba(251,249,244,0.45)" }}
           >
-            <em>Radici</em> — raíces en italiano. Un conjunto de empresas que
-            comparten origen, valores y la misma forma de entender el oficio.
+            Cinco empresas. Un mismo origen.
           </motion.p>
         </div>
-      </section>
 
-      {/* Empresas — cream continues */}
-      <section
-        className="px-6 pb-20 md:pb-28"
-        style={{ backgroundColor: "#fbf9f4" }}
-      >
-        <div className="mx-auto max-w-5xl">
-          <div className="grid gap-0">
-            {GRUPO_RADICI.map((empresa, i) => {
-              const detail = EMPRESA_DETAILS[empresa.name];
-              return (
-                <FadeIn key={empresa.name} delay={i * 0.08}>
-                  <div
-                    className="grid border-t py-8 md:py-10 md:gap-12"
-                    style={{ borderColor: "rgba(199,168,75,0.18)", gridTemplateColumns: detail?.image ? "2rem 1fr 256px" : "2rem 1fr" }}
-                  >
-                    {/* Index */}
-                    <span
-                      className="text-xs font-medium pt-1"
-                      style={{ color: "rgba(199,168,75,0.5)" }}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+        {/* Diagrama de raíces */}
+        <RootDiagram onHoverChange={setHoveredRoot} />
 
-                    {/* Content */}
-                    <div className="flex-1">
-                      <div className="mb-2 flex flex-wrap items-center gap-3">
-                        {detail?.tag && (
-                          <span
-                            className="rounded-full px-3 py-1 text-xs uppercase tracking-[0.18em]"
-                            style={{ backgroundColor: "rgba(199,168,75,0.1)", color: "#c7a84b" }}
-                          >
-                            {detail.tag}
-                          </span>
-                        )}
-                        {detail?.location && (
-                          <span className="text-xs" style={{ color: "#4a5560" }}>
-                            {detail.location}
-                          </span>
-                        )}
-                      </div>
-                      <h2
-                        className="mb-2 text-2xl md:text-3xl"
-                        style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, color: "#00101f" }}
-                      >
-                        {empresa.name}
-                      </h2>
-                      {detail?.description && (
-                        <p className="max-w-md text-sm leading-relaxed" style={{ color: "#4a5560" }}>
-                          {detail.description}
-                        </p>
-                      )}
-                    </div>
-
-                    {/* Imagen */}
-                    {detail?.image && (
-                      <div
-                        className="group relative overflow-hidden rounded-sm"
-                        style={{ height: "144px" }}
-                        style={{ backgroundColor: "#f5f3ee" }}
-                      >
-                        <Image
-                          src={detail.image}
-                          alt={empresa.name}
-                          fill
-                          sizes="(min-width: 768px) 208px, 100vw"
-                          className="object-cover object-center transition-transform duration-[1400ms] ease-out group-hover:scale-105"
-                        />
-                      </div>
-                    )}
-
-                    {/* Link */}
-                    {detail?.href && (
-                      <Link href={detail.href} className="group flex-shrink-0 self-start">
-                        <span
-                          className="flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110"
-                          style={{ backgroundColor: "rgba(199,168,75,0.12)", color: "#c7a84b" }}
-                        >
-                          <ArrowUpRight size={16} />
-                        </span>
-                      </Link>
-                    )}
-                  </div>
-                </FadeIn>
-              );
-            })}
-            <div style={{ borderTop: "1px solid rgba(199,168,75,0.18)" }} />
-          </div>
+        {/* Mobile — lista simple */}
+        <div className="mt-8 flex flex-wrap justify-center gap-4 md:hidden">
+          {GRUPO_RADICI.map((e, i) => (
+            <motion.span
+              key={e.name}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
+              className="rounded-full border px-4 py-1.5 text-xs uppercase tracking-[0.18em]"
+              style={{ borderColor: "rgba(199,168,75,0.25)", color: "rgba(251,249,244,0.6)" }}
+            >
+              {e.name}
+            </motion.span>
+          ))}
         </div>
+
+        {/* Scroll hint */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 3.2 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        >
+          <motion.div
+            animate={{ scaleY: [1, 0.4, 1] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="h-8 w-px origin-top"
+            style={{ backgroundColor: "rgba(199,168,75,0.35)" }}
+          />
+        </motion.div>
       </section>
 
-      {/* Narrative — midnight */}
+      {/* Narrative — crema */}
       <section
         className="px-6 py-20 md:py-28"
-        style={{ backgroundColor: "#00101f" }}
+        style={{ backgroundColor: "#fbf9f4" }}
       >
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-12 md:grid-cols-2 md:gap-16">
@@ -227,7 +753,7 @@ export default function GrupoRadiciPage() {
                   fontFamily: "'Cormorant Garamond', serif",
                   fontWeight: 400,
                   letterSpacing: "-0.02em",
-                  color: "#fbf9f4",
+                  color: "#00101f",
                 }}
               >
                 Empresas distintas,
@@ -238,7 +764,7 @@ export default function GrupoRadiciPage() {
             <FadeIn delay={0.15}>
               <p
                 className="mt-2 text-sm leading-relaxed md:text-base"
-                style={{ color: "rgba(251,249,244,0.65)" }}
+                style={{ color: "#4a5560" }}
               >
                 El Grupo Radici nació cuando Eliana Zaia alcanzó la escala
                 suficiente para pensar en estructura. Cada empresa del grupo
@@ -247,7 +773,7 @@ export default function GrupoRadiciPage() {
               </p>
               <p
                 className="mt-4 text-sm leading-relaxed md:text-base"
-                style={{ color: "rgba(251,249,244,0.65)" }}
+                style={{ color: "#4a5560" }}
               >
                 La expansión a Lima con EZ Treats es el primer paso
                 internacional. La raíz italiana de la fundadora encuentra hoy
@@ -258,17 +784,27 @@ export default function GrupoRadiciPage() {
                   href={CONTACT.whatsappMessage}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-all hover:scale-[1.03]"
+                  className="group relative inline-flex items-center gap-2.5 overflow-hidden border px-7 py-3.5 text-sm tracking-[0.08em] uppercase transition-colors duration-300"
                   style={{
-                    backgroundColor: "#c7a84b",
+                    borderColor: "rgba(0,16,31,0.25)",
                     color: "#00101f",
-                    boxShadow: "0 4px 20px rgba(199,168,75,0.25)",
+                    backgroundColor: "transparent",
+                  }}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = "#00101f";
+                    (e.currentTarget as HTMLElement).style.color = "#fbf9f4";
+                    (e.currentTarget as HTMLElement).style.borderColor = "#00101f";
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
+                    (e.currentTarget as HTMLElement).style.color = "#00101f";
+                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(0,16,31,0.25)";
                   }}
                 >
                   Contactar al grupo
                   <ArrowUpRight
-                    size={15}
-                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    size={14}
+                    className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   />
                 </a>
               </div>
