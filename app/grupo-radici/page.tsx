@@ -485,16 +485,38 @@ function EmpresasSection() {
   );
 }
 
-/* ─── Diagrama de raíces ─── */
-const TRUNK_PATH = "M 500,0 L 500,170";
-const TRUNK_BASE = { cx: 500, cy: 170 };
+/* ─── Diagrama de árbol ─── */
+const TRUNK_PATH = "M 500,28 C 499,82 500,150 500,198";
+const TRUNK_BASE = { cx: 500, cy: 198 };
 
+// Ramas decorativas superiores con hojas
+const TOP_BRANCHES = [
+  { path: "M 500,65 C 487,50 460,34 444,22",  ex: 444, ey: 22,  delay: 0.85 },
+  { path: "M 487,78 C 471,60 442,44 425,35",  ex: 425, ey: 35,  delay: 0.95 },
+  { path: "M 476,92 C 457,75 424,59 406,51",  ex: 406, ey: 51,  delay: 1.05 },
+  { path: "M 500,65 C 513,50 540,34 556,22",  ex: 556, ey: 22,  delay: 0.85 },
+  { path: "M 513,78 C 529,60 558,44 575,35",  ex: 575, ey: 35,  delay: 0.95 },
+  { path: "M 524,92 C 543,75 576,59 594,51",  ex: 594, ey: 51,  delay: 1.05 },
+  { path: "M 500,28 L 500,14",                ex: 500, ey: 14,  delay: 0.78 },
+];
+
+// Raíces principales — cada empresa al extremo
 const ROOTS = [
-  { path: "M 500,170 C 488,230 110,310 70,340",  cx: 70,  cy: 340, name: "Eliana Zaia", detailKey: "Eliana Zaia",              tag: "REPOSTERÍA", delay: 0,   xAlign: "left"   },
-  { path: "M 500,170 C 496,220 280,305 255,340", cx: 255, cy: 340, name: "El Tinto",    detailKey: "El Tinto",                 tag: "CAFETERÍA",  delay: 0.2, xAlign: "center" },
-  { path: "M 500,170 C 500,250 500,310 500,340", cx: 500, cy: 340, name: "EZ Treats",   detailKey: "EZ Treats",                tag: "PRODUCCIÓN", delay: 0.4, xAlign: "center" },
-  { path: "M 500,170 C 504,220 720,305 745,340", cx: 745, cy: 340, name: "Moldeza",     detailKey: "Moldeza",                  tag: "INSUMOS",    delay: 0.6, xAlign: "center" },
-  { path: "M 500,170 C 512,230 890,310 930,340", cx: 930, cy: 340, name: "Radici WM",   detailKey: "Radici Wealth Management", tag: "FINANZAS",   delay: 0.8, xAlign: "right"  },
+  { path: "M 500,198 C 478,278 116,370 50,428",  cx: 50,  cy: 428, name: "Eliana Zaia", detailKey: "Eliana Zaia",              tag: "REPOSTERÍA", delay: 0,   xAlign: "left"   },
+  { path: "M 500,198 C 492,250 265,360 218,438", cx: 218, cy: 438, name: "El Tinto",    detailKey: "El Tinto",                 tag: "CAFETERÍA",  delay: 0.2, xAlign: "center" },
+  { path: "M 500,198 C 500,298 500,408 500,458", cx: 500, cy: 458, name: "EZ Treats",   detailKey: "EZ Treats",                tag: "PRODUCCIÓN", delay: 0.4, xAlign: "center" },
+  { path: "M 500,198 C 508,250 735,360 782,438", cx: 782, cy: 438, name: "Moldeza",     detailKey: "Moldeza",                  tag: "INSUMOS",    delay: 0.6, xAlign: "center" },
+  { path: "M 500,198 C 522,278 884,370 950,428", cx: 950, cy: 428, name: "Radici WM",   detailKey: "Radici Wealth Management", tag: "FINANZAS",   delay: 0.8, xAlign: "right"  },
+];
+
+// Sub-raíces decorativas que bifurcan desde las raíces externas
+const SUB_ROOTS = [
+  { path: "M 293,322 C 212,356 74,424 12,465",  delay: 1.80 },
+  { path: "M 293,322 C 232,348 128,412 68,452", delay: 1.95 },
+  { path: "M 372,309 C 292,346 152,424 86,465", delay: 2.00 },
+  { path: "M 628,309 C 708,346 848,424 914,465", delay: 2.15 },
+  { path: "M 707,322 C 788,356 926,424 988,465", delay: 2.05 },
+  { path: "M 707,322 C 768,348 872,412 932,452", delay: 2.20 },
 ];
 
 function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => void }) {
@@ -513,48 +535,72 @@ function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => v
 
   return (
     <div className="relative hidden w-full max-w-5xl md:block">
-      <svg viewBox="0 0 1000 420" className="w-full overflow-visible" aria-hidden="true" style={{ position: "relative", zIndex: 1 }}>
+      <svg viewBox="0 0 1000 525" className="w-full overflow-visible" aria-hidden="true" style={{ position: "relative", zIndex: 1 }}>
 
         {/* Tronco */}
         <motion.path
-          d={TRUNK_PATH} fill="none" stroke="#c7a84b"
-          strokeWidth={1.5}
+          d={TRUNK_PATH} fill="none" stroke="#c7a84b" strokeWidth={2} strokeLinecap="round"
           initial={{ pathLength: 0, opacity: 0 }}
-          animate={started ? { pathLength: 1, opacity: 0.6 } : { pathLength: 0, opacity: 0 }}
-          transition={{ pathLength: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }, opacity: { duration: 0.3 } }}
+          animate={started ? { pathLength: 1, opacity: 0.75 } : { pathLength: 0, opacity: 0 }}
+          transition={{ pathLength: { duration: 0.75, ease: [0.25, 0.46, 0.45, 0.94] }, opacity: { duration: 0.3 } }}
         />
 
-        {/* Nudo base — aparece al terminar el tronco */}
-        <circle cx={TRUNK_BASE.cx} cy={TRUNK_BASE.cy} r={5} fill="#c7a84b"
-          style={{ opacity: started ? 0.8 : 0, transition: "opacity 0.4s ease 1.1s" }} />
+        {/* Ramas y hojas superiores */}
+        {TOP_BRANCHES.map((b, i) => (
+          <g key={i}>
+            <motion.path
+              d={b.path} fill="none" stroke="#c7a84b" strokeWidth={0.9} strokeLinecap="round"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={started ? { pathLength: 1, opacity: 0.55 } : { pathLength: 0, opacity: 0 }}
+              transition={{ pathLength: { duration: 0.45, delay: b.delay, ease: "easeOut" }, opacity: { duration: 0.3, delay: b.delay } }}
+            />
+            <circle cx={b.ex} cy={b.ey} r={i === 6 ? 2 : 3} fill="#c7a84b"
+              style={{ opacity: started ? 0.65 : 0, transition: `opacity 0.3s ease ${b.delay + 0.45}s` }} />
+          </g>
+        ))}
 
-        {/* Raíces */}
+        {/* Nudo base (tierra) */}
+        <circle cx={TRUNK_BASE.cx} cy={TRUNK_BASE.cy} r={5} fill="#c7a84b"
+          style={{ opacity: started ? 0.85 : 0, transition: "opacity 0.4s ease 0.78s" }} />
+
+        {/* Sub-raíces decorativas */}
+        {SUB_ROOTS.map((sub, i) => (
+          <motion.path
+            key={i}
+            d={sub.path} fill="none" stroke="#c7a84b" strokeWidth={0.7} strokeLinecap="round"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={started ? { pathLength: 1, opacity: 0.22 } : { pathLength: 0, opacity: 0 }}
+            transition={{ pathLength: { duration: 0.75, delay: sub.delay, ease: "easeOut" }, opacity: { duration: 0.3, delay: sub.delay } }}
+          />
+        ))}
+
+        {/* Raíces principales */}
         {ROOTS.map((root, i) => (
           <g key={root.name}>
             <motion.path
-              d={root.path} fill="none" stroke="#c7a84b"
-              strokeWidth={hovered === i ? 1.8 : 1}
+              d={root.path} fill="none" stroke="#c7a84b" strokeLinecap="round"
+              strokeWidth={hovered === i ? 2 : 1.2}
               initial={{ pathLength: 0, opacity: 0 }}
               animate={started
-                ? { pathLength: 1, opacity: hovered === i ? 0.9 : 0.35 }
+                ? { pathLength: 1, opacity: hovered === i ? 0.9 : 0.45 }
                 : { pathLength: 0, opacity: 0 }}
               transition={{
-                pathLength: { duration: 1.2, delay: 0.7 + root.delay, ease: [0.25, 0.46, 0.45, 0.94] },
-                opacity:    { duration: 0.4, delay: 0.7 },
+                pathLength: { duration: 1.1, delay: 0.75 + root.delay, ease: [0.25, 0.46, 0.45, 0.94] },
+                opacity:    { duration: 0.4, delay: 0.75 },
                 strokeWidth:{ duration: 0.3 },
               }}
             />
             <circle cx={root.cx} cy={root.cy} r={hovered === i ? 6 : 4} fill="#c7a84b"
               style={{
-                opacity: started ? (hovered === i ? 1 : 0.6) : 0,
-                transition: `opacity 0.3s ease ${started ? 0 : 0.7 + root.delay + 1.3}s`,
+                opacity: started ? (hovered === i ? 1 : 0.65) : 0,
+                transition: `opacity 0.3s ease ${started ? 0 : 0.75 + root.delay + 1.1}s`,
               }} />
             <text x={root.cx} y={root.cy + 24} textAnchor="middle"
-              fill={hovered === i ? "#c7a84b" : "#fbf9f4"} fontSize={18}
+              fill={hovered === i ? "#c7a84b" : "#fbf9f4"} fontSize={17}
               fontFamily="'Cormorant Garamond', serif"
               style={{
                 opacity: started ? 1 : 0,
-                transition: `opacity 0.5s ease ${started ? 0 : 0.7 + root.delay + 1.4}s, fill 0.3s ease`,
+                transition: `opacity 0.5s ease ${started ? 0 : 0.75 + root.delay + 1.2}s, fill 0.3s ease`,
               }}>
               {root.name}
             </text>
@@ -562,7 +608,7 @@ function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => v
               fill="#c7a84b" fontSize={11} fontFamily="system-ui, sans-serif" letterSpacing={2}
               style={{
                 opacity: started ? 0.55 : 0,
-                transition: `opacity 0.5s ease ${started ? 0 : 0.7 + root.delay + 1.55}s`,
+                transition: `opacity 0.5s ease ${started ? 0 : 0.75 + root.delay + 1.35}s`,
               }}>
               {root.tag}
             </text>
@@ -575,7 +621,7 @@ function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => v
         <div
           key={root.name}
           className="absolute cursor-default"
-          style={{ left: `${(root.cx / 1000) * 100}%`, top: "83%", transform: "translateX(-50%)", width: 130, height: 60, zIndex: 2 }}
+          style={{ left: `${(root.cx / 1000) * 100}%`, top: "83%", transform: "translateX(-50%)", width: 130, height: 65, zIndex: 2 }}
           onMouseEnter={() => handleHover(i)}
           onMouseLeave={() => handleHover(null)}
         />
