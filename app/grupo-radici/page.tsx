@@ -489,34 +489,34 @@ function EmpresasSection() {
 const TRUNK_PATH = "M 500,28 C 499,82 500,150 500,198";
 const TRUNK_BASE = { cx: 500, cy: 198 };
 
-// Ramas decorativas superiores con hojas
+// Ramas superiores compactas — sin dots, forma de copa como el logo
 const TOP_BRANCHES = [
-  { path: "M 500,65 C 487,50 460,34 444,22",  ex: 444, ey: 22,  delay: 0.85 },
-  { path: "M 487,78 C 471,60 442,44 425,35",  ex: 425, ey: 35,  delay: 0.95 },
-  { path: "M 476,92 C 457,75 424,59 406,51",  ex: 406, ey: 51,  delay: 1.05 },
-  { path: "M 500,65 C 513,50 540,34 556,22",  ex: 556, ey: 22,  delay: 0.85 },
-  { path: "M 513,78 C 529,60 558,44 575,35",  ex: 575, ey: 35,  delay: 0.95 },
-  { path: "M 524,92 C 543,75 576,59 594,51",  ex: 594, ey: 51,  delay: 1.05 },
-  { path: "M 500,28 L 500,14",                ex: 500, ey: 14,  delay: 0.78 },
+  { path: "M 497,162 C 475,124 438,78 416,52",  delay: 0.85 },
+  { path: "M 495,142 C 478,108 452,70 437,50",  delay: 0.95 },
+  { path: "M 493,118 C 483,88 468,62 460,47",   delay: 1.05 },
+  { path: "M 503,162 C 525,124 562,78 584,52",  delay: 0.85 },
+  { path: "M 505,142 C 522,108 548,70 563,50",  delay: 0.95 },
+  { path: "M 507,118 C 517,88 532,62 540,47",   delay: 1.05 },
+  { path: "M 500,88 L 500,16",                   delay: 0.78 },
 ];
 
-// Raíces principales — cada empresa al extremo
+// Raíces principales — empresas posicionadas con margen del borde
 const ROOTS = [
-  { path: "M 500,198 C 478,278 116,370 50,428",  cx: 50,  cy: 428, name: "Eliana Zaia", detailKey: "Eliana Zaia",              tag: "REPOSTERÍA", delay: 0,   xAlign: "left"   },
-  { path: "M 500,198 C 492,250 265,360 218,438", cx: 218, cy: 438, name: "El Tinto",    detailKey: "El Tinto",                 tag: "CAFETERÍA",  delay: 0.2, xAlign: "center" },
+  { path: "M 500,198 C 480,278 130,370 80,428",  cx: 80,  cy: 428, name: "Eliana Zaia", detailKey: "Eliana Zaia",              tag: "REPOSTERÍA", delay: 0,   xAlign: "left"   },
+  { path: "M 500,198 C 493,252 272,362 228,438", cx: 228, cy: 438, name: "El Tinto",    detailKey: "El Tinto",                 tag: "CAFETERÍA",  delay: 0.2, xAlign: "center" },
   { path: "M 500,198 C 500,298 500,408 500,458", cx: 500, cy: 458, name: "EZ Treats",   detailKey: "EZ Treats",                tag: "PRODUCCIÓN", delay: 0.4, xAlign: "center" },
-  { path: "M 500,198 C 508,250 735,360 782,438", cx: 782, cy: 438, name: "Moldeza",     detailKey: "Moldeza",                  tag: "INSUMOS",    delay: 0.6, xAlign: "center" },
-  { path: "M 500,198 C 522,278 884,370 950,428", cx: 950, cy: 428, name: "Radici WM",   detailKey: "Radici Wealth Management", tag: "FINANZAS",   delay: 0.8, xAlign: "right"  },
+  { path: "M 500,198 C 507,252 728,362 772,438", cx: 772, cy: 438, name: "Moldeza",     detailKey: "Moldeza",                  tag: "INSUMOS",    delay: 0.6, xAlign: "center" },
+  { path: "M 500,198 C 520,278 870,370 920,428", cx: 920, cy: 428, name: "Radici WM",   detailKey: "Radici Wealth Management", tag: "FINANZAS",   delay: 0.8, xAlign: "right"  },
 ];
 
-// Sub-raíces decorativas que bifurcan desde las raíces externas
+// Sub-raíces decorativas recalculadas para nuevos cx
 const SUB_ROOTS = [
-  { path: "M 293,322 C 212,356 74,424 12,465",  delay: 1.80 },
-  { path: "M 293,322 C 232,348 128,412 68,452", delay: 1.95 },
-  { path: "M 372,309 C 292,346 152,424 86,465", delay: 2.00 },
-  { path: "M 628,309 C 708,346 848,424 914,465", delay: 2.15 },
-  { path: "M 707,322 C 788,356 926,424 988,465", delay: 2.05 },
-  { path: "M 707,322 C 768,348 872,412 932,452", delay: 2.20 },
+  { path: "M 300,322 C 218,356 95,424 35,465",  delay: 1.80 },
+  { path: "M 300,322 C 238,348 140,412 82,452", delay: 1.95 },
+  { path: "M 377,310 C 298,347 162,424 98,465", delay: 2.00 },
+  { path: "M 623,310 C 702,347 838,424 902,465", delay: 2.15 },
+  { path: "M 700,322 C 782,356 905,424 965,465", delay: 2.05 },
+  { path: "M 700,322 C 762,348 860,412 918,452", delay: 2.20 },
 ];
 
 function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => void }) {
@@ -545,18 +545,15 @@ function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => v
           transition={{ pathLength: { duration: 0.75, ease: [0.25, 0.46, 0.45, 0.94] }, opacity: { duration: 0.3 } }}
         />
 
-        {/* Ramas y hojas superiores */}
+        {/* Ramas superiores */}
         {TOP_BRANCHES.map((b, i) => (
-          <g key={i}>
-            <motion.path
-              d={b.path} fill="none" stroke="#c7a84b" strokeWidth={0.9} strokeLinecap="round"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={started ? { pathLength: 1, opacity: 0.55 } : { pathLength: 0, opacity: 0 }}
-              transition={{ pathLength: { duration: 0.45, delay: b.delay, ease: "easeOut" }, opacity: { duration: 0.3, delay: b.delay } }}
-            />
-            <circle cx={b.ex} cy={b.ey} r={i === 6 ? 2 : 3} fill="#c7a84b"
-              style={{ opacity: started ? 0.65 : 0, transition: `opacity 0.3s ease ${b.delay + 0.45}s` }} />
-          </g>
+          <motion.path
+            key={i}
+            d={b.path} fill="none" stroke="#c7a84b" strokeWidth={0.9} strokeLinecap="round"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={started ? { pathLength: 1, opacity: 0.55 } : { pathLength: 0, opacity: 0 }}
+            transition={{ pathLength: { duration: 0.45, delay: b.delay, ease: "easeOut" }, opacity: { duration: 0.3, delay: b.delay } }}
+          />
         ))}
 
         {/* Nudo base (tierra) */}
