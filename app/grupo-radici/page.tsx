@@ -486,12 +486,15 @@ function EmpresasSection() {
 }
 
 /* ─── Diagrama de raíces ─── */
+const TRUNK_PATH = "M 500,0 L 500,170";
+const TRUNK_BASE = { cx: 500, cy: 170 };
+
 const ROOTS = [
-  { path: "M 500,8 C 460,100 180,200 80,300",  cx: 80,  cy: 300, name: "Eliana Zaia", detailKey: "Eliana Zaia",              tag: "REPOSTERÍA", delay: 0,   xAlign: "left"   },
-  { path: "M 500,8 C 485,110 310,220 265,300", cx: 265, cy: 300, name: "El Tinto",    detailKey: "El Tinto",                 tag: "CAFETERÍA",  delay: 0.2, xAlign: "center" },
-  { path: "M 500,8 C 500,120 500,220 500,300", cx: 500, cy: 300, name: "EZ Treats",   detailKey: "EZ Treats",                tag: "PRODUCCIÓN", delay: 0.4, xAlign: "center" },
-  { path: "M 500,8 C 515,110 680,220 730,300", cx: 730, cy: 300, name: "Moldeza",     detailKey: "Moldeza",                  tag: "INSUMOS",    delay: 0.6, xAlign: "center" },
-  { path: "M 500,8 C 540,100 820,200 920,300", cx: 920, cy: 300, name: "Radici WM",   detailKey: "Radici Wealth Management", tag: "FINANZAS",   delay: 0.8, xAlign: "right"  },
+  { path: "M 500,170 C 488,230 110,310 70,340",  cx: 70,  cy: 340, name: "Eliana Zaia", detailKey: "Eliana Zaia",              tag: "REPOSTERÍA", delay: 0,   xAlign: "left"   },
+  { path: "M 500,170 C 496,220 280,305 255,340", cx: 255, cy: 340, name: "El Tinto",    detailKey: "El Tinto",                 tag: "CAFETERÍA",  delay: 0.2, xAlign: "center" },
+  { path: "M 500,170 C 500,250 500,310 500,340", cx: 500, cy: 340, name: "EZ Treats",   detailKey: "EZ Treats",                tag: "PRODUCCIÓN", delay: 0.4, xAlign: "center" },
+  { path: "M 500,170 C 504,220 720,305 745,340", cx: 745, cy: 340, name: "Moldeza",     detailKey: "Moldeza",                  tag: "INSUMOS",    delay: 0.6, xAlign: "center" },
+  { path: "M 500,170 C 512,230 890,310 930,340", cx: 930, cy: 340, name: "Radici WM",   detailKey: "Radici Wealth Management", tag: "FINANZAS",   delay: 0.8, xAlign: "right"  },
 ];
 
 function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => void }) {
@@ -510,10 +513,22 @@ function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => v
 
   return (
     <div className="relative hidden w-full max-w-5xl md:block">
-      <svg viewBox="0 0 1000 380" className="w-full overflow-visible" aria-hidden="true" style={{ position: "relative", zIndex: 1 }}>
-        <circle cx={500} cy={8} r={4} fill="#c7a84b"
-          style={{ opacity: started ? 1 : 0, transition: "opacity 0.4s ease 0.4s" }} />
+      <svg viewBox="0 0 1000 420" className="w-full overflow-visible" aria-hidden="true" style={{ position: "relative", zIndex: 1 }}>
 
+        {/* Tronco */}
+        <motion.path
+          d={TRUNK_PATH} fill="none" stroke="#c7a84b"
+          strokeWidth={1.5}
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={started ? { pathLength: 1, opacity: 0.6 } : { pathLength: 0, opacity: 0 }}
+          transition={{ pathLength: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }, opacity: { duration: 0.3 } }}
+        />
+
+        {/* Nudo base — aparece al terminar el tronco */}
+        <circle cx={TRUNK_BASE.cx} cy={TRUNK_BASE.cy} r={5} fill="#c7a84b"
+          style={{ opacity: started ? 0.8 : 0, transition: "opacity 0.4s ease 1.1s" }} />
+
+        {/* Raíces */}
         {ROOTS.map((root, i) => (
           <g key={root.name}>
             <motion.path
@@ -524,30 +539,30 @@ function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => v
                 ? { pathLength: 1, opacity: hovered === i ? 0.9 : 0.35 }
                 : { pathLength: 0, opacity: 0 }}
               transition={{
-                pathLength: { duration: 1.4, delay: root.delay, ease: [0.25, 0.46, 0.45, 0.94] },
-                opacity:    { duration: 0.4 },
+                pathLength: { duration: 1.2, delay: 0.7 + root.delay, ease: [0.25, 0.46, 0.45, 0.94] },
+                opacity:    { duration: 0.4, delay: 0.7 },
                 strokeWidth:{ duration: 0.3 },
               }}
             />
             <circle cx={root.cx} cy={root.cy} r={hovered === i ? 6 : 4} fill="#c7a84b"
               style={{
                 opacity: started ? (hovered === i ? 1 : 0.6) : 0,
-                transition: `opacity 0.3s ease ${started ? 0 : root.delay + 1.5}s`,
+                transition: `opacity 0.3s ease ${started ? 0 : 0.7 + root.delay + 1.3}s`,
               }} />
-            <text x={root.cx} y={root.cy + 22} textAnchor="middle"
+            <text x={root.cx} y={root.cy + 24} textAnchor="middle"
               fill={hovered === i ? "#c7a84b" : "#fbf9f4"} fontSize={18}
               fontFamily="'Cormorant Garamond', serif"
               style={{
                 opacity: started ? 1 : 0,
-                transition: `opacity 0.5s ease ${started ? 0 : root.delay + 1.6}s, fill 0.3s ease`,
+                transition: `opacity 0.5s ease ${started ? 0 : 0.7 + root.delay + 1.4}s, fill 0.3s ease`,
               }}>
               {root.name}
             </text>
-            <text x={root.cx} y={root.cy + 37} textAnchor="middle"
+            <text x={root.cx} y={root.cy + 40} textAnchor="middle"
               fill="#c7a84b" fontSize={11} fontFamily="system-ui, sans-serif" letterSpacing={2}
               style={{
                 opacity: started ? 0.55 : 0,
-                transition: `opacity 0.5s ease ${started ? 0 : root.delay + 1.75}s`,
+                transition: `opacity 0.5s ease ${started ? 0 : 0.7 + root.delay + 1.55}s`,
               }}>
               {root.tag}
             </text>
@@ -560,7 +575,7 @@ function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => v
         <div
           key={root.name}
           className="absolute cursor-default"
-          style={{ left: `${(root.cx / 1000) * 100}%`, top: "79%", transform: "translateX(-50%)", width: 130, height: 60, zIndex: 2 }}
+          style={{ left: `${(root.cx / 1000) * 100}%`, top: "83%", transform: "translateX(-50%)", width: 130, height: 60, zIndex: 2 }}
           onMouseEnter={() => handleHover(i)}
           onMouseLeave={() => handleHover(null)}
         />
