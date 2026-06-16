@@ -524,16 +524,19 @@ function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => v
           aria-hidden="true"
         >
           <defs>
-            {/* Adelgaza la silueta ~4px en todos los bordes */}
-            <filter id="tree-thin" x="-3%" y="-2%" width="106%" height="104%">
-              <feMorphology operator="erode" radius="4" result="eroded" />
-              <feGaussianBlur stdDeviation="0.8" in="eroded" />
+            {/* Convierte la silueta rellena en líneas huecas:
+                erode encoge la forma hacia adentro, composite(out) muestra
+                solo el borde — resultado: líneas que siguen el contorno exacto */}
+            <filter id="tree-outline" x="-4%" y="-3%" width="108%" height="106%">
+              <feMorphology in="SourceGraphic" operator="erode" radius="7" result="inner" />
+              <feComposite in="SourceGraphic" in2="inner" operator="out" result="outline" />
+              <feGaussianBlur in="outline" stdDeviation="0.6" />
             </filter>
           </defs>
 
-          {/* Árbol: escalado 2.1× y adelgazado con filtro morfológico */}
-          <g transform={TREE_TRANSFORM} filter="url(#tree-thin)">
-            <path d={TREE_PATH} fill="#c7a84b" fillOpacity={0.55} />
+          {/* Árbol vectorizado → lineas de contorno doradas */}
+          <g transform={TREE_TRANSFORM} filter="url(#tree-outline)">
+            <path d={TREE_PATH} fill="#c7a84b" fillOpacity={0.9} />
           </g>
 
           {/* Punto + nombre en cada root tip */}
