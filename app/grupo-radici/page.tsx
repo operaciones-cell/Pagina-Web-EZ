@@ -523,30 +523,32 @@ function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => v
           className="block w-full"
           aria-hidden="true"
         >
+          <defs>
+            {/* Máscara: muestra la copa y tronco, oculta el sistema radicular original */}
+            <linearGradient id="trunk-fade" x1="0" y1="560" x2="0" y2="640" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="white" stopOpacity="1" />
+              <stop offset="100%" stopColor="white" stopOpacity="0" />
+            </linearGradient>
+            <mask id="hide-roots" maskContentUnits="userSpaceOnUse">
+              <rect x="0" y="0" width="1400" height="560" fill="white" />
+              <rect x="0" y="560" width="1400" height="80" fill="url(#trunk-fade)" />
+            </mask>
+          </defs>
+
+          {/* Árbol original — copa y tronco, raíces ocultadas por máscara */}
+          <g mask="url(#hide-roots)">
+            <g transform={TREE_TRANSFORM}>
+              <path d={TREE_PATH} fill="#c7a84b" fillOpacity={0.9} />
+            </g>
+          </g>
+
+          {/* 5 raíces limpias — una por empresa */}
           <g stroke="#c7a84b" fill="none" strokeLinecap="round" strokeLinejoin="round">
-            {/* Tronco */}
-            <path d="M 627 710 L 627 360" strokeWidth="28" strokeOpacity="0.9" />
-
-            {/* Rama izquierda principal */}
-            <path d="M 627 460 C 600 420 520 370 430 290" strokeWidth="16" strokeOpacity="0.85" />
-            {/* Rama derecha principal */}
-            <path d="M 627 490 C 655 445 735 390 830 305" strokeWidth="16" strokeOpacity="0.85" />
-            {/* Rama central arriba */}
-            <path d="M 627 390 C 625 355 622 320 618 280" strokeWidth="12" strokeOpacity="0.8" />
-
-            {/* Sub-ramas izquierda */}
-            <path d="M 500 360 C 470 330 445 295 415 255" strokeWidth="9" strokeOpacity="0.7" />
-            <path d="M 430 290 C 400 270 375 245 355 215" strokeWidth="7" strokeOpacity="0.6" />
-            {/* Sub-ramas derecha */}
-            <path d="M 750 360 C 775 330 800 298 825 260" strokeWidth="9" strokeOpacity="0.7" />
-            <path d="M 830 305 C 855 275 875 248 895 215" strokeWidth="7" strokeOpacity="0.6" />
-
-            {/* 5 raíces — una por empresa */}
-            <path d="M 627 710 C 560 710 400 780 306 925" strokeWidth="14" strokeOpacity="0.85" />
-            <path d="M 627 710 C 600 750 530 870 453 1038" strokeWidth="14" strokeOpacity="0.85" />
-            <path d="M 627 710 C 627 820 627 940 627 1078" strokeWidth="14" strokeOpacity="0.85" />
-            <path d="M 627 710 C 655 750 720 870 812 1034" strokeWidth="14" strokeOpacity="0.85" />
-            <path d="M 627 710 C 695 710 810 780 940 939" strokeWidth="14" strokeOpacity="0.85" />
+            <path d="M 627 595 C 555 610 400 720 306 925"  strokeWidth="20" strokeOpacity="0.9" />
+            <path d="M 627 595 C 598 650 525 820 453 1038" strokeWidth="16" strokeOpacity="0.88" />
+            <path d="M 627 595 C 627 710 627 900 627 1078" strokeWidth="16" strokeOpacity="0.88" />
+            <path d="M 627 595 C 658 650 730 820 812 1034" strokeWidth="16" strokeOpacity="0.88" />
+            <path d="M 627 595 C 700 610 820 720 940 939"  strokeWidth="20" strokeOpacity="0.9" />
           </g>
 
           {/* Punto + nombre en cada root tip */}
