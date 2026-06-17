@@ -523,20 +523,30 @@ function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => v
           className="block w-full"
           aria-hidden="true"
         >
-          <defs>
-            {/* Convierte la silueta rellena en líneas huecas:
-                erode encoge la forma hacia adentro, composite(out) muestra
-                solo el borde — resultado: líneas que siguen el contorno exacto */}
-            <filter id="tree-outline" x="-4%" y="-3%" width="108%" height="106%">
-              <feMorphology in="SourceGraphic" operator="erode" radius="7" result="inner" />
-              <feComposite in="SourceGraphic" in2="inner" operator="out" result="outline" />
-              <feGaussianBlur in="outline" stdDeviation="0.6" />
-            </filter>
-          </defs>
+          <g stroke="#c7a84b" fill="none" strokeLinecap="round" strokeLinejoin="round">
+            {/* Tronco */}
+            <path d="M 627 710 L 627 360" strokeWidth="28" strokeOpacity="0.9" />
 
-          {/* Árbol vectorizado → lineas de contorno doradas */}
-          <g transform={TREE_TRANSFORM} filter="url(#tree-outline)">
-            <path d={TREE_PATH} fill="#c7a84b" fillOpacity={0.9} />
+            {/* Rama izquierda principal */}
+            <path d="M 627 460 C 600 420 520 370 430 290" strokeWidth="16" strokeOpacity="0.85" />
+            {/* Rama derecha principal */}
+            <path d="M 627 490 C 655 445 735 390 830 305" strokeWidth="16" strokeOpacity="0.85" />
+            {/* Rama central arriba */}
+            <path d="M 627 390 C 625 355 622 320 618 280" strokeWidth="12" strokeOpacity="0.8" />
+
+            {/* Sub-ramas izquierda */}
+            <path d="M 500 360 C 470 330 445 295 415 255" strokeWidth="9" strokeOpacity="0.7" />
+            <path d="M 430 290 C 400 270 375 245 355 215" strokeWidth="7" strokeOpacity="0.6" />
+            {/* Sub-ramas derecha */}
+            <path d="M 750 360 C 775 330 800 298 825 260" strokeWidth="9" strokeOpacity="0.7" />
+            <path d="M 830 305 C 855 275 875 248 895 215" strokeWidth="7" strokeOpacity="0.6" />
+
+            {/* 5 raíces — una por empresa */}
+            <path d="M 627 710 C 560 710 400 780 306 925" strokeWidth="14" strokeOpacity="0.85" />
+            <path d="M 627 710 C 600 750 530 870 453 1038" strokeWidth="14" strokeOpacity="0.85" />
+            <path d="M 627 710 C 627 820 627 940 627 1078" strokeWidth="14" strokeOpacity="0.85" />
+            <path d="M 627 710 C 655 750 720 870 812 1034" strokeWidth="14" strokeOpacity="0.85" />
+            <path d="M 627 710 C 695 710 810 780 940 939" strokeWidth="14" strokeOpacity="0.85" />
           </g>
 
           {/* Punto + nombre en cada root tip */}
