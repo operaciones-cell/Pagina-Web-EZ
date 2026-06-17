@@ -516,7 +516,7 @@ function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => v
   };
 
   return (
-    <div className="relative hidden w-full max-w-5xl md:block">
+    <div className="relative hidden w-full max-w-2xl md:block">
       <div className="relative w-full overflow-hidden">
         <svg
           viewBox={`${VB_X} ${VB_Y} ${VB_W} ${VB_H}`}
