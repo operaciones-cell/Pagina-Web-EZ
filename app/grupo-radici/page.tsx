@@ -510,7 +510,7 @@ function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => v
   };
 
   return (
-    <div className="relative hidden w-full max-w-sm flex-col items-center md:flex">
+    <div className="relative hidden w-full max-w-3xl flex-col items-center md:flex">
       {/* Árbol vectorizado con revelado de cortina */}
       <div className="relative w-full overflow-hidden">
         <TreeSvg className="block w-full" />
@@ -525,8 +525,8 @@ function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => v
         />
       </div>
 
-      {/* 5 empresas en fila — una por raíz */}
-      <div className="mt-6 flex w-full flex-wrap justify-center gap-x-7 gap-y-3">
+      {/* 5 empresas — grilla de 5 columnas, una por raíz */}
+      <div className="mt-5 grid w-full grid-cols-5">
         {ROOTS.map((root, i) => (
           <motion.button
             key={root.name}
@@ -536,10 +536,10 @@ function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => v
             transition={{ duration: 0.5, delay: root.delay + 1.6 }}
             onMouseEnter={() => handleHover(i)}
             onMouseLeave={() => handleHover(null)}
-            className="flex flex-col items-center text-center"
+            className="flex w-full flex-col items-center py-2 text-center"
           >
             <span
-              className="text-lg leading-tight transition-colors"
+              className="text-base leading-tight transition-colors"
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 color: hovered === i ? "#c7a84b" : "#fbf9f4",
@@ -548,7 +548,7 @@ function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => v
               {root.name}
             </span>
             <span
-              className="mt-0.5 text-[10px] tracking-[0.18em]"
+              className="mt-1 text-[9px] tracking-[0.18em]"
               style={{ color: "rgba(199,168,75,0.6)" }}
             >
               {root.tag}
