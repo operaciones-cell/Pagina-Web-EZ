@@ -539,7 +539,7 @@ function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => v
             className="flex w-full flex-col items-center py-2 text-center"
           >
             <span
-              className="text-base leading-tight transition-colors"
+              className="text-xl leading-tight transition-colors"
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 color: hovered === i ? "#c7a84b" : "#fbf9f4",
@@ -548,7 +548,7 @@ function RootDiagram({ onHoverChange }: { onHoverChange: (i: number | null) => v
               {root.name}
             </span>
             <span
-              className="mt-1 text-[9px] tracking-[0.18em]"
+              className="mt-1 text-[11px] tracking-[0.18em]"
               style={{ color: "rgba(199,168,75,0.6)" }}
             >
               {root.tag}
