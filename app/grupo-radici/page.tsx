@@ -582,7 +582,7 @@ export default function GrupoRadiciPage() {
                 key={`img-${hoveredRoot}`}
                 className="pointer-events-none absolute inset-0"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.38 }}
+                animate={{ opacity: 0.62 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.7, ease: "easeInOut" }}
               >
@@ -596,7 +596,7 @@ export default function GrupoRadiciPage() {
                 <div
                   className="absolute inset-0"
                   style={{
-                    background: "radial-gradient(ellipse 60% 70% at 50% 50%, rgba(0,16,31,0.2) 0%, rgba(0,16,31,0.92) 100%)",
+                    background: "radial-gradient(ellipse 65% 75% at 50% 50%, rgba(0,16,31,0.05) 0%, rgba(0,16,31,0.72) 100%)",
                   }}
                 />
               </motion.div>
@@ -659,7 +659,7 @@ export default function GrupoRadiciPage() {
         />
 
         {/* Texto */}
-        <div className="relative mb-12 text-center md:mb-16">
+        <div className="relative mb-6 text-center md:mb-8">
 
           <motion.h1
             initial={{ opacity: 0, y: 24 }}

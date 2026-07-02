@@ -4,7 +4,7 @@
 export default function TreeSvg({ className = "" }: { className?: string }) {
   return (
     <svg
-      viewBox="0 310 1254 944"
+      viewBox="40 300 1174 800"
       className={className}
       aria-hidden="true"
     >
